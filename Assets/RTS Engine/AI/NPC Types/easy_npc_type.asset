@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62a3ca51ec4b8642b8426504610851a, type: 3}
+  m_Name: easy_npc_type
+  m_EditorClassIdentifier: 
+  _name: Easy
+  code: easy
+  npcManagers:
+    allTypes: {fileID: 114475972782975292, guid: fbd5d56ccaa8b1140bbf29a18ab1e325,
+      type: 3}
+    typeSpecific: []

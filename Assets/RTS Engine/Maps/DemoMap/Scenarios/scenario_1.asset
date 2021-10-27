@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e5dc1ecd6880849abdfa0c4ab4464e, type: 3}
+  m_Name: scenario_1
+  m_EditorClassIdentifier: 
+  code: scenario_1
+  _name: Scenario 1
+  description: Collect different types of resources
+  missions:
+  - code: collect_food
+    name: Collect Food
+    description: Collect 20 units of the food resource
+    icon: {fileID: 21300000, guid: b71e27a89ddfde144bed7caba4804082, type: 3}
+    type: 0
+    targetResource: {fileID: 11400000, guid: 7fad61ec7c519fc48bda4c4cab2cb727, type: 2}
+    targetCode: []
+    targetAmount: 20
+    timeCondition:
+      survivalTimeEnabled: 0
+      survivalTime: 0
+      timeLimitEnabled: 0
+      timeLimit: 5
+    defendFactionEntities: []
+    completeAudio: {fileID: 8300000, guid: 9c3e62e994a7f5c488a47944681aea10, type: 3}
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    completeEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    failEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - code: collect_wood
+    name: Collect Wood
+    description: Collect 10 units of the wood resource
+    icon: {fileID: 21300000, guid: 0b0cd6fb1fb6fb54d892c5c0c6da0353, type: 3}
+    type: 0
+    targetResource: {fileID: 11400000, guid: a3e40a20a0b603d4793ed1985b005aed, type: 2}
+    targetCode: []
+    targetAmount: 10
+    timeCondition:
+      survivalTimeEnabled: 0
+      survivalTime: 0
+      timeLimitEnabled: 0
+      timeLimit: 5
+    defendFactionEntities: []
+    completeAudio: {fileID: 8300000, guid: 9c3e62e994a7f5c488a47944681aea10, type: 3}
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    completeEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    failEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - code: collect_metal
+    name: Collect Metal
+    description: Collect 10 units of the metal resource
+    icon: {fileID: 21300000, guid: 9bba75448251d3843ab6aa17d4d1330a, type: 3}
+    type: 0
+    targetResource: {fileID: 11400000, guid: bc712db0d42339240b16b338029bd113, type: 2}
+    targetCode: []
+    targetAmount: 10
+    timeCondition:
+      survivalTimeEnabled: 0
+      survivalTime: 0
+      timeLimitEnabled: 0
+      timeLimit: 5
+    defendFactionEntities: []
+    completeAudio: {fileID: 0}
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    completeEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    failEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null

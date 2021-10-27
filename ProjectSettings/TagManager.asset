@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -13,22 +14,22 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Terrain
+  - Obstacle
+  - Building
+  - Resources
+  - Unit
+  - Border
+  - Hidden
+  - GroundUnitTargetPos
+  - ToBePlaced
+  - Treasure
+  - MinimapUI
+  - HoverHealthBar
+  - MvtTargetObj
+  - AllCams
+  - AirUnitTargetPos
+  - MinimapBackdropUI
   - 
   - 
   - 

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e5dc1ecd6880849abdfa0c4ab4464e, type: 3}
+  m_Name: scenario_2
+  m_EditorClassIdentifier: 
+  code: scenario_2
+  _name: Scenario 2
+  description: Eliminate orc units
+  missions:
+  - code: eliminate_orc
+    name: Eliminate Two Orcs
+    description: Eliminate two Orc units without letting villagers die in less than
+      2 minutes
+    icon: {fileID: 21300000, guid: fc29195d604c6ec41bc49546a1d97faa, type: 3}
+    type: 1
+    targetResource: {fileID: 0}
+    targetCode:
+    - type: 0
+      code:
+      - orc
+    targetAmount: 2
+    timeCondition:
+      survivalTimeEnabled: 0
+      survivalTime: 0
+      timeLimitEnabled: 1
+      timeLimit: 120
+    defendFactionEntities:
+    - type: 0
+      code:
+      - villager
+    completeAudio: {fileID: 0}
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    completeEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    failEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
