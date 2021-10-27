@@ -8,9 +8,9 @@ namespace RTSEngine
     public class FactionColorMenu
     {
         [SerializeField]
-        private Color[] allowed = new Color[0]; //the colors that a faction is allowed to take.
+        private FactionColor[] allowed = new FactionColor[0]; //the colors that a faction is allowed to take.
 
-        public Color Get(int index) { return allowed[index]; }
+        public FactionColor Get(int index) { return allowed[index]; }
         public int GetNextIndex(int currentIndex) //gets the next index of the color inside the allowed colors array
         {
             if (currentIndex >= allowed.Length - 1)

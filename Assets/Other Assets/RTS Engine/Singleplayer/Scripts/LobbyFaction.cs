@@ -15,7 +15,7 @@ namespace RTSEngine
         
         private int factionColorID = 0; //the color ID of the faction
         public int GetFactionColorID () { return factionColorID; }
-        public Color GetFactionColor () { return manager.FactionColor.Get(factionColorID); }
+        public FactionColor GetFactionColor () { return manager.FactionColor.Get(factionColorID); }
 
         private int npcManagerID = 0;
         public NPCTypeInfo GetNPCType () { return manager.NPCTypes.Get(npcManagerID); }
@@ -51,7 +51,7 @@ namespace RTSEngine
             //set faction default color
             factionColorID = manager.LobbyFactions.Count > 1 ?
                 manager.FactionColor.GetNextIndex(manager.LobbyFactions[manager.LobbyFactions.Count - 2].GetFactionColorID()) : 0;
-            factionColorImage.color = this.manager.FactionColor.Get(factionColorID);
+            factionColorImage.color = this.manager.FactionColor.Get(factionColorID).color;
 
             //set default faction type:
             npcTypeMenu.ClearOptions();
@@ -96,7 +96,7 @@ namespace RTSEngine
         public void OnFactionColorUpdated ()
         {
             factionColorID = manager.FactionColor.GetNextIndex(factionColorID);
-            factionColorImage.color = manager.FactionColor.Get(factionColorID);
+            factionColorImage.color = manager.FactionColor.Get(factionColorID).color;
         }
 
         //update the faction npc manager

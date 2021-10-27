@@ -111,8 +111,8 @@ namespace RTSEngine
                 obj.transform.localScale = new Vector3(Size * sizeMultiplier, obj.transform.localScale.y, Size * sizeMultiplier); //set the correct size for the border obj
                 obj.transform.SetParent(transform, true); //make sure it's a child object of the building main object
 
-                Color FactionColor = gameMgr.GetFaction(this.building.FactionID).GetColor(); //set its color to the faction that it belongs to
-                obj.GetComponent<MeshRenderer>().material.color = new Color(FactionColor.r, FactionColor.g, FactionColor.b, colorTransparency); //set the color transparency
+                FactionColor factionColor = gameMgr.GetFaction(this.building.FactionID).GetColor(); //set its color to the faction that it belongs to
+                obj.GetComponent<MeshRenderer>().material.color = new Color(factionColor.color.r, factionColor.color.g, factionColor.color.b, colorTransparency); //set the color transparency
 
                 obj.GetComponent<MeshRenderer>().sortingOrder = Order; //set the border object's sorting order according to the previosuly placed borders
             }

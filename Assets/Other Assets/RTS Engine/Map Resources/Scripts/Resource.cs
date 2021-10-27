@@ -75,7 +75,7 @@ namespace RTSEngine
             plane.gameObject.SetActive(false); //hide the resource's plane initially
 
             ID = gameMgr.ResourceMgr.GetResourceID(resourceType.Key); //get the resource ID from the resource manager
-            color = resourceType.GetMinimapIconColor(); //assign the resource's color
+            color = new FactionColor(resourceType.GetMinimapIconColor()); //assign the resource's color
 
             if (secondaryModel != null) //if there's a secondary model, enable it and disable the initial one
             {

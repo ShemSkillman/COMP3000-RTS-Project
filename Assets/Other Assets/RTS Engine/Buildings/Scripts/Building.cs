@@ -86,7 +86,6 @@ namespace RTSEngine
         public NPCBuildingRegulatorData GetRegulatorData (FactionTypeInfo factionType, string npcManagerCode) {
             return regulatorData.Filter(factionType, npcManagerCode); }
 
-
         //Building components:
         public BuildingPlacer PlacerComp { private set; get; }
         public BuildingHealth HealthComp { private set; get; }
@@ -275,6 +274,11 @@ namespace RTSEngine
                 PortalComp.OnMouseClick(); //trigger the click on the portal component
             else
                 base.OnMouseClick(); //otherwise, normal mouse click
+        }
+
+        protected override void UpdateRendererColor(ColoredRenderer cRenderer, FactionColor fColor)
+        {
+            cRenderer.renderer.material = fColor.buildingColorMaterial;
         }
     }
 }

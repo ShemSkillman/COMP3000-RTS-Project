@@ -22,11 +22,14 @@ namespace RTSEngine
             public int materialID;
 
             //a method that updates the renderer's material color
-            public void UpdateColor (Color color)
-            {
-                renderer.materials[materialID].color = color;
-            }
+            
         }
+
+        protected virtual void UpdateRendererColor(ColoredRenderer cRenderer, FactionColor fColor)
+        {
+            cRenderer.renderer.materials[cRenderer.materialID].color = fColor.color;
+        }
+
         [SerializeField]
         private ColoredRenderer[] coloredRenderers = new ColoredRenderer[0]; //The materials of the assigned Renderer components in this array will be colored by the faction entity's faction color
 
@@ -101,12 +104,12 @@ namespace RTSEngine
         }
 
         //method called to set a faction entity's faction colors:
-        protected void UpdateFactionColors(Color newColor)
+        protected void UpdateFactionColors(FactionColor newColor)
         {
             color = newColor; //set the faction color
 
             foreach (ColoredRenderer cr in coloredRenderers) //go through all renderers that can be colored
-                cr.UpdateColor(color);
+                UpdateRendererColor(cr, color);
         }
 
         protected override void Update()

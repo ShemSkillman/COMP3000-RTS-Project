@@ -55,8 +55,8 @@ namespace RTSEngine
         //selection flash:
         float flashTimer;
         bool isFlashActive = false; //is the selection flash currently flashing?
-        protected Color color; //the selection flash color is assigned here.
-        public Color GetColor () { return color; }
+        protected FactionColor color; //the selection flash color is assigned here.
+        public FactionColor GetColor () { return color; }
 
         //other components that can be attached to a entity:
         public Renderer PlaneRenderer { private set; get; } //this is the Renderer component of the plane's object.
@@ -200,7 +200,7 @@ namespace RTSEngine
         {
             plane.SetActive(true); //Activate the plane object where we will show the selection texture.
 
-            Color nextColor = free ? gameMgr.SelectionMgr.GetFreeSelectionColor() : color; //get the color
+            Color nextColor = free ? gameMgr.SelectionMgr.GetFreeSelectionColor() : color.color; //get the color
             plane.GetComponent<Renderer>().material.color = new Color(nextColor.r, nextColor.g, nextColor.b, 0.5f); //update the plane's color
         }
 

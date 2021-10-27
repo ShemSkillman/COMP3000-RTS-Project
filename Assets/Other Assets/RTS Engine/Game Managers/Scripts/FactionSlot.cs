@@ -19,8 +19,8 @@ namespace RTSEngine
         public FactionTypeInfo GetTypeInfo() { return typeInfo; }
 
         [SerializeField]
-        private Color color = Color.blue; //Faction's color.
-        public Color GetColor () { return color; }
+        private FactionColor color; //Faction's color.
+        public FactionColor GetColor () { return color; }
 
         [SerializeField]
         private bool playerControlled = false; //Is the team controlled by the player, make sure that only one team is controlled by the player.
@@ -154,7 +154,7 @@ namespace RTSEngine
 #endif
 
         //init the faction slot and update the faction attributes
-        public void Init(string name, FactionTypeInfo typeInfo, Color color, bool playerControlled, int population, NPCTypeInfo npcType, FactionManager factionMgr, int factionID, GameManager gameMgr)
+        public void Init(string name, FactionTypeInfo typeInfo, FactionColor color, bool playerControlled, int population, NPCTypeInfo npcType, FactionManager factionMgr, int factionID, GameManager gameMgr)
         {
             this.name = name;
             this.typeInfo = typeInfo;

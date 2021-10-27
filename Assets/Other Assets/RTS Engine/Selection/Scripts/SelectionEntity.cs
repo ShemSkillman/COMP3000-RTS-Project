@@ -55,7 +55,7 @@ namespace RTSEngine
             if (IsFree()) //if the entity is a free unit/building
                 iconColor = Source.Type == EntityTypes.unit ? gameMgr.UnitMgr.GetFreeUnitColor() : gameMgr.BuildingMgr.GetFreeBuildingColor();
             else
-                iconColor = Source.GetColor();
+                iconColor = Source.GetColor().color;
 
             Icon.SetColor(iconColor);
         }
