@@ -145,8 +145,6 @@ namespace RTSEngine
 
             unit.SetAnimState(activeAnimState);
 
-            gameMgr.AudioMgr.PlaySFX(unit.AudioSourceComp, inProgressAudio, true); //play a random one
-
             if (inProgressObject != null) //show the in progress object
                 inProgressObject.SetActive(true);
 
@@ -159,7 +157,6 @@ namespace RTSEngine
         //method called when the unit's progresses in its active job
         protected virtual void OnInProgress()
         {
-
         }
 
         //update when the unit doesn't have a target

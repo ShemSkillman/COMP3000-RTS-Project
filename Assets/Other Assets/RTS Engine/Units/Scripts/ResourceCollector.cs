@@ -393,5 +393,10 @@ namespace RTSEngine
         {
             dropOffStatus = DropOffStatus.inactive;
         }
+
+        public void PlayCollectionSFX()
+        {
+            gameMgr.AudioMgr.PlaySFX(target.GetResourceType().GetCollectionAudio(), false);
+        }
     }
 }

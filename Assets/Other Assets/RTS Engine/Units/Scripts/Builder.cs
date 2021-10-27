@@ -58,8 +58,6 @@ namespace RTSEngine
         //a method that is called when the builder achieved progress in construction
         protected override void OnInProgress()
         {
-            base.OnInProgress();
-
             target.HealthComp.AddHealth(healthPerSecond, unit); //add health points to the building.
         }
 
