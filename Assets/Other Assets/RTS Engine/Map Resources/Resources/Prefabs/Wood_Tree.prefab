@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4839631576485286
 Transform:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   plane: {fileID: 1117983902813966}
   model: {fileID: 1124065013454422}
   selection: {fileID: 114547868748786160}
-  radius: 1
+  radius: 1.83
   resourceType: {fileID: 11400000, guid: a3e40a20a0b603d4793ed1985b005aed, type: 2}
   infiniteAmount: 0
   amount: 1000
@@ -260,6 +260,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workerPositions:
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
+  - position: {fileID: 0}
   - position: {fileID: 0}
 --- !u!208 &208194398242451984
 NavMeshObstacle:

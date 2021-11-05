@@ -14,10 +14,15 @@ namespace RTSEngine
         [SerializeField]
 		private int maxCapacity = 7; //the maximum quantity of each resource that the unit can hold before having to drop it off at the closet building that allows him to do so, only if auto collection is disabled
 
+        [SerializeField]
+        private bool noDropOffNeeded = true;
+
         public class DropOffResource //this class holds the current amount of each resource the unit is holding:
 		{
 			public int CurrAmount { set; get; }
+
             private string name;
+            public string Name { get { return name; }}
 
             private GameManager gameMgr;
 
@@ -368,6 +373,12 @@ namespace RTSEngine
         //a method that updates the drop off resources that the collector is holding
         public void UpdateDropOffResources(int resourceID, int value)
         {
+            if (noDropOffNeeded)
+            {
+                gameMgr.ResourceMgr.UpdateResource(unit.FactionID, dropOffResources[resourceID].Name, value);
+                
+            }
+
             dropOffResources[resourceID].CurrAmount += value; //update the current amount of this drop off resource
 
             if (dropOffResources[resourceID].CurrAmount >= maxCapacity) //if the maximum capacity has been reached
