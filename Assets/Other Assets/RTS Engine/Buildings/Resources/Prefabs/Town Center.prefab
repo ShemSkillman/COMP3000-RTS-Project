@@ -448,7 +448,7 @@ MonoBehaviour:
   code: town_center
   category: new_building_category
   description: Key economic building that trains villagers.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d1c09ae7e09d42a46a047d582fe6da54, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorElementID: 0
-  editorTabID: 1
+  editorTabID: 0
   isActive: 1
   code: town_center_task_launcher
   tasksList:
@@ -559,7 +559,7 @@ MonoBehaviour:
     type: 11
     allowedType: 0
     taskPanelCategory: 0
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ed4290bf44e6ff24289d4f3d49c81d18, type: 3}
     reloadTime: 0
     requiredResources:
     - Name: Food

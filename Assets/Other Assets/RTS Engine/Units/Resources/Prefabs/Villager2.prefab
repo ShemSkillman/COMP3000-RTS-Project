@@ -291,7 +291,7 @@ MonoBehaviour:
   code: villager2
   category: civilian
   description: Gathers resources and constructs buildings.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ed4290bf44e6ff24289d4f3d49c81d18, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   takeDamage: 1
   damageEffect: {fileID: 0}
   destroyObject: 1
-  destroyObjectTime: 0
+  destroyObjectTime: 15
   destroyAward: []
   destructionAudio:
     fetchType: 0

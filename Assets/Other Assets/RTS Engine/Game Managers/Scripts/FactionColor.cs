@@ -10,11 +10,11 @@ namespace RTSEngine
     [System.Serializable]
     public struct FactionColor
     {
-        public FactionColor(Color color)
+        public FactionColor(Color color, Material unitColorMaterial, Material buildingColorMaterial)
         {
             this.color = color;
-            unitColorMaterial = null;
-            buildingColorMaterial = null;
+            this.unitColorMaterial = unitColorMaterial;
+            this.buildingColorMaterial = buildingColorMaterial;
         }
 
         public Color color;

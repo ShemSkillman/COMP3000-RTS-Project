@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5478135404590290437}
   - component: {fileID: 6412724998090325175}
   - component: {fileID: 2085765337740928355}
+  - component: {fileID: 6434192080589177518}
   m_Layer: 12
   m_Name: Swordsman
   m_TagString: Untagged
@@ -226,7 +227,7 @@ MonoBehaviour:
   code: swordsman
   category: military
   description: Man with a sword.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bafe43eeff69e30469df178cf5f1c479, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   takeDamage: 1
   damageEffect: {fileID: 0}
   destroyObject: 1
-  destroyObjectTime: 0
+  destroyObjectTime: 15
   destroyAward: []
   destructionAudio:
     fetchType: 0
@@ -323,6 +324,125 @@ MonoBehaviour:
   invalidMvtPathAudio:
     fetchType: 0
     audioClips: []
+--- !u!114 &6434192080589177518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787197986251586902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabID: 0
+  isLocked: 0
+  isActive: 1
+  code: barbarian_attack
+  basic: 1
+  targetPicker:
+    type: 0
+    targetList: []
+    engageUnits: 1
+    engageFlyingUnits: 1
+    engageBuildings: 1
+  direct: 1
+  engageOnAssign: 1
+  engageWhenAttacked: 1
+  engageOnce: 0
+  engageFriendly: 0
+  engageInRange: 1
+  engageInRangeIdleOnly: 1
+  searchRange: 15
+  searchReload: 1
+  delayDuration: 0
+  delayTriggerEnabled: 0
+  useReload: 1
+  reloadDuration: 2
+  coolDownEnabled: 0
+  coolDownDuration: 10
+  requireTarget: 1
+  damage:
+    canDealDamage: 1
+    unitDamage: 10
+    buildingDamage: 10
+    customDamages: []
+    areaAttackEnabled: 0
+    attackRanges: []
+    dotEnabled: 0
+    dotAttributes:
+      infinite: 0
+      duration: 0
+      cycleDuration: 0
+    effect: {fileID: 0}
+    effectLifeTime: 2
+  reloadDealtDamage: 0
+  weapon:
+    weaponObject: {fileID: 0}
+    freezeRotationX: 0
+    freezeRotationY: 0
+    freezeRotationZ: 0
+    smoothRotation: 1
+    rotateInRangeOnly: 0
+    rotationDamping: 2
+    forceIdleRotation: 1
+    idleAngles: {x: 0, y: 0, z: 0}
+  lineOfSight:
+    enable: 1
+    useWeaponObject: 0
+    LOSAngle: 40
+    obstacleLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreRotationX: 0
+    ignoreRotationY: 0
+    ignoreRotationZ: 0
+  attackObjectLauncher:
+    launchType: 1
+    sources: []
+  attackTaskUI: {fileID: 0}
+  attackerInRangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLockedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  attackPerformedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  attackDamageDealtEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  switchTaskUI: {fileID: 0}
+  orderAudio:
+    fetchType: 0
+    audioClips: []
+  attackAudio:
+    fetchType: 0
+    audioClips: []
+  range:
+    unitStoppingDistance:
+      min: 0
+      max: 1
+    buildingStoppingDistance:
+      min: 0
+      max: 1
+    noTargetStoppingDistance:
+      min: 0
+      max: 1
+    moveOnAttackOffset: 3
+    updateMvtDistance: 2
+    formation:
+      showProperties: 0
+      type: 0
+      amount: 4
+      maxEmpty: 1
+      spacing: 0
+  moveOnAttack: 0
+  followDistance: 15
+  attackAnimOverrideController: {fileID: 0}
+  triggerAnimationInDelay: 0
 --- !u!1 &3789586411286726562
 GameObject:
   m_ObjectHideFlags: 0

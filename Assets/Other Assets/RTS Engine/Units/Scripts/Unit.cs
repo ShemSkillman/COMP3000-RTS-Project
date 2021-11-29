@@ -135,7 +135,7 @@ namespace RTSEngine
 
             //if this is a free unit
             if (this.free)
-                UpdateFactionColors(new FactionColor(gameMgr.UnitMgr.GetFreeUnitColor())); //set the free unit color
+                UpdateFactionColors(gameMgr.UnitMgr.GetFreeUnitColor()); //set the free unit color
             else
                 gameMgr.ResourceMgr.UpdateResource(factionID, initResources); //add the initialization resources to the unit's faction.
 

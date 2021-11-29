@@ -11,8 +11,8 @@ namespace RTSEngine
 		private List<Unit> freeUnits = new List<Unit>(); //units that don't belong to any faction here.
         public IEnumerable<Unit> GetFreeUnits () { return freeUnits; }
         [SerializeField]
-		private Color freeUnitColor = Color.black;
-        public Color GetFreeUnitColor() { return freeUnitColor; }
+        private FactionColor freeUnitColor;
+        public FactionColor GetFreeUnitColor() { return freeUnitColor; }
 
         [SerializeField]
         private AnimatorOverrideController defaultAnimController = null; //default override animation controller: used when there's no animation override controller assigned to a unit
