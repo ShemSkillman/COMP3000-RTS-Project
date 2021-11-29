@@ -5200,7 +5200,11 @@ MonoBehaviour:
   - {fileID: 1297254473}
   - {fileID: 612074612}
   - {fileID: 71932946}
-  freeBuildingColor: {r: 0, g: 0, b: 0, a: 1}
+  freeBuildingColor:
+    color: {r: 0, g: 0, b: 0, a: 0}
+    unitColorMaterial: {fileID: 2100000, guid: 54f19161a54e56442a8dd7f6239fc93b, type: 2}
+    buildingColorMaterial: {fileID: 2100000, guid: 19e5e5a2c659faf49a059ec9fc3e642d,
+      type: 2}
 --- !u!1001 &865755698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5253,6 +5257,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8980730581845679993, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 357f879c712d27d459813ab784057e77,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eafd2c2ccb9cb7c4996ad70b7623311a, type: 3}
 --- !u!1 &879112608
@@ -6343,6 +6353,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager2
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: ed4290bf44e6ff24289d4f3d49c81d18,
+        type: 3}
     - target: {fileID: 7974522737364323359, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: m_RootOrder

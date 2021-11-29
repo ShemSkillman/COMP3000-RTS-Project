@@ -99,8 +99,10 @@ namespace RTSEngine
                 UpdateFactionColors(gameMgr.GetFaction(factionID).GetColor()); //update the faction colors on the unit
             }
             else
+            {
+                UpdateFactionColors(gameMgr.BuildingMgr.GetFreeBuildingColor());
                 factionID = -1;
-
+            }
         }
 
         //method called to set a faction entity's faction colors:

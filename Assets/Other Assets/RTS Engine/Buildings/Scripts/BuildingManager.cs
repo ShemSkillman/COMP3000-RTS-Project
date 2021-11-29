@@ -13,8 +13,8 @@ namespace RTSEngine
         private Building[] freeBuildings = new Building[0]; //buildings that don't belong to any faction must be added here
         public IEnumerable<Building> GetFreeBuildings () { return freeBuildings; }
         [SerializeField]
-        private Color freeBuildingColor = Color.black; //color used for free buildings
-        public Color GetFreeBuildingColor() { return freeBuildingColor; }
+        private FactionColor freeBuildingColor; //color used for free buildings
+        public FactionColor GetFreeBuildingColor() { return freeBuildingColor; }
 
         //Borders:
         public int LastBorderSortingOrder { private set; get; }//In order to draw borders and show which order has been set before the other, their objects have different sorting orders.
