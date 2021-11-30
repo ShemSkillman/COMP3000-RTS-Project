@@ -981,11 +981,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
-    - target: {fileID: 3056747675206559057, guid: 94426e9307b14324eb0c20c00b3ddb5d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4299218915587414686, guid: 94426e9307b14324eb0c20c00b3ddb5d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1039,11 +1034,6 @@ PrefabInstance:
     - target: {fileID: 4299218915587414686, guid: 94426e9307b14324eb0c20c00b3ddb5d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8564505782239859298, guid: 94426e9307b14324eb0c20c00b3ddb5d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1298,7 +1288,7 @@ GameObject:
   - component: {fileID: 264500511}
   - component: {fileID: 264500512}
   m_Layer: 5
-  m_Name: KnowedgleImg
+  m_Name: R4 Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2702,7 +2692,7 @@ GameObject:
   - component: {fileID: 424058392}
   - component: {fileID: 424058391}
   m_Layer: 5
-  m_Name: WoodText
+  m_Name: R2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2741,7 +2731,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WOOD
+  m_Text: n/a
 --- !u!222 &424058392
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2782,7 +2772,7 @@ GameObject:
   - component: {fileID: 445694348}
   - component: {fileID: 445694347}
   m_Layer: 5
-  m_Name: MetalText
+  m_Name: R3 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2821,7 +2811,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WOOD
+  m_Text: n/a
 --- !u!222 &445694348
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3301,7 +3291,7 @@ GameObject:
   - component: {fileID: 544280753}
   - component: {fileID: 544280752}
   m_Layer: 5
-  m_Name: FoodText
+  m_Name: R1 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3340,7 +3330,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FOOD
+  m_Text: n/a
 --- !u!222 &544280753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5293,31 +5283,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 804467058}
     m_Modifications:
-    - target: {fileID: 1396416245093121310, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280048532710495494, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
-        type: 3}
-      propertyPath: tasksList.Array.data[0].type
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280048532710495494, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
-        type: 3}
-      propertyPath: tasksList.Array.data[0].startEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280048532710495494, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
-        type: 3}
-      propertyPath: tasksList.Array.data[0].startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4280048532710495494, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
-        type: 3}
-      propertyPath: tasksList.Array.data[0].startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5146744234690131466, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
         type: 3}
       propertyPath: m_Name
@@ -5345,6 +5310,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591952639415663883, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591952639415663883, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591952639415663883, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591952639415663883, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591952639415663883, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -5358,12 +5343,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8980730581845679993, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
-        type: 3}
-      propertyPath: icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 357f879c712d27d459813ab784057e77,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eafd2c2ccb9cb7c4996ad70b7623311a, type: 3}
 --- !u!1 &879112608
@@ -8485,7 +8464,7 @@ GameObject:
   - component: {fileID: 1374496277}
   - component: {fileID: 1374496278}
   m_Layer: 5
-  m_Name: MetalImg
+  m_Name: R3 Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8774,7 +8753,7 @@ MonoBehaviour:
       targetList: []
     imageUI: {fileID: 2129314181}
     textUI: {fileID: 544280752}
-  - type: {fileID: 11400000, guid: bc712db0d42339240b16b338029bd113, type: 2}
+  - type: {fileID: 11400000, guid: 9d777b69ade157b419696347a92dc071, type: 2}
     showUI: 1
     allowedFactionTypes:
       type: 0
@@ -8788,28 +8767,14 @@ MonoBehaviour:
       targetList: []
     imageUI: {fileID: 1833218521}
     textUI: {fileID: 424058391}
-  - type: {fileID: 11400000, guid: 1952143edfd13fc4b81d12933f5a7d87, type: 2}
+  - type: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
     showUI: 1
     allowedFactionTypes:
       type: 0
       targetList: []
     imageUI: {fileID: 264500512}
     textUI: {fileID: 1424349127}
-  - type: {fileID: 11400000, guid: 289f2d92dd5497e4e99f9d0a656207e0, type: 2}
-    showUI: 0
-    allowedFactionTypes:
-      type: 0
-      targetList: []
-    imageUI: {fileID: 0}
-    textUI: {fileID: 0}
-  - type: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
-    showUI: 0
-    allowedFactionTypes:
-      type: 0
-      targetList: []
-    imageUI: {fileID: 0}
-    textUI: {fileID: 0}
-  autoCollect: 0
+  autoCollect: 1
   resourceSelectionColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &1408238808 stripped
 Transform:
@@ -8963,7 +8928,7 @@ GameObject:
   - component: {fileID: 1424349128}
   - component: {fileID: 1424349127}
   m_Layer: 5
-  m_Name: KnowedgleText
+  m_Name: R4 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9002,7 +8967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WOOD
+  m_Text: n/a
 --- !u!222 &1424349128
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11902,7 +11867,7 @@ GameObject:
   - component: {fileID: 1833218520}
   - component: {fileID: 1833218521}
   m_Layer: 5
-  m_Name: WoodImg
+  m_Name: R2 Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13479,7 +13444,7 @@ GameObject:
   - component: {fileID: 2129314180}
   - component: {fileID: 2129314181}
   m_Layer: 5
-  m_Name: FoodImg
+  m_Name: R1 Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
