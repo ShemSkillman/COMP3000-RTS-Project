@@ -48,6 +48,12 @@ namespace RTSEngine
         /// <param name="factionType">FactionTypeInfo instance that defines the faction type of the regulator data.</param>
         /// <param name="npcManagerCode">The NPCManager instance code that defines the NPC Manager type.</param>
         /// <returns>NPCUnitRegulatorData instance if both requirements are met.</returns>
+        /// 
+
+        private const float capturePointsPerSecond = 1;
+
+        public float CapturePointsPerSecond { get { return capturePointsPerSecond; } }
+
         public NPCUnitRegulatorData GetRegulatorData (FactionTypeInfo factionType, string npcManagerCode) {
             return regulatorData.Filter(factionType, npcManagerCode); }
 

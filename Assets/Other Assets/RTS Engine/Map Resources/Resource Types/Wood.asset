@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Wood
   startingAmount: 400
-  icon: {fileID: 21300000, guid: 0b0cd6fb1fb6fb54d892c5c0c6da0353, type: 3}
+  icon: {fileID: 21300000, guid: af3541cced20f7042a7583763038b407, type: 3}
   minimapIconColor: {r: 0.5294118, g: 0.31764707, b: 0, a: 1}
   collectionAudio:
     fetchType: 0

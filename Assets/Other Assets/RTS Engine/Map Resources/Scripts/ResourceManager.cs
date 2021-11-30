@@ -245,7 +245,7 @@ namespace RTSEngine
         /// <param name="add">Adds the resources when true, otherwise removes the resources from the faction.</param>
 		public void UpdateResource (int factionID, string name, int amount, bool add = true)
 		{
-            if (!add && factionID == GameManager.PlayerFactionID && GodMode.Enabled)
+            if ((!add && factionID == GameManager.PlayerFactionID && GodMode.Enabled) || factionID < 0)
                 return;
 
             amount = (add ? 1 : -1) * amount; //add or remove the resources?

@@ -91,11 +91,11 @@ namespace RTSEngine
             doubleClickTimer = 0.0f;
 
             this.free = free;
+            FactionMgr = gameMgr.GetFaction(factionID).FactionMgr; //get the faction manager
 
             if (this.free == false) //if the entity belongs to a faction
             {
                 factionID = fID; //set the faction ID.
-                FactionMgr = gameMgr.GetFaction(factionID).FactionMgr; //get the faction manager
                 UpdateFactionColors(gameMgr.GetFaction(factionID).GetColor()); //update the faction colors on the unit
             }
             else
@@ -103,6 +103,34 @@ namespace RTSEngine
                 UpdateFactionColors(gameMgr.BuildingMgr.GetFreeBuildingColor());
                 factionID = -1;
             }
+        }
+
+        public void SetFaction(int fID)
+        {
+            if (fID < 0)
+            {
+                this.free = true;
+            }
+            else
+            {
+                this.free = false;
+            }
+
+            factionID = fID; //set the faction ID.
+            UpdateFactionColors(GetFactionColor(factionID)); //update the faction colors on the unit
+        }
+
+        public FactionColor GetFactionColor(int factionId)
+        {
+            if (factionId < 0)
+            {
+                return gameMgr.BuildingMgr.GetFreeBuildingColor();
+            }
+            else
+            {
+                return gameMgr.GetFaction(factionId).GetColor();
+            }
+            
         }
 
         //method called to set a faction entity's faction colors:

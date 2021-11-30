@@ -100,7 +100,7 @@ namespace RTSEngine
         public BuildingAttack AttackComp { private set; get; }
         public override void UpdateAttackComp(AttackEntity attackEntity) { AttackComp = attackEntity as BuildingAttack; }
 
-        public void Init(GameManager gameMgr, int fID, bool free, Border buildingCenter, bool factionCapital)
+        public virtual void Init(GameManager gameMgr, int fID, bool free, Border buildingCenter, bool factionCapital)
         {
             base.Init(gameMgr, fID, free);
 
