@@ -50,10 +50,6 @@ namespace RTSEngine
         /// <returns>NPCUnitRegulatorData instance if both requirements are met.</returns>
         /// 
 
-        private const float capturePointsPerSecond = 1;
-
-        public float CapturePointsPerSecond { get { return capturePointsPerSecond; } }
-
         public NPCUnitRegulatorData GetRegulatorData (FactionTypeInfo factionType, string npcManagerCode) {
             return regulatorData.Filter(factionType, npcManagerCode); }
 

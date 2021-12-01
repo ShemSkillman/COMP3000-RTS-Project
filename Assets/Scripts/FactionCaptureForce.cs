@@ -6,20 +6,22 @@ using RTSEngine;
 public class FactionCaptureForce
 {
     private int factionId;
-    private Dictionary<Unit, bool> factionUnits;
+    private Dictionary<CaptorEntity, bool> captorEntities;
     private CaptureableBuilding capturingBuilding;
 
     public int FactionID { get { return factionId; } }
 
+    public float CapturePointsPerSecond { get { return capturePointsPerSecond; } }
+
     private float capturePointsPerSecond;
 
-    public FactionCaptureForce(Unit factionUnit)
+    public FactionCaptureForce(CaptorEntity captorEntity)
     {
-        factionId = factionUnit.FactionID;
+        factionId = captorEntity.FactioEntity.FactionID;
 
-        factionUnits = new Dictionary<Unit, bool>();
+        captorEntities = new Dictionary<CaptorEntity, bool>();
 
-        AddUnit(factionUnit);
+        AddUnit(captorEntity);
     }
 
     public void CaptureProgress()
@@ -39,14 +41,14 @@ public class FactionCaptureForce
             return false;
         }
 
-        Unit[] arr = new Unit[factionUnits.Count];
-        factionUnits.Keys.CopyTo(arr, 0);
+        CaptorEntity[] arr = new CaptorEntity[captorEntities.Count];
+        captorEntities.Keys.CopyTo(arr, 0);
 
-        foreach (Unit unit in arr)
+        foreach (CaptorEntity entity in arr)
         {
-            if (unit.EntityHealthComp.IsDead())
+            if (entity.IsDead)
             {
-            factionUnits.Remove(unit);
+            captorEntities.Remove(entity);
             }
         }
 
@@ -60,18 +62,28 @@ public class FactionCaptureForce
         capturingBuilding.StartCapture(factionId);
     }
 
-    public void AddUnit(Unit toAdd)
+    public void AddUnit(CaptorEntity toAdd)
     {
-        factionUnits[toAdd] = true;
+        if (captorEntities.ContainsKey(toAdd))
+        {
+            return;
+        }
+
+        captorEntities[toAdd] = true;
         capturePointsPerSecond += toAdd.CapturePointsPerSecond;
     }
 
-    public void RemoveUnit(Unit toRemove)
+    public void RemoveUnit(CaptorEntity toRemove)
     {
-        factionUnits.Remove(toRemove);
+        if (!captorEntities.ContainsKey(toRemove))
+        {
+            return;
+        }
+
+        captorEntities.Remove(toRemove);
         capturePointsPerSecond -= toRemove.CapturePointsPerSecond;
 
-        if (IsEmpty() && IsCapturing())
+        if ((IsEmpty() || capturePointsPerSecond == 0) && IsCapturing())
         {
             capturingBuilding.StopCapture();
         }
@@ -79,7 +91,7 @@ public class FactionCaptureForce
 
     public bool IsEmpty()
     {
-        return factionUnits.Count < 1;
+        return captorEntities.Count < 1;
     }
 
     public bool IsCapturing()

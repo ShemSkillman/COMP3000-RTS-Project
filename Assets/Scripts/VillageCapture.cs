@@ -53,7 +53,8 @@ public class VillageCapture : MonoBehaviour
 
         foreach (FactionCaptureForce factionForce in factionCaptureForces.Values)
         {
-            if (!factionForce.IsCapturing() && vulnerableBuildings.Count > 0)
+            if (!factionForce.IsCapturing() && factionForce.CapturePointsPerSecond > 0
+                && vulnerableBuildings.Count > 0)
             {
                 FactionCaptureForce toModify = factionForce;
 
@@ -97,28 +98,29 @@ public class VillageCapture : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Unit factionUnit = other.GetComponentInParent<Unit>();
-        if (factionUnit != null)
+        CaptorEntity captorEntity = other.GetComponentInParent<CaptorEntity>();
+        if (captorEntity != null)
         {
-            if (factionCaptureForces.ContainsKey(factionUnit.FactionID))
+            if (factionCaptureForces.ContainsKey(captorEntity.FactionID))
             {
-                factionCaptureForces[factionUnit.FactionID].AddUnit(factionUnit);
+                factionCaptureForces[captorEntity.FactionID].AddUnit(captorEntity);
             }
             else
             {
-                factionCaptureForces[factionUnit.FactionID] = new FactionCaptureForce(factionUnit);
-            }            
+                factionCaptureForces[captorEntity.FactionID] = new FactionCaptureForce(captorEntity);
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Unit factionUnit = other.GetComponentInParent<Unit>();
-        if (factionUnit != null)
+        CaptorEntity captorEntity = other.GetComponentInParent<CaptorEntity>();
+        if (captorEntity != null)
         {
-            if (factionCaptureForces.ContainsKey(factionUnit.FactionID))
+            if (factionCaptureForces.ContainsKey(captorEntity.FactionID))
             {
-                factionCaptureForces[factionUnit.FactionID].RemoveUnit(factionUnit);
+                factionCaptureForces[captorEntity.FactionID].RemoveUnit(captorEntity);
+                print("removed " + captorEntity.gameObject.name);
             }
         }
     }

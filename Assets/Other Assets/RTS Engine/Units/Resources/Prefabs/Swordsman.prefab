@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6412724998090325175}
   - component: {fileID: 2085765337740928355}
   - component: {fileID: 6434192080589177518}
+  - component: {fileID: 7426046671300633383}
   m_Layer: 12
   m_Name: Swordsman
   m_TagString: Untagged
@@ -443,6 +444,19 @@ MonoBehaviour:
   followDistance: 15
   attackAnimOverrideController: {fileID: 0}
   triggerAnimationInDelay: 0
+--- !u!114 &7426046671300633383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787197986251586902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5623770fc3fc46d4ea0e1d3afbd5f806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capturePointsPerSecond: 2
 --- !u!1 &3789586411286726562
 GameObject:
   m_ObjectHideFlags: 0
