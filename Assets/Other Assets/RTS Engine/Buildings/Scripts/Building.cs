@@ -6,6 +6,7 @@ using RTSEngine.EntityComponent;
 
 namespace RTSEngine
 {
+    [SelectionBase]
     public class Building : FactionEntity
     {
         public override EntityTypes Type { get { return EntityTypes.building; } }

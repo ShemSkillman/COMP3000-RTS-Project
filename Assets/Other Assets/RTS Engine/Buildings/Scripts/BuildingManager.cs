@@ -9,8 +9,9 @@ namespace RTSEngine
 {
     public class BuildingManager : MonoBehaviour
     {
-        [SerializeField]
-        private Building[] freeBuildings = new Building[0]; //buildings that don't belong to any faction must be added here
+        [SerializeField] GameObject villages;
+
+        private Building[] freeBuildings; //buildings that don't belong to any faction must be added here
         public IEnumerable<Building> GetFreeBuildings () { return freeBuildings; }
         [SerializeField]
         private FactionColor freeBuildingColor; //color used for free buildings
@@ -30,6 +31,8 @@ namespace RTSEngine
 
         public void Init(GameManager gameMgr)
         {
+            freeBuildings = villages.GetComponentsInChildren<Building>();
+
             this.gameMgr = gameMgr;
 
             CustomEvents.BorderActivated += AddBorder;

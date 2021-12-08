@@ -7,7 +7,8 @@ namespace RTSEngine
 {
 	public class UnitManager : MonoBehaviour {
 
-        [SerializeField]
+        [SerializeField] GameObject villages;
+
 		private List<Unit> freeUnits = new List<Unit>(); //units that don't belong to any faction here.
         public IEnumerable<Unit> GetFreeUnits () { return freeUnits; }
         [SerializeField]
@@ -25,8 +26,10 @@ namespace RTSEngine
         //other components
         private GameManager gameMgr;
 
-		public void Init (GameManager gameMgr)
+        public void Init (GameManager gameMgr)
 		{
+            freeUnits.AddRange(villages.GetComponentsInChildren<Unit>());
+
             this.gameMgr = gameMgr;
 
             CustomEvents.UnitCreated += AddUnit;

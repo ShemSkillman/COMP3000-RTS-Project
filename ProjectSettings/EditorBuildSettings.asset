@@ -5,19 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Other Assets/RTS Engine/Menus/Scenes/MainMenu.unity
     guid: 25218778d642f0d4b8f3d42e309723eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Other Assets/RTS Engine/Demo/Scenes/CampaignMenu.unity
     guid: 1673cb341b707e743b0f2d73355bdbd3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Other Assets/RTS Engine/Singleplayer/SinglePlayerMenu.unity
     guid: 418b61376f0250b40b619295d3466b06
+  - enabled: 1
+    path: Assets/Scenes/Prototype.unity
+    guid: 78774e0fa28994c49960bdbbd7b619df
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Other Assets/RTS Engine/Maps/DemoMap/Scene/DemoMap.unity
     guid: e452960418e8ec540b68f61b4eaf204d
   m_configObjects: {}

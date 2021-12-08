@@ -2487,6 +2487,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.033
       objectReference: {fileID: 0}
+    - target: {fileID: 13700294, guid: 02ded044b8e0963439276550f50be6f9, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700294, guid: 02ded044b8e0963439276550f50be6f9, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 254688453104507979, guid: 02ded044b8e0963439276550f50be6f9,
         type: 3}
       propertyPath: m_Layer

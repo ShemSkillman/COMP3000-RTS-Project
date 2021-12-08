@@ -5,15 +5,57 @@ using RTSEngine;
 
 public class VillageCapture : MonoBehaviour
 {
+    [SerializeField] private float captureRadius = 15f;
+
+    SphereCollider captureCollider;
+
     Dictionary<int, FactionCaptureForce> factionCaptureForces;
 
     CaptureableBuilding[] villageBuildings;
 
     private void Awake()
     {
+        captureCollider = GetComponent<SphereCollider>();
+
         factionCaptureForces = new Dictionary<int, FactionCaptureForce>();
 
         villageBuildings = GetVillageBuildings();
+
+        gameObject.AddComponent<SphereCollider>();
+        captureCollider = GetComponent<SphereCollider>();
+    }
+
+    private void Start()
+    {
+        captureCollider.isTrigger = true;
+        captureCollider.center = GetVillageCentreLocal();
+        captureCollider.radius = captureRadius;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(GetVillageCentreWorld(), captureRadius);
+    }
+
+    private Vector3 GetVillageCentreWorld()
+    {
+        Vector3 centrePos = Vector3.zero;
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            centrePos += transform.GetChild(i).transform.position;
+        }
+
+        centrePos /= transform.childCount;
+        centrePos.y = 0;
+
+        return centrePos;
+    }
+
+    private Vector3 GetVillageCentreLocal()
+    {
+        return transform.InverseTransformPoint(GetVillageCentreWorld());
     }
 
     private void Update()
@@ -120,7 +162,6 @@ public class VillageCapture : MonoBehaviour
             if (factionCaptureForces.ContainsKey(captorEntity.FactionID))
             {
                 factionCaptureForces[captorEntity.FactionID].RemoveUnit(captorEntity);
-                print("removed " + captorEntity.gameObject.name);
             }
         }
     }

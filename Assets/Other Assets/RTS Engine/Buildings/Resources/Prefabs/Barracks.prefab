@@ -347,10 +347,10 @@ MonoBehaviour:
     allowedType: 0
     taskPanelCategory: 0
     icon: {fileID: 21300000, guid: bafe43eeff69e30469df178cf5f1c479, type: 3}
-    reloadTime: 0
+    reloadTime: 8
     requiredResources:
-    - Name: Food
-      Amount: 80
+    - Name: Coin
+      Amount: 100
     missingReqData:
       icon: {fileID: 0}
       color: {r: 0, g: 0, b: 0, a: 0}
