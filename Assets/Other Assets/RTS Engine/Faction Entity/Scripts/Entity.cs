@@ -201,7 +201,7 @@ namespace RTSEngine
             plane.SetActive(true); //Activate the plane object where we will show the selection texture.
 
             Color nextColor = free ? gameMgr.SelectionMgr.GetFreeSelectionColor() : color.color; //get the color
-            plane.GetComponent<Renderer>().material.color = new Color(nextColor.r, nextColor.g, nextColor.b, 0.5f); //update the plane's color
+            plane.GetComponent<Renderer>().material.color = new Color(nextColor.r, nextColor.g, nextColor.b, 1f); //update the plane's color
         }
 
         //disable the entity's selection plane:

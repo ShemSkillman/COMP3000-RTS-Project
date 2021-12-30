@@ -15,7 +15,8 @@ MonoBehaviour:
   _name: Coin
   startingAmount: 500
   icon: {fileID: 21300000, guid: 428cd097f43f41547861a61713bcfd4a, type: 3}
-  minimapIconColor: {r: 1, g: 0.9320468, b: 0, a: 1}
+  minimapIconColor: {r: 0.5294118, g: 0.31764707, b: 0, a: 1}
   collectionAudio:
     fetchType: 0
-    audioClips: []
+    audioClips:
+    - {fileID: 8300000, guid: 9b654baaa35e75f41be2aebbb41d080f, type: 3}

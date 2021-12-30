@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7974522736391490485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.002, z: 0}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+  m_LocalScale: {x: 0.12, y: 1, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7974522737364323359}
@@ -474,11 +474,16 @@ MonoBehaviour:
   collectionObjects:
   - resourceType: {fileID: 11400000, guid: a3e40a20a0b603d4793ed1985b005aed, type: 2}
     obj: {fileID: 7435700186024760655}
+    animatorOverrideController: {fileID: 22100000, guid: 26229ab8d5788eb40b266fe61a4ffa41,
+      type: 2}
+    dropOffObject: {fileID: 0}
+    dropOffOverrideController: {fileID: 0}
+  - resourceType: {fileID: 11400000, guid: 9d777b69ade157b419696347a92dc071, type: 2}
+    obj: {fileID: 7435700186024552487}
     animatorOverrideController: {fileID: 22100000, guid: 9304bab2e97eede42ba426a263a3f242,
       type: 2}
     dropOffObject: {fileID: 0}
-    dropOffOverrideController: {fileID: 22100000, guid: 9304bab2e97eede42ba426a263a3f242,
-      type: 2}
+    dropOffOverrideController: {fileID: 0}
 --- !u!95 &1106842792
 Animator:
   serializedVersion: 4
@@ -2011,6 +2016,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.7071063
       objectReference: {fileID: 0}
+    - target: {fileID: 487926, guid: 53eb1e18130e9be4387a785b482187e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 487926, guid: 53eb1e18130e9be4387a785b482187e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487926, guid: 53eb1e18130e9be4387a785b482187e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.88
+      objectReference: {fileID: 0}
     - target: {fileID: 490224, guid: 53eb1e18130e9be4387a785b482187e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.10956245
@@ -2358,6 +2375,12 @@ GameObject:
 --- !u!1 &7435700186024517061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 140524, guid: 53eb1e18130e9be4387a785b482187e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7435700186024655145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7435700186024552487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 168206, guid: 53eb1e18130e9be4387a785b482187e1,
     type: 3}
   m_PrefabInstance: {fileID: 7435700186024655145}
   m_PrefabAsset: {fileID: 0}
