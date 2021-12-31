@@ -127,6 +127,10 @@ GameObject:
   - component: {fileID: 988267437493399586}
   - component: {fileID: 6286423580586430444}
   - component: {fileID: 4162215986373099097}
+  - component: {fileID: 5367415103410525088}
+  - component: {fileID: 8817376569454314890}
+  - component: {fileID: 2017017352635967776}
+  - component: {fileID: 4206499580755070784}
   m_Layer: 10
   m_Name: SelectionObj
   m_TagString: Untagged
@@ -176,8 +180,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 6, z: 8}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Size: {x: 8, y: 1.5, z: 8}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &4162215986373099097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +197,58 @@ MonoBehaviour:
   canSelect: 1
   selectOwnerOnly: 0
   minimapIconSize: 0.5
+--- !u!65 &5367415103410525088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899220871399952132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.02, y: 4, z: 6.05}
+  m_Center: {x: 1.67, y: 1.78, z: 0}
+--- !u!65 &8817376569454314890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899220871399952132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.58, y: 3.15, z: 2.65}
+  m_Center: {x: 0.59, y: 2.78, z: 0}
+--- !u!65 &2017017352635967776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899220871399952132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6, y: 6.08, z: 2.65}
+  m_Center: {x: 1.45, y: 4.04, z: 0}
+--- !u!65 &4206499580755070784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899220871399952132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.01, y: 1.82, z: 1.88}
+  m_Center: {x: 1.45, y: 7.76, z: 0}
 --- !u!1 &3491838370522144953
 GameObject:
   m_ObjectHideFlags: 0

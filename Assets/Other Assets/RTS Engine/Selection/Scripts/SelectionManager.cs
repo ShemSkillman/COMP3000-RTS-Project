@@ -66,8 +66,11 @@ namespace RTSEngine
         //some attributes required to select entities:
         [SerializeField]
         private LayerMask rayLayerMask; //layers which the selection manager can detect to perform entity selections
-        RaycastHit rayHit;
-        Ray rayCheck;
+
+        //RaycastHit rayHit;
+        //Ray rayCheck;
+        Vector3 debugPos = Vector3.zero;
+        Vector3 debugDir = Vector3.zero;
 
         //when enabled, player will be able to use the below key to follow a selected entity using the camera
         [System.Serializable]
@@ -119,6 +122,12 @@ namespace RTSEngine
                 ResetCameraFollow();
         }
 
+        private bool IsSelectionUnit(SelectionEntity selection)
+        {
+            return selection != null && selection.FactionEntity != null &&
+                    selection.FactionEntity.GetType() == typeof(Unit);
+        }
+
         void Update()
         {
             //If the game is not running or the player is currently placing a building
@@ -144,11 +153,36 @@ namespace RTSEngine
                 || gameMgr.CamMgr.MinimapCameraController.IsMouseOverMinimap(out RaycastHit hit) || (!leftButtonDown && !rightButtonDown))
                 return;
 
-            rayCheck = Camera.main.ScreenPointToRay(Input.mousePosition); //create a ray on the main camera from the mouse position
-            if(Physics.Raycast(rayCheck, out rayHit, Mathf.Infinity, rayLayerMask.value))
+            Ray clickPos = Camera.main.ScreenPointToRay(Input.mousePosition); //create a ray on the main camera from the mouse position
+            RaycastHit[] hits = Physics.RaycastAll(clickPos.origin, clickPos.direction, Mathf.Infinity);
+
+            debugDir = clickPos.direction;
+            debugPos = clickPos.origin;
+
+            RaycastHit preferredHit = new RaycastHit();
+            for (int i = 0; i < hits.Length; i++)
             {
-                SelectionEntity hitSelection = rayHit.transform.gameObject.GetComponent<SelectionEntity>(); //see if we have hit a selection entity
-                bool hitTerrain = gameMgr.TerrainMgr.IsTerrainTile(rayHit.transform.gameObject); //did we hit the terrain?
+                SelectionEntity hitSelection = hits[i].transform.gameObject.GetComponent<SelectionEntity>();
+
+                SelectionEntity preferredSelection = null;
+                if (preferredHit.transform != null)
+                {
+                    preferredSelection = preferredHit.transform.GetComponent<SelectionEntity>();
+                }
+
+                if (preferredHit.transform == null ||
+                    preferredSelection == null ||
+                    IsSelectionUnit(hitSelection) && !IsSelectionUnit(preferredSelection) ||
+                    preferredHit.distance > hits[i].distance && !(!IsSelectionUnit(hitSelection) && IsSelectionUnit(preferredSelection)))
+                {
+                    preferredHit = hits[i];
+                }
+            }
+
+            if (preferredHit.transform != null)
+            {
+                SelectionEntity hitSelection = preferredHit.transform.gameObject.GetComponent<SelectionEntity>(); //see if we have hit a selection entity
+                bool hitTerrain = gameMgr.TerrainMgr.IsTerrainTile(preferredHit.transform.gameObject); //did we hit the terrain?
                 
                 if(rightButtonDown) //right mouse button is down, this is an action on the hit selection entity
                 {
@@ -163,11 +197,11 @@ namespace RTSEngine
                         hitSelection.OnAction(TaskTypes.none); //trigger action
                     }
                     else if (hitTerrain) //no selection entity was hit but the terrain was hit
-                        OnSelectedUnitsAction(rayHit.point, TaskTypes.none); //either move selected units or launch a terrain attack
+                        OnSelectedUnitsAction(preferredHit.point, TaskTypes.none); //either move selected units or launch a terrain attack
 
                     Building selectedBuilding = (Building)selected.GetSingleEntity(EntityTypes.building, true); //get the single selected player faction building
                     if (selectedBuilding != null && (hitSelection != null || hitTerrain)) //valid player faction building? update rally point if we hit something or we hit the terrain
-                        selectedBuilding.UpdateRallyPoint(rayHit.point, hitSelection?.Source);
+                        selectedBuilding.UpdateRallyPoint(preferredHit.point, hitSelection?.Source);
                 }
                 else if(leftButtonDown) //if the left mouse button is down then this a selection action
                 {
@@ -178,7 +212,7 @@ namespace RTSEngine
                         //if terrain was not hit or it was hit but there's no selected unit action
                         if (!hitTerrain 
                             || (currTask != TaskTypes.movement && currTask != TaskTypes.attack)
-                            || !OnSelectedUnitsAction(rayHit.point, currTask) )
+                            || !OnSelectedUnitsAction(preferredHit.point, currTask) )
                             selected.RemoveAll(); //player is just clicking to clear selection
 
                         gameMgr.TaskMgr.UnitComponent.ResetAwaitingTaskType(); //& reset awaiting task type
@@ -194,6 +228,14 @@ namespace RTSEngine
                         selected.Add(hitSelection.Source, SelectionTypes.single); //select entity
                 }
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (debugPos != Vector3.zero && debugDir != Vector3.zero)
+            {
+                Gizmos.DrawLine(debugPos, debugPos + (debugDir * 100f));
+            }            
         }
 
         //monitor the player input to follow selected entities:

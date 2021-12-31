@@ -103,6 +103,12 @@ namespace RTSEngine
                 UpdateFactionColors(gameMgr.BuildingMgr.GetFreeBuildingColor());
                 factionID = -1;
             }
+
+
+            foreach (Outline outline in GetComponentsInChildren<Outline>())
+            {
+                outline.OutlineColor = color.color;
+            }
         }
 
         public void SetFaction(int fID)

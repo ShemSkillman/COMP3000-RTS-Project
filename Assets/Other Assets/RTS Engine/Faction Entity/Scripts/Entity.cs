@@ -202,6 +202,12 @@ namespace RTSEngine
 
             Color nextColor = free ? gameMgr.SelectionMgr.GetFreeSelectionColor() : color.color; //get the color
             plane.GetComponent<Renderer>().material.color = new Color(nextColor.r, nextColor.g, nextColor.b, 1f); //update the plane's color
+
+            Outline outline = plane.GetComponent<Outline>();
+            if (outline != null)
+            {
+                outline.OutlineColor = color.color;
+            }            
         }
 
         //disable the entity's selection plane:
