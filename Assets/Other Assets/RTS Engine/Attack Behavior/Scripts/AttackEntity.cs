@@ -130,7 +130,7 @@ namespace RTSEngine.EntityComponent
         private bool HasTarget() { return Target != null || (!requireTarget && terrainAttackActive); }
         public FactionEntity Target { private set; get; } //the current attack target
         //the target position is either the assigned target's current position or the last registered target position
-        public Vector3 GetTargetPosition() { return Target ? Target.GetSelection().transform.position : lastTargetPosition; }
+        public Vector3 GetTargetPosition() { return Target ? Target.GetSelection().FactionEntity.GetEntityCenterPos() : lastTargetPosition; }
         protected Vector3 lastTargetPosition; //where was the attack target when the last attack was triggered?
 
         protected bool wasInTargetRange = false; //is the attack entity already in its target range?
@@ -336,7 +336,7 @@ namespace RTSEngine.EntityComponent
                                              false,
                                              IsTargetAttackPositionValid,
                                              out FactionEntity potentialTarget) == ErrorMessage.none)
-                    SetTarget(potentialTarget, potentialTarget.transform.position);
+                    SetTarget(potentialTarget, potentialTarget.GetEntityCenterPos());
 
                 if (SearchRangeCenter == null)
                     break;

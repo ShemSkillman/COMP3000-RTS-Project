@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4006097213589458323}
   - component: {fileID: 3021242070125563578}
   - component: {fileID: 2659188614508755615}
+  - component: {fileID: 3558398370725994403}
   m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
@@ -42,6 +43,7 @@ Transform:
   - {fileID: 1013038051096034456}
   - {fileID: 7807404592496543659}
   - {fileID: 2198019182656509587}
+  - {fileID: 7781523637120217441}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,7 +58,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 5, z: 2}
+  m_Size: {x: 1.76, y: 5, z: 1.76}
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!54 &6563422195713349677
 Rigidbody:
@@ -220,7 +222,7 @@ MonoBehaviour:
   category: defense
   description: Defensive tower with range attack.
   icon: {fileID: 21300000, guid: 51bb048eb4224dc459007f43e84d8476, type: 3}
-  free: 1
+  free: 0
   selectionAudio:
     fetchType: 0
     audioClips: []
@@ -242,13 +244,13 @@ MonoBehaviour:
   factionEntityRequirements: []
   resources:
   - Name: Wood
-    Amount: 100
+    Amount: 200
   missingReqData:
     icon: {fileID: 0}
     color: {r: 1, g: 0, b: 0, a: 1}
   addPopulation: 0
   bonusResources: []
-  placedByDefault: 1
+  placedByDefault: 0
   spawnPosition: {fileID: 0}
   gotoPosition: {fileID: 0}
   regulatorData:
@@ -355,6 +357,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capturePointsPerSecond: 0
+--- !u!114 &3558398370725994403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006827845979013408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347e9f0293184a34987dcc5faa411f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabID: 0
+  isLocked: 0
+  isActive: 1
+  code: tower_range_attack
+  basic: 1
+  targetPicker:
+    type: 0
+    targetList: []
+    engageUnits: 1
+    engageFlyingUnits: 1
+    engageBuildings: 1
+  direct: 0
+  engageOnAssign: 0
+  engageWhenAttacked: 0
+  engageOnce: 0
+  engageFriendly: 0
+  engageInRange: 1
+  engageInRangeIdleOnly: 0
+  searchRange: 25
+  searchReload: 1
+  delayDuration: 0
+  delayTriggerEnabled: 0
+  useReload: 1
+  reloadDuration: 1.5
+  coolDownEnabled: 0
+  coolDownDuration: 10
+  requireTarget: 1
+  damage:
+    canDealDamage: 1
+    unitDamage: 20
+    buildingDamage: 20
+    customDamages: []
+    areaAttackEnabled: 0
+    attackRanges: []
+    dotEnabled: 0
+    dotAttributes:
+      infinite: 0
+      duration: 0
+      cycleDuration: 0
+    effect: {fileID: 0}
+    effectLifeTime: 0
+  reloadDealtDamage: 0
+  weapon:
+    weaponObject: {fileID: 0}
+    freezeRotationX: 0
+    freezeRotationY: 1
+    freezeRotationZ: 0
+    smoothRotation: 1
+    rotateInRangeOnly: 0
+    rotationDamping: 2
+    forceIdleRotation: 1
+    idleAngles: {x: 0, y: 0, z: 0}
+  lineOfSight:
+    enable: 0
+    useWeaponObject: 0
+    LOSAngle: 40
+    obstacleLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreRotationX: 0
+    ignoreRotationY: 0
+    ignoreRotationZ: 0
+  attackObjectLauncher:
+    launchType: 0
+    sources:
+    - attackObject: {fileID: 114020328508104920, guid: bdb36d1c28e3dfd4b855e03c70ca2490,
+        type: 3}
+      launchPosition: {fileID: 7781523637120217441}
+      launchRotationAngles: {x: 0, y: 0, z: 0}
+      accuracyModifier: {x: 0, y: 0, z: 0}
+      delayTime: 0
+      createInDelay: 0
+      damageInDelay: 1
+      delayParentObject: {fileID: 0}
+  attackTaskUI: {fileID: 11400000, guid: 91781cf5be89328499e3773d965eadca, type: 2}
+  attackerInRangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLockedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  attackPerformedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  attackDamageDealtEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  switchTaskUI: {fileID: 0}
+  orderAudio:
+    fetchType: 0
+    audioClips: []
+  attackAudio:
+    fetchType: 0
+    audioClips: []
 --- !u!1 &1392557258225392852
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +495,37 @@ Transform:
   - {fileID: 3683039220118386658}
   m_Father: {fileID: 2719359088675554796}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2029543804483015613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7781523637120217441}
+  m_Layer: 10
+  m_Name: Launch Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7781523637120217441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029543804483015613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.768, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2719359088675554796}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2615093727319879196
 GameObject:
@@ -450,7 +589,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.76, y: 4.5, z: 1.76}
+  m_Size: {x: 2, y: 4.5, z: 2}
   m_Center: {x: 0, y: 2.25, z: 0}
 --- !u!114 &3119988566539668837
 MonoBehaviour:
@@ -681,7 +820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7807404592496543659
 Transform:
   m_ObjectHideFlags: 0
@@ -980,15 +1119,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 240875b6dee8d804883a4a485f4ed145, type: 3}
---- !u!1 &2089167856139894832 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 240875b6dee8d804883a4a485f4ed145,
-    type: 3}
-  m_PrefabInstance: {fileID: 2089167856139994768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2089167856140131344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 240875b6dee8d804883a4a485f4ed145,
+    type: 3}
+  m_PrefabInstance: {fileID: 2089167856139994768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2089167856139894832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 240875b6dee8d804883a4a485f4ed145,
     type: 3}
   m_PrefabInstance: {fileID: 2089167856139994768}
   m_PrefabAsset: {fileID: 0}
@@ -1420,15 +1559,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8b6056e281f7c40b4f6f25ef610477, type: 3}
---- !u!1 &9161279192163268390 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: ce8b6056e281f7c40b4f6f25ef610477,
-    type: 3}
-  m_PrefabInstance: {fileID: 9161279192163168646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9161279192163560198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ce8b6056e281f7c40b4f6f25ef610477,
+    type: 3}
+  m_PrefabInstance: {fileID: 9161279192163168646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9161279192163268390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: ce8b6056e281f7c40b4f6f25ef610477,
     type: 3}
   m_PrefabInstance: {fileID: 9161279192163168646}
   m_PrefabAsset: {fileID: 0}

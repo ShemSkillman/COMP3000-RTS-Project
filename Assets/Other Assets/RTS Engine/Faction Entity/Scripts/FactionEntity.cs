@@ -25,6 +25,11 @@ namespace RTSEngine
             
         }
 
+        public Vector3 GetEntityCenterPos()
+        {
+            return GetComponent<Collider>().bounds.center;
+        }
+
         protected virtual void UpdateRendererColor(ColoredRenderer cRenderer, FactionColor fColor)
         {
             cRenderer.renderer.materials[cRenderer.materialID].color = fColor.color;

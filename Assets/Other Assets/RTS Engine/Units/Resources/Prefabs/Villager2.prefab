@@ -445,7 +445,7 @@ MonoBehaviour:
     description: 
     hideTooltipOnClick: 0
   constructFreeBuildings: 0
-  healthPerSecond: 3
+  healthPerSecond: 10
   constructionAudio:
     fetchType: 0
     audioClips:

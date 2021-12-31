@@ -18,6 +18,7 @@ MonoBehaviour:
     type: 3}
   centerBuilding: {fileID: 8980730581845679993, guid: eafd2c2ccb9cb7c4996ad70b7623311a,
     type: 3}
-  populationBuilding: {fileID: 0}
+  populationBuilding: {fileID: 4810416383647272699, guid: 94426e9307b14324eb0c20c00b3ddb5d,
+    type: 3}
   extraBuildings: []
   limits: []

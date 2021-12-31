@@ -163,7 +163,7 @@ namespace RTSEngine.Attack
                 && target != null
                 && Vector3.Distance(target.transform.position, initialTargetPosition) <= followTargetDistance)
             {
-                targetPosition = target.GetSelection().transform.position;
+                targetPosition = target.GetSelection().FactionEntity.GetEntityCenterPos();
                 mvtDirection = (targetPosition - transform.position).normalized;
             }
 
