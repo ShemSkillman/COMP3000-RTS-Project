@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Lobby/SinglePlayerMenu.unity
     guid: 418b61376f0250b40b619295d3466b06
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototype.unity
     guid: 78774e0fa28994c49960bdbbd7b619df
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3.unity
+    guid: b365d036ce5c1104cb82a8f2be9c30d5
   m_configObjects: {}

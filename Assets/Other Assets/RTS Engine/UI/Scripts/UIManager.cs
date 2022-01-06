@@ -150,7 +150,7 @@ namespace RTSEngine
 		//a method that contrls showing messags to the player:
 		public void ShowPlayerMessage(string message, MessageTypes type = MessageTypes.error)
 		{
-			playerMessageText.gameObject.SetActive (true);
+            playerMessageText.transform.parent.GetComponent<Image>().enabled = true;
 			playerMessageText.text = message;
 
             //new disable player message coroutine
@@ -165,8 +165,8 @@ namespace RTSEngine
         {
             yield return new WaitForSeconds(playerMessageDuration);
 
-			playerMessageText.text = "";
-		    playerMessageText.gameObject.SetActive (false);
+            playerMessageText.text = "";
+            playerMessageText.transform.parent.GetComponent<Image>().enabled = false;
         }
 
         [SerializeField]

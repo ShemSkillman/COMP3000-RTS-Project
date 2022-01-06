@@ -17,6 +17,7 @@ namespace RTSEngine
         [SerializeField]
         private float doubleClickSelectRange = 10.0f;
 
+
         //idle units selection options
         [System.Serializable]
         public struct IdleUnitsSelection
@@ -27,6 +28,9 @@ namespace RTSEngine
         }
         [SerializeField]
         private IdleUnitsSelection idleUnitsSelection = new IdleUnitsSelection();
+
+        GameObject idleVillagerBtn;
+        int idleVillagerIndex = 0;
 
         [SerializeField]
         private KeyCode multipleSelectionKey = KeyCode.LeftControl; //key used to select multiple units.
@@ -108,6 +112,9 @@ namespace RTSEngine
 
             //listen to events
             CustomEvents.EntityDeselected += OnEntityDeselected;
+
+            idleVillagerBtn = GameObject.Find("SelectIdleWorkersButton");
+            idleVillagerBtn.SetActive(false);
         }
 
         private void OnDisable () 
@@ -131,7 +138,23 @@ namespace RTSEngine
         void Update()
         {
             //If the game is not running or the player is currently placing a building
-            if (GameManager.GameState != GameState.running || gameMgr.PlacementMgr.IsBuilding())
+            if (GameManager.GameState != GameState.running)
+                return; //don't proceed
+
+            bool idleFound = false;
+            foreach (Unit unit in GameManager.PlayerFactionMgr.GetUnits()) //go through all units in player faction
+            {
+                //if the unit is idle and check whether we have to select workers only (builder & collectors) or not
+                if (unit.IsIdle() == true && (idleUnitsSelection.workersOnly == false || unit.BuilderComp != null || unit.CollectorComp))
+                {
+                    idleFound = true;
+                    break;
+                }
+            }
+
+            idleVillagerBtn.SetActive(idleFound);
+
+            if (gameMgr.PlacementMgr.IsBuilding())
                 return; //don't proceed
 
             UpdateCameraFollow(); //following entities with the camera
@@ -316,13 +339,40 @@ namespace RTSEngine
         //a method that selects the local player faction's idle units
         public void SelectIdleUnits () //if worker only is set to true then only units with the builder or the resource collector components will be selected
         {
-            selected.RemoveAll(); //deselect all currently selected entities.
-            foreach(Unit unit in GameManager.PlayerFactionMgr.GetUnits()) //go through all units in player faction
+
+            List<Unit> idleUnits = new List<Unit>();
+            foreach (Unit unit in GameManager.PlayerFactionMgr.GetUnits()) //go through all units in player faction
             {
                 //if the unit is idle and check whether we have to select workers only (builder & collectors) or not
                 if (unit.IsIdle() == true && (idleUnitsSelection.workersOnly == false || unit.BuilderComp != null || unit.CollectorComp))
-                    selected.Add(unit, SelectionTypes.multiple);
+                {
+                    idleUnits.Add(unit);
+                }
             }
+
+            if (idleUnits.Count < 1)
+            {
+                return;
+            }
+
+            if (idleVillagerIndex >= idleUnits.Count)
+            {
+                idleVillagerIndex = 0;
+            }
+
+            Unit toSelect = idleUnits[idleVillagerIndex];
+
+            if (selected.Count == 1 && selected.Contains(toSelect))
+            {
+                return;
+            }
+
+            selected.RemoveAll(); //deselect all currently selected entities.
+
+            selected.Add(toSelect, SelectionTypes.single);
+            gameMgr.CamMgr.LookAt(toSelect.transform.position, false);
+
+            idleVillagerIndex++;
         }
         
         //a method to select faction entities of the same type inside a defined range

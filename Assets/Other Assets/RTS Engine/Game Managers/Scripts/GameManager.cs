@@ -525,5 +525,10 @@ namespace RTSEngine
 #endif
             }
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
