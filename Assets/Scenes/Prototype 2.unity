@@ -34721,6 +34721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barbarian
       objectReference: {fileID: 0}
+    - target: {fileID: 2787197986251586902, guid: 5ef20966daed7334db5226f0bb522987,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3219414558332336073, guid: 5ef20966daed7334db5226f0bb522987,
         type: 3}
       propertyPath: m_RootOrder
