@@ -11,7 +11,7 @@ namespace RTSEngine
     /// Defines groups of FactionTypeInfo asset files where each group uses a single NPCManager prefab.
     /// </summary>
     [System.Serializable]
-    public class NPCManagerSingle : TypeFilteredValue<FactionTypeInfo, NPCManager>
+    public class NPCManagerSingle : TypeFilteredValue<FactionTypeInfo, AIBrain>
     {
         /// <summary>
         /// Each instance includes a list of FactionTypeInfo asset files that share one NPCManager prefab.
@@ -20,7 +20,7 @@ namespace RTSEngine
         public struct Element
         {
             public List<FactionTypeInfo> factionTypes;
-            public NPCManager prefab;
+            public AIBrain prefab;
         }
         [SerializeField, Tooltip("Each element allows to define a group of faction types that share one NPCManager prefab.")]
         private List<Element> typeSpecific = new List<Element>();
@@ -30,7 +30,7 @@ namespace RTSEngine
         /// </summary>
         /// <param name="factionType">FactionTypeInfo instance to search for a match for.</param>
         /// <returns>NPCManager prefab that matches the given faction type.</returns>
-        public override NPCManager Filter(FactionTypeInfo searchType)
+        public override AIBrain Filter(FactionTypeInfo searchType)
         {
             filtered = allTypes; //NPCManager prefab assigned to the allTypes element is available for all faction type
 

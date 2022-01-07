@@ -15,7 +15,7 @@ namespace RTSEngine
 
         #region Class Properties
         //other components that the NPCComponent might need access to
-        protected NPCManager npcMgr;
+        protected AIBrain npcMgr;
         protected FactionManager factionMgr;
         protected GameManager gameMgr;
 
@@ -38,7 +38,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public virtual void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public virtual void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             //assign components
             this.gameMgr = gameMgr;

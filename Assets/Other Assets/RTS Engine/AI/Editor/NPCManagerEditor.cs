@@ -7,10 +7,10 @@ using RTSEngine;
 /* NPC Manager Editor script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */
 
-[CustomEditor(typeof(NPCManager))]
+[CustomEditor(typeof(AIBrain))]
 public class NPCManagerEditor : Editor {
 
-    /*NPCManager targetNPCMgr;
+    /*AIBrain targetNPCMgr;
     SerializedObject target_SO;
 
     private string regulatorFolderPath;
@@ -19,7 +19,7 @@ public class NPCManagerEditor : Editor {
 
     public void OnEnable()
     {
-        targetNPCMgr = (NPCManager)target;
+        targetNPCMgr = (AIBrain)target;
 
         target_SO = new SerializedObject(targetNPCMgr);
 

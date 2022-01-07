@@ -39,20 +39,6 @@ namespace RTSEngine
         [SerializeField, Tooltip("The Transform from which the look at position is set, when the unit spawns.")]
         private Transform spawnLookAt = null;
 
-        //NPC Related:
-        [SerializeField, Tooltip("Data required to manage the creation of this unit in a NPC faction.")]
-        private NPCUnitRegulatorDataSingle regulatorData = new NPCUnitRegulatorDataSingle();
-        /// <summary>
-        /// Gets a NPCUnitRegulatorData instance that suits the input requirements.
-        /// </summary>
-        /// <param name="factionType">FactionTypeInfo instance that defines the faction type of the regulator data.</param>
-        /// <param name="npcManagerCode">The NPCManager instance code that defines the NPC Manager type.</param>
-        /// <returns>NPCUnitRegulatorData instance if both requirements are met.</returns>
-        /// 
-
-        public NPCUnitRegulatorData GetRegulatorData (FactionTypeInfo factionType, string npcManagerCode) {
-            return regulatorData.Filter(factionType, npcManagerCode); }
-
         //Unit components:
         public UnitHealth HealthComp { private set; get; }
         public Converter ConverterComp { private set; get; }

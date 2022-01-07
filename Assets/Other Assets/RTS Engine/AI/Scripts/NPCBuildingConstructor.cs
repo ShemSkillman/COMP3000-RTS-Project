@@ -42,7 +42,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -84,9 +84,6 @@ namespace RTSEngine
                     $"[NPCBuildingConstructor] NPC Faction ID: {factionMgr.FactionID} 'Builders' list has some unassigned elements.");
 
                 NPCUnitRegulator nextRegulator = null;
-                //as soon a builder prefab produces a valid builder regulator instance (matches the faction type and faction npc manager), add it to be monitored:
-                if ((nextRegulator = npcMgr.GetNPCComp<NPCUnitCreator>().ActivateUnitRegulator(builder.GetComponent<Unit>())) != null)
-                    builderMonitor.Replace("", nextRegulator.Code);
             }
 
             Assert.IsTrue(builderMonitor.GetCount() > 0, 
@@ -140,13 +137,6 @@ namespace RTSEngine
 
             buildingsToConstruct.Add(building); //add building to constructions buildings list
             Activate(); //NPC Building Constructor is now active again.
-
-            //add the construction task to the task manager queue:
-            npcMgr.GetNPCComp<NPCTaskManager>().AddTask(new NPCTask()
-            {
-                type = NPCTaskType.constructBuilding,
-                target = building
-            }, constructionTaskPriority);
         }
         
         /// <summary>
@@ -232,7 +222,7 @@ namespace RTSEngine
             int requiredBuilders = GetTargetBuildersAmount(building) - building.WorkerMgr.currWorkers;
 
             int i = 0; //counter.
-            List<Unit> currentBuilders = npcMgr.GetNPCComp<NPCUnitCreator>().GetActiveUnitRegulator(builderMonitor.GetRandomCode()).GetIdleUnitsFirst(); //get the list of the current faction builders.
+            List<Unit> currentBuilders = new List<Unit>();
 
             //while we still need builders for the building and we haven't gone through all builders.
             while (i < currentBuilders.Count && requiredBuilders > 0)

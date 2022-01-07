@@ -55,7 +55,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -130,8 +130,6 @@ namespace RTSEngine
             //if this is the first border component that has been activated => capital building:
             if (!firstBuildingCenterInitialized)
             {
-                npcMgr.GetNPCComp<NPCTerritoryManager>().ActivateCenterRegulator(); //activate the center regulator in the territory manager.
-                npcMgr.GetNPCComp<NPCPopulationManager>().ActivatePopulationBuildingRegulators(); //activate the population building
 
                 firstBuildingCenterInitialized = true; //component initiated for the first time
             }
@@ -192,37 +190,7 @@ namespace RTSEngine
         /// <param name="centerRegulator">The BuildingCenterRegulator instance for which the NPCBuildingRegulator instance will be created.</param>
         public NPCBuildingRegulator ActivateBuildingRegulator(Building building, BuildingCenterRegulator centerRegulator)
         {
-            NPCBuildingRegulatorData data = building.GetRegulatorData(factionMgr.Slot.GetTypeInfo(), npcMgr.NPCType.Key); //get the regulator data
-
-            if (data == null) //invalid regulator data?
-                return null; //do not proceed
-
-            //see if the building regulator is already active on the center or not
-            NPCBuildingRegulator activeInstance = GetActiveBuildingRegulator(building.GetCode(), centerRegulator);
-            if(activeInstance != null)
-                return activeInstance; //return the already active instance.
-
-            //we will be activating the building regulator for the input center only
-            ActiveBuildingRegulator newBuildingRegulator = new ActiveBuildingRegulator()
-            {
-                //create new instance
-                instance = new NPCBuildingRegulator(data, building, gameMgr, npcMgr, this, centerRegulator.buildingCenter),
-                //initial spawning timer: regular spawn reload + start creating after value
-                spawnTimer = data.GetCreationDelayTime()
-            };
-
-            //add it to the active building regulators list of the current building center.
-            centerRegulator.activeBuildingRegulators.Add(building.GetCode(), newBuildingRegulator);
-
-            //if the building is not already in the current list of the buildings that can be used by the NPC faction, add it:
-            if(!currBuildings.Contains(building))
-                currBuildings.Add(building);
-
-            //whenever a new regulator is added to the active regulators list, then move the building creator into the active state
-            Activate();
-
-            //return the new created instance:
-            return newBuildingRegulator.instance;
+            return null;
         }
 
         /// <summary>
@@ -454,11 +422,6 @@ namespace RTSEngine
                     buildAroundRadius = buildingCenter.GetRadius();
                     break;
             }
-
-            //finally make request to place building:
-            npcMgr.GetNPCComp<NPCBuildingPlacer>().OnBuildingPlacementRequest(
-                instance.Prefab, buildAround, buildAroundRadius, buildingCenter,
-                instance.Data.GetBuildAroundDistance(), instance.Data.CanRotate());
 
             return true;
         }

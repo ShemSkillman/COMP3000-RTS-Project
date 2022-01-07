@@ -10,6 +10,8 @@ namespace RTSEngine
         public int FactionID { private set; get; } //the faction ID that this manager belongs to.
         public FactionSlot Slot {private set; get;}
 
+        public Building TownCenter { private set; get; }
+
         private List<FactionEntity> factionEntities = new List<FactionEntity>(); //contains all faction entities (units+buildings) that belong to this faction
         public IEnumerable<FactionEntity> GetFactionEntities() { return factionEntities; } //get the faction entities enumerator
         private List<FactionEntity> enemyFactionEntities = new List<FactionEntity>(); //contains all the enemy faction entities.
@@ -84,7 +86,7 @@ namespace RTSEngine
 
             CustomEvents.TaskLauncherAdded += OnTaskLauncherAdded;
             CustomEvents.TaskLauncherRemoved += OnTaskLauncherRemoved;
-		}
+        }
 
         private void OnDisable()
         {
@@ -181,6 +183,11 @@ namespace RTSEngine
         //the method that registers the building:
         private void AddBuilding (Building building)
 		{
+            if (building.GetCode() == "town_center")
+            {
+                TownCenter = building;
+            }
+
             if (building.IsFree() || building.FactionID != FactionID) //if the building doesn't belong to this faction
             {
                 enemyBuildings.Add(building);

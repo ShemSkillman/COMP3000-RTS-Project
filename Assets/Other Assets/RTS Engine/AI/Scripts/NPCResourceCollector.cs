@@ -102,7 +102,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -175,8 +175,7 @@ namespace RTSEngine
 
                 NPCUnitRegulator nextRegulator = null;
                 //as soon a collector prefab produces a valid unit regulator instance (matches the faction type and faction npc manager), add it to monitor component
-                if (collector.CanCollectResourceType(resourceType, false) //also make sure the resource collector can collect this resource type.
-                    && (nextRegulator = npcMgr.GetNPCComp<NPCUnitCreator>().ActivateUnitRegulator(collector.GetComponent<Unit>())) != null)
+                if (collector.CanCollectResourceType(resourceType, false))
                     collectorMonitor.Replace("", nextRegulator.Code);
             }
 
@@ -294,9 +293,6 @@ namespace RTSEngine
                         Debug.Log(rtc.collectorsAmount);
                     }*/
 
-                    if (!rtc.CanAddCollector(npcMgr.GetNPCComp<NPCUnitCreator>().GetActiveUnitRegulator(rtc.collectorMonitor.GetRandomCode()).Count))
-                        continue; //next resource type
-
                     Activate(); //set state back to active so we can keep monitoring whether resource collectors have been correctly assigned or not.
 
                     //go through all resource instances of the current type
@@ -335,8 +331,7 @@ namespace RTSEngine
             int requiredCollectors = targetCollectorsAmount - resource.WorkerMgr.currWorkers;
 
             int i = 0; //counter.
-            List<Unit> currentCollectors = npcMgr.GetNPCComp<NPCUnitCreator>().GetActiveUnitRegulator(
-                collectionInfo[resource.GetResourceType()].collectorMonitor.GetRandomCode()).GetIdleUnitsFirst(); //get the list of the current faction collectors.
+            List<Unit> currentCollectors = new List<Unit>();
 
             //while we still need collectors for the building and we haven't gone through all collectors.
             while (i < currentCollectors.Count && requiredCollectors > 0)

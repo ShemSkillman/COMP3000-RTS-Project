@@ -61,7 +61,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -140,7 +140,6 @@ namespace RTSEngine
                 {
                     //if yes, then add it:
                     centerResources[buildingCenter].exploitedResources.Add(resource);
-                    npcMgr.GetNPCComp<NPCResourceCollector>().AddResourceToCollect(resource);
                 }
                 else
                     //if not add resource to idle list:
@@ -161,9 +160,6 @@ namespace RTSEngine
             {
                 bcr.exploitedResources.Remove(resource);
                 bcr.idleResources.Remove(resource);
-
-                //remove them from the resources to collect list in the NPC Resource Collector
-                npcMgr.GetNPCComp<NPCResourceCollector>().RemoveResourceToCollect(resource);
 
                 foreach (Unit unit in resource.WorkerMgr.GetAll().ToList())
                     unit.CollectorComp.Stop();
@@ -209,7 +205,6 @@ namespace RTSEngine
                     bcr.idleResources.Remove(nextExploitedResource);
                     bcr.exploitedResources.Add(nextExploitedResource);
                     //request the resource collector component to handle the collection of that resource
-                    npcMgr.GetNPCComp<NPCResourceCollector>().AddResourceToCollect(nextExploitedResource);
 
                     break;
                 }

@@ -35,7 +35,7 @@ namespace RTSEngine
         /// </summary>
         /// <param name="factionType">FactionTypeInfo instance to search a match for.</param>
         /// <returns>NPCManager prefab that manages the NPC type with the given faction type.</returns>
-        public NPCManager GetNPCManagerPrefab (FactionTypeInfo factionType)
+        public AIBrain GetNPCManagerPrefab (FactionTypeInfo factionType)
         {
             return npcManagers.Filter(factionType);
         }

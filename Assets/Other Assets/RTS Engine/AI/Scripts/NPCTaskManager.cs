@@ -63,7 +63,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -127,13 +127,6 @@ namespace RTSEngine
                         case NPCTaskType.constructBuilding:
                             //construct a building?
                             //making sure that the building is still under construction
-                            if (npcMgr.GetNPCComp<NPCBuildingConstructor>().IsBuildingUnderConstruction(nextTask.target as Building))
-                            {
-                                //request the building constructor and force it to construct building.
-                                npcMgr.GetNPCComp<NPCBuildingConstructor>().OnBuildingConstructionRequest(nextTask.target as Building, false, true);
-                                i++;
-                            }
-                            else
                                 //remove task:
                                 RemoveTask(0, i);
                             break;

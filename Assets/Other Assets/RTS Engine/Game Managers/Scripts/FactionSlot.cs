@@ -106,25 +106,24 @@ namespace RTSEngine
         [SerializeField, Tooltip("Default NPC type for this slot.")]
         private NPCTypeInfo npcType = null; //Drag and drop the NPCTypeInfo asset here.
 
-        private NPCManager npcMgrIns; //the active instance of the NPC manager prefab.
+        private AIBrain aiBrain; //the active instance of the NPC manager prefab.
         //get the NPC Manager instance:
-        public NPCManager GetNPCMgrIns() { return npcMgrIns; }
+        public AIBrain GetAIBrain() { return aiBrain; }
 
         //init the npc manager:
-        public void InitNPCMgr(GameManager gameMgr)
+        public void InitAIBrain(GameManager gameMgr)
         {
             //making sure there's a valid npc type and a valid NPCManager prefab for it:
             Assert.IsNotNull(npcType,
                 $"[FactionSlot] NPC Faction of ID: {ID} does not have a NPCTypeInfo assigned, will be initiated as dummy faction.");
 
-            NPCManager npcMgrPrefab = npcType.GetNPCManagerPrefab(typeInfo);
+            AIBrain npcMgrPrefab = npcType.GetNPCManagerPrefab(typeInfo);
             Assert.IsNotNull(npcMgrPrefab,
                 $"[FactionSlot] NPC Faction of ID: {ID} does not have a NPCManager prefab defined for its type, will be initiated as dummy faction.");
 
-            npcMgrIns = Object.Instantiate(npcMgrPrefab.gameObject).GetComponent<NPCManager>();
-            
-            //init the npc manager instance:
-            npcMgrIns.Init(npcType, gameMgr, FactionMgr);
+            aiBrain = Object.Instantiate(npcMgrPrefab.gameObject).GetComponent<AIBrain>();
+
+            aiBrain.Init(gameMgr, FactionMgr);
         }
 
         public bool IsNPCFaction() //is this faction NPC?
@@ -143,19 +142,6 @@ namespace RTSEngine
         }
         [SerializeField]
         private DefaultFactionEntity[] defaultFactionEntities = new DefaultFactionEntity[0];
-
-        //multiplayer related attributes:
-#if RTSENGINE_MIRROR
-        //Mirror: 
-        public NetworkLobbyFaction_Mirror LobbyFaction_Mirror { private set; get; }
-        public NetworkFactionManager_Mirror FactionManager_Mirror { set; get; }
-        public int ConnID_Mirror { set; get; }
-
-        public void InitMultiplayer (NetworkLobbyFaction_Mirror lobbyFaction)
-        {
-            this.LobbyFaction_Mirror = lobbyFaction;
-        }
-#endif
 
         //init the faction slot and update the faction attributes
         public void Init(string name, FactionTypeInfo typeInfo, FactionColor color, bool playerControlled, int population, NPCTypeInfo npcType, FactionManager factionMgr, int factionID, GameManager gameMgr)
@@ -188,7 +174,7 @@ namespace RTSEngine
             }
             else if (IsNPCFaction() == true) //if this is not controlled by the local player but rather NPC.
                 //Init the NPC Faction manager:
-                InitNPCMgr(gameMgr);
+                InitAIBrain(gameMgr);
 
             Lost = false;
 

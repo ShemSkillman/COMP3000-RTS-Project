@@ -71,7 +71,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -110,11 +110,6 @@ namespace RTSEngine
                     $"[NPCPopulationManager] NPC Faction ID: {factionMgr.FactionID} 'Population Buildings' list has includes Building of code: {building.GetCode()} that does not add population slots.");
 
                 NPCBuildingRegulator nextRegulator = null;
-                //only add the army unit regulators that match this NPC faction's type
-                if ((nextRegulator = npcMgr.GetNPCComp<NPCBuildingCreator>().ActivateBuildingRegulator(
-                    building,
-                    npcMgr.GetNPCComp<NPCBuildingCreator>().GetCapitalBuildingRegualtor())) != null)
-                    populationBuildingsMonitor.Replace("", nextRegulator.Code);
             }
 
             if(populationBuildingsMonitor.GetCount() <= 0)
@@ -208,10 +203,7 @@ namespace RTSEngine
                 return false;
 
             //attempt to add population building
-            return npcMgr.GetNPCComp<NPCBuildingCreator>().OnCreateBuildingRequest(
-                populationBuildingsMonitor.GetRandomCode(), //choose a random population building
-                false, //request is coming from outside the NPCBuildingCreator instance component
-                null); //building center hasn't been specified
+            return false;
         }
         #endregion
     }

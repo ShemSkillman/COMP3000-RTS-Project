@@ -52,7 +52,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -97,11 +97,6 @@ namespace RTSEngine
                 return;
 
             OnUnitSupportRequest(factionEntity.transform.position, source); //launch unit support request, allows other NPC units to help defend the damaged unit
-
-            //check if the building is not actually part of an active attack at another faction
-            if (!npcMgr.GetNPCComp<NPCAttackManager>().IsUnitDeployed(factionEntity as Unit))
-                //NPC faction is under attack, launch defense.
-                LaunchDefense(factionEntity.transform.position, false);
         }
         #endregion
 
@@ -147,11 +142,6 @@ namespace RTSEngine
             Building defenseCenter = BuildingManager.GetClosestBuilding(defensePosition, factionMgr.GetBuildingCenters());
 
             ToggleCenterDefense(defenseCenter, true, forceCapitalChange); //enable defense for the closest building center to the defense position.
-
-            //is the NPC faction is undergoing an active attack on another faction but it's not allowed in defense mode?
-            if(cancelAttackOnDefense && npcMgr.GetNPCComp<NPCAttackManager>().IsAttacking)
-                //cancel attack:
-                npcMgr.GetNPCComp<NPCAttackManager>().CancelAttack();
         }
 
         /// <summary>
@@ -182,11 +172,6 @@ namespace RTSEngine
             //go through the army units and set the defense center:
             foreach (Unit unit in factionMgr.GetAttackUnits())
             {
-                //make sure the unit is not deployed for attack:
-                if (npcMgr.GetNPCComp<NPCAttackManager>().IsUnitDeployed(unit) == false)
-                    //go through attack types of the unit.
-                    foreach (AttackEntity attackEntity in unit.AllAttackComp)
-                        attackEntity.SearchRangeCenter = (enable) ? lastDefenseCenter.BorderComp : null;
             }
         }
 

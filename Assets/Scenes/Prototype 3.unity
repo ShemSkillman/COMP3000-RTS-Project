@@ -10096,7 +10096,7 @@ MonoBehaviour:
     maxPopulation: 200
     capitalBuilding: {fileID: 1028066853}
     camLookAtPos: {fileID: 1028066852}
-    npcType: {fileID: 11400000, guid: a5ea2df505968cd43ad2f45542b531b2, type: 2}
+    npcType: {fileID: 0}
     defaultFactionEntities:
     - instances:
       - {fileID: 1554696096}

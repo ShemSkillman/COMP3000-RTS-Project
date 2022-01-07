@@ -72,7 +72,7 @@ namespace RTSEngine
         /// <summary>
         /// NPCManager instance of the NPC faction in the currently active game.
         /// </summary>
-        protected NPCManager npcMgr;
+        protected AIBrain npcMgr;
         #endregion
 
         #region Initializing/Terminating
@@ -83,7 +83,7 @@ namespace RTSEngine
         /// <param name="prefab">FactionEntity derived prefab to regulate.</param>
         /// <param name="gameMgr">GameManager instance of the currently active game.</param>
         /// <param name="npcMgr">NPCManager instance that manages the NPC faction to whome the regulator component belongs.</param>
-        public NPCRegulator (NPCRegulatorData data, FactionEntity prefab, GameManager gameMgr, NPCManager npcMgr)
+        public NPCRegulator (NPCRegulatorData data, FactionEntity prefab, GameManager gameMgr, AIBrain npcMgr)
         {
             //assign components
             this.gameMgr = gameMgr;
@@ -91,9 +91,6 @@ namespace RTSEngine
 
             this.npcMgr = npcMgr;
             Assert.IsNotNull(this.npcMgr, "[NPCRegulator] Initializing without a reference to the faction's NPCManager instance is not allowed!");
-
-            this.factionMgr = npcMgr.FactionMgr;
-            Assert.IsNotNull(this.factionMgr, "[NPCRegulator] Initializing without a reference to the faction's FactionManager instance is not allowed!");
 
             //pick the rest random settings from the given info.
             MaxAmount = data.GetMaxAmount();

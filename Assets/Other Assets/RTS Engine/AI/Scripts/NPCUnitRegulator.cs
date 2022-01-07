@@ -70,7 +70,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the currently active game.</param>
         /// <param name="npcMgr">NPCManager instance that manages the NPC faction to whome the regulator component belongs.</param>
         /// <param name="unitCreator_NPC">NPCUnitCreator instance of the NPC faction that's responsible for creating units.</param>
-        public NPCUnitRegulator (NPCUnitRegulatorData data, Unit prefab, GameManager gameMgr, NPCManager npcMgr, NPCUnitCreator unitCreator_NPC) 
+        public NPCUnitRegulator (NPCUnitRegulatorData data, Unit prefab, GameManager gameMgr, AIBrain npcMgr, NPCUnitCreator unitCreator_NPC) 
             : base(data, prefab, gameMgr, npcMgr)
         {
             this.Data = data;

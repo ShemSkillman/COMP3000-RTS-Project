@@ -37,7 +37,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -89,7 +89,7 @@ namespace RTSEngine
         /// <returns>The created and active NPCUnitRegulator instance.</returns>
         public NPCUnitRegulator ActivateUnitRegulator(Unit unit)
         {
-            NPCUnitRegulatorData data = unit.GetRegulatorData(factionMgr.Slot.GetTypeInfo(), npcMgr.NPCType.Key); //get the regulator data
+            NPCUnitRegulatorData data = null;
 
             if (data == null) //invalid regulator data?
                 return null; //do not proceed
@@ -234,9 +234,7 @@ namespace RTSEngine
                                 requestedAmount--; //decrease amount required
                                 break;
 
-                            case ErrorMessage.maxPopulationReached: //in case of failure due to max population reach.
-                                //ask the NPC population manager to add a new population building and stop the whole process:
-                                npcMgr.GetNPCComp<NPCPopulationManager>().OnAddPopulationRequest(false);
+                            case ErrorMessage.maxPopulationReached:
                                 return;
 
                             default:

@@ -468,7 +468,7 @@ namespace RTSEngine
             //Destroy all buildings and kill all units:
             if (factions[factionID].IsNPCFaction() == true) //if his is a NPC faction
                 //destroy the active instance of the NPC Manager component:
-                Destroy(factions[factionID].GetNPCMgrIns().gameObject);
+                Destroy(factions[factionID].GetAIBrain().gameObject);
 
             //go through all the units/buildings that this faction owns and destroy them
             //because we'll be modifying the source list by destroying the buildings, we need to create a temporary list

@@ -36,7 +36,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -63,9 +63,6 @@ namespace RTSEngine
                     $"[NPCArmyCreator] NPC Faction ID: {factionMgr.FactionID} 'Army Unit' list has some unassigned elements.");
 
                 NPCUnitRegulator nextRegulator = null;
-                //only add the army unit regulators that match this NPC faction's type
-                if ((nextRegulator = npcMgr.GetNPCComp<NPCUnitCreator>().ActivateUnitRegulator(armyUnit.GetComponent<Unit>())) != null)
-                    armyUnitsMonitor.Replace("", nextRegulator.Code);
             }
 
             Assert.IsTrue(armyUnitsMonitor.GetCount() > 0, 
@@ -86,7 +83,7 @@ namespace RTSEngine
             //go through the active instances of the army unit regulators:
             foreach (string unitCode in armyUnitsMonitor.GetAll())
             {
-                NPCUnitRegulator unitRegulator = npcMgr.GetNPCComp<NPCUnitCreator>().GetActiveUnitRegulator(unitCode); //get the regulator instance for the unit code
+                NPCUnitRegulator unitRegulator = null;
                 if (unitRegulator == null)
                     print(unitCode);
 

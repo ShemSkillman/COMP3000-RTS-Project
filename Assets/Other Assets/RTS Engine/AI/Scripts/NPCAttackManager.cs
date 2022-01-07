@@ -80,7 +80,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init(GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init(GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -245,8 +245,7 @@ namespace RTSEngine
         private void OnLaunchAttackUpdate()
         {
             if (IsAttacking //if the NPC faction is already attacking
-                || targetFaction == null //or it has no target faction 
-                || npcMgr.GetNPCComp<NPCDefenseManager>().IsActive) //or it's currently defending its territory
+                || targetFaction == null) //or it has no target faction 
                 return; //halt attack update
 
             //launch attack timer:
@@ -302,7 +301,6 @@ namespace RTSEngine
         {
             //clear the current attack units list:
             currentAttackUnits.Clear();
-            currentAttackUnits.AddRange(factionMgr.GetAttackUnits(1 - npcMgr.GetNPCComp<NPCDefenseManager>().GetDefenseRatio())); //get the required units for this attack.
         }
         #endregion
 
@@ -437,8 +435,6 @@ namespace RTSEngine
         /// </summary>
         public void CancelAttack ()
         {
-            //send back units:
-            npcMgr.GetNPCComp<NPCDefenseManager>().SendBackUnits(currentAttackUnits);
 
             //clear the current attack units:
             currentAttackUnits.Clear();

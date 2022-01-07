@@ -46,7 +46,7 @@ namespace RTSEngine
         /// <param name="gameMgr">GameManager instance of the current game.</param>
         /// <param name="npcMgr">NPCManager instance that manages this NPCComponent instance.</param>
         /// <param name="factionMgr">FactionManager instance of the faction that this component manages.</param>
-        public override void Init (GameManager gameMgr, NPCManager npcMgr, FactionManager factionMgr)
+        public override void Init (GameManager gameMgr, AIBrain npcMgr, FactionManager factionMgr)
         {
             base.Init(gameMgr, npcMgr, factionMgr);
 
@@ -107,11 +107,6 @@ namespace RTSEngine
                     $"[NPCTerritoryManager] NPC Faction ID: {factionMgr.FactionID} 'Centers' list has some unassigned elements.");
 
                 NPCBuildingRegulator nextRegulator = null;
-                //as soon a center prefab produces a valid building regulator instance (matches the faction type and faction npc manager), add to monitoring
-                if ((nextRegulator = npcMgr.GetNPCComp<NPCBuildingCreator>().ActivateBuildingRegulator(
-                    center.GetComponent<Building>(),
-                    npcMgr.GetNPCComp<NPCBuildingCreator>().GetCapitalBuildingRegualtor())) != null)
-                    centerMonitor.Replace("", nextRegulator.Code);
             }
 
             Assert.IsTrue(centerMonitor.GetCount() > 0, 
@@ -215,12 +210,6 @@ namespace RTSEngine
             //if this has been requested by another NPC component yet it's not allowed:
             if (auto == false && expandOnDemand == false)
                 return; //do not proceed.
-
-            //request building creator to create new instance:
-            npcMgr.GetNPCComp<NPCBuildingCreator>().OnCreateBuildingRequest(
-                centerMonitor.GetRandomCode(),
-                false, 
-                npcMgr.GetNPCComp<NPCBuildingCreator>().GetCapitalBuildingRegualtor().buildingCenter);
         }
         #endregion
     }
