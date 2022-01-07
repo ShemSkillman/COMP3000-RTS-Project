@@ -269,7 +269,7 @@ namespace RTSEngine
         {
             //calculate new target amount for the regulated unit type instances and limit by max and min allowed amount
             TargetCount = Mathf.Clamp(
-                (int)(factionMgr.Slot.GetMaxPopulation() * ratio),
+                (int)(factionMgr.Slot.GetPopulationCapacity() * ratio),
                 MinAmount,
                 MaxAmount);
 

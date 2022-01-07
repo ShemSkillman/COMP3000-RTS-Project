@@ -94,7 +94,7 @@ namespace RTSEngine
             if(task.GetTaskType() == TaskTypes.createUnit) //if this is a unit creation task..
             {
                 int nextPopulation = task.UnitPopulationSlots + gameMgr.GetFaction(taskLauncher.FactionEntity.FactionID).GetCurrentPopulation();
-                if (nextPopulation > gameMgr.GetFaction(taskLauncher.FactionEntity.FactionID).GetMaxPopulation()) //check the population slots
+                if (nextPopulation > gameMgr.GetFaction(taskLauncher.FactionEntity.FactionID).GetPopulationCapacity()) //check the population slots
                     return ErrorMessage.maxPopulationReached;
 
                 if (taskLauncher.FactionEntity.FactionMgr.HasReachedLimit(task.UnitCode, task.UnitCode)) //did the unit type to create reach its limit,

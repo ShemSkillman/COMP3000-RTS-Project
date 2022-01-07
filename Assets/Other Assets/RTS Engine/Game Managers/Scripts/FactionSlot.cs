@@ -37,21 +37,25 @@ namespace RTSEngine
         }
 
         [SerializeField]
-        private int maxPopulation = 5; //Maximum number of units that can be present at the same time (which can be increased in the game by constructing certain buildings)
+        private int maxPopulation = 200; //Maximum number of units that can be present at the same time (which can be increased in the game by constructing certain buildings)
+
+        private int currentPopulationCapacity = 0;
 
         //update the maximum population
         public void UpdateMaxPopulation(int value, bool add = true)
         {
             if (add)
-                maxPopulation += value;
+                currentPopulationCapacity += value;
             else
-                maxPopulation = value;
+                currentPopulationCapacity = value;
+
+            currentPopulationCapacity = Mathf.Min(currentPopulationCapacity, maxPopulation);
 
             //custom event trigger:
             CustomEvents.OnMaxPopulationUpdated(this, value);
         }
         //get the maximum population
-        public int GetMaxPopulation() { return maxPopulation; }
+        public int GetPopulationCapacity() { return currentPopulationCapacity; }
 
         private int currentPopulation; //current number of spawned units.
 
@@ -69,7 +73,7 @@ namespace RTSEngine
         //get the amount of free slots:
         public int GetFreePopulation()
         {
-            return maxPopulation - currentPopulation;
+            return currentPopulationCapacity - currentPopulation;
         }
 
         [SerializeField,]

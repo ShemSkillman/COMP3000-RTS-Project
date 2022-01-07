@@ -135,7 +135,7 @@ namespace RTSEngine
         private void UpdatePopulationUI (FactionSlot factionSlot, int value)
 		{
             if (factionSlot.PlayerControlled) //only if this is the local player's faction
-                populationText.text = factionSlot.GetCurrentPopulation().ToString() + "/" + factionSlot.GetMaxPopulation().ToString();
+                populationText.text = factionSlot.GetCurrentPopulation().ToString() + "/" + factionSlot.GetPopulationCapacity().ToString();
 		}
 
 		//Player Message UI:

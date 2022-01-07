@@ -359,7 +359,7 @@ namespace RTSEngine
                     //if we have a player faction ID already:
                     if (PlayerFactionID != -1)
                     {
-                        Debug.LogError("[Game Manager]: There's more than one faction labeled as player controlled.");
+                        //Debug.LogError("[Game Manager]: There's more than one faction labeled as player controlled.");
                         return false;
                     }
                     //if the player faction hasn't been set yet:

@@ -204,7 +204,7 @@ namespace RTSEngine
             //if this request has been made by another NPC component but it can't be accepted...
             if (!auto && !populationOnDemand.CanAccept()
                 //or the NPC faction already reached its target population slots amount
-                || factionMgr.Slot.GetMaxPopulation() >= targetPopulation)
+                || factionMgr.Slot.GetPopulationCapacity() >= targetPopulation)
                 return false;
 
             //attempt to add population building
