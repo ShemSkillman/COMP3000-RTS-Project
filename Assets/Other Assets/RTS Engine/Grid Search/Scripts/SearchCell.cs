@@ -143,6 +143,11 @@ namespace RTSEngine
                 && testPosition.z >= position.y && testPosition.z < position.y + handler.CellSize;
         }
 
+        public Vector3 GetCenterPos()
+        {
+            return new Vector3(position.x - handler.CellSize / 2, 0f, position.y - handler.CellSize / 2);
+        }
+
         /// <summary>
         /// Adds an Entity instance to be tracked by the search cell.
         /// </summary>

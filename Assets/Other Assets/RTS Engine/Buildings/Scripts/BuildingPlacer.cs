@@ -155,23 +155,24 @@ namespace RTSEngine
             }
 #endif
 
+
             //if the building is not in range of a building center, not on the map or not near the resource that it's supposed to be near
             if (!IsBuildingInCenterRange() || !IsBuildingOnMap() || !IsBuildingNearResource())
             {
                 TogglePlacementStatus(false);
-                //if the collision test was enabled in the last physics frame (fixed update) then we'd want to launch the test again when the building fulfills the above conditions again
-                testCollision = false; 
             }
-            else if (testCollision == false) //if we haven't started the collision test, start it
+            else 
             {
-                inCollision = false; //default value is set to no collision
-                testCollision = true;
+                BoxCollider collider = GetComponent<BoxCollider>();
+                bool isCollision = Physics.CheckBox(transform.position + collider.center, collider.size/2, Quaternion.identity, LayerMask.GetMask("Building","Default"));
+                TogglePlacementStatus(!isCollision); //toggle placement status depending on result
             }
-            else //test collision was enabled in the last fixed update frame -> see result in current fixed update frame
-            {
-                testCollision = false; //test is done
-                TogglePlacementStatus(!inCollision); //toggle placement status depending on result
-            }
+        }
+
+        private void OnDrawGizmos()
+        {
+            BoxCollider collider = GetComponent<BoxCollider>();
+            Gizmos.DrawCube(collider.center, collider.size);
         }
 
         //as long as the building is in collision, set the test collision result

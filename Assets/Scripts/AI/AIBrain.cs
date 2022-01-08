@@ -10,12 +10,13 @@ namespace RTSEngine
     {
         GameManager gameMgr;
         FactionManager factionMgr;
-        FactionSlot factionSlot;
 
         [SerializeField] int actionsPerMinute = 60;
 
         float timeSinceLastAction = 0f;
         float timeBetweenActions;
+
+        public NPCBuildingPlacer BuildingPlacer { private set; get; }
 
         bool intiated = false;
 
@@ -26,7 +27,8 @@ namespace RTSEngine
 
             timeBetweenActions = 60f / actionsPerMinute;
 
-            factionSlot = gameMgr.GetFaction(factionMgr.FactionID);
+            BuildingPlacer = GetComponentInChildren<NPCBuildingPlacer>();
+            BuildingPlacer.Init(gameMgr, this, factionMgr);
 
             intiated = true;
         }
@@ -49,15 +51,22 @@ namespace RTSEngine
 
         private void PerformAction()
         {
-            int villagerCountGoal = factionSlot.MaxPopulation / 2;
+            int villagerCountGoal = factionMgr.Slot.MaxPopulation / 2;
 
-            int villagerCount = factionMgr.Villagers.Count + factionSlot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount();
+            int villagerCount = factionMgr.Villagers.Count + factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount();
 
             if (villagerCount < villagerCountGoal &&
-                factionSlot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
+                factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
             {
-                factionSlot.CapitalBuilding.TaskLauncherComp.Add(0);
+                factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
             }
+
+            Building house = factionMgr.Slot.GetTypeInfo().GetPopulationBuilding();
+
+            if (BuildingPlacer.PendingCount < 2)
+            {
+                BuildingPlacer.OnBuildingPlacementRequest(house, factionMgr.Slot.CapitalBuilding.gameObject, 10f, 10f, false);
+            }            
         }
     }
 }

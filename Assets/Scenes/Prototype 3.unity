@@ -10381,6 +10381,7 @@ GameObject:
   - component: {fileID: 863504128}
   - component: {fileID: 863504130}
   - component: {fileID: 863504129}
+  - component: {fileID: 863504131}
   m_Layer: 0
   m_Name: BuildingsManager
   m_TagString: Untagged
@@ -10449,6 +10450,27 @@ MonoBehaviour:
     unitColorMaterial: {fileID: 2100000, guid: 54f19161a54e56442a8dd7f6239fc93b, type: 2}
     buildingColorMaterial: {fileID: 2100000, guid: 19e5e5a2c659faf49a059ec9fc3e642d,
       type: 2}
+--- !u!114 &863504131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863504127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33c0b45dfaf97b4f94a7eaee5e165ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowerLeftCorner:
+    x: 0
+    y: 0
+  upperRightCorner:
+    x: 160
+    y: 160
+  cellSize: 4
+  gizmoColor: {r: 0.015686274, g: 1, b: 0.1890162, a: 1}
+  gizmoHeight: 1
 --- !u!1001 &865755698
 PrefabInstance:
   m_ObjectHideFlags: 0

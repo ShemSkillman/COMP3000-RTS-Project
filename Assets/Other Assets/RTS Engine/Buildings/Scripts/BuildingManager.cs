@@ -29,15 +29,20 @@ namespace RTSEngine
 
         private GameManager gameMgr;
 
+        public GridSearchHandler BuildingSearchGrid { get; private set; }
+
         public void Init(GameManager gameMgr)
         {
             freeBuildings = villages.GetComponentsInChildren<Building>();
+            BuildingSearchGrid = GetComponent<GridSearchHandler>();
 
             this.gameMgr = gameMgr;
 
             CustomEvents.BorderActivated += AddBorder;
             CustomEvents.BorderDeactivated += RemoveBorder;
         }
+
+
 
         //called by the game manager after initializing the faction slots
         public void OnFactionSlotsInitialized ()
