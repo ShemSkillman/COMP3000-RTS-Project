@@ -39,6 +39,8 @@ namespace RTSEngine
         [SerializeField]
         private int maxPopulation = 200; //Maximum number of units that can be present at the same time (which can be increased in the game by constructing certain buildings)
 
+        public int MaxPopulation { get { return maxPopulation; } }
+
         private int currentPopulationCapacity = 0;
 
         //update the maximum population

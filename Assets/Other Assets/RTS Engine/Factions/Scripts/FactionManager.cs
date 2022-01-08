@@ -10,8 +10,6 @@ namespace RTSEngine
         public int FactionID { private set; get; } //the faction ID that this manager belongs to.
         public FactionSlot Slot {private set; get;}
 
-        public Building TownCenter { private set; get; }
-
         private List<FactionEntity> factionEntities = new List<FactionEntity>(); //contains all faction entities (units+buildings) that belong to this faction
         public IEnumerable<FactionEntity> GetFactionEntities() { return factionEntities; } //get the faction entities enumerator
         private List<FactionEntity> enemyFactionEntities = new List<FactionEntity>(); //contains all the enemy faction entities.
@@ -21,7 +19,10 @@ namespace RTSEngine
 		private List<Unit> units = new List<Unit>(); //list containing all the units that this faction owns.
         public IEnumerable<Unit> GetUnits() { return units; }
 		private List<Builder> builders = new List<Builder>(); //list containing all the builders that this faction owns.
+
 		private List<ResourceCollector> collectors = new List<ResourceCollector>(); //list containing all the resource collectors that this faction owns.
+        public List<ResourceCollector> Villagers { get { return collectors; } }
+
 		private List<Healer> healers = new List<Healer>(); //list containing all the healers that this faction owns.
 		private List<Converter> converters = new List<Converter>(); //list containing all the converters that this faction owns.
 		private List<Unit> attackUnits = new List<Unit>(); //list containing all the army units this faction owns.
@@ -183,11 +184,6 @@ namespace RTSEngine
         //the method that registers the building:
         private void AddBuilding (Building building)
 		{
-            if (building.GetCode() == "town_center")
-            {
-                TownCenter = building;
-            }
-
             if (building.IsFree() || building.FactionID != FactionID) //if the building doesn't belong to this faction
             {
                 enemyBuildings.Add(building);

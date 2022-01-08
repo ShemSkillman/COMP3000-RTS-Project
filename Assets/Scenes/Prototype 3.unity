@@ -10092,11 +10092,11 @@ MonoBehaviour:
         type: 2}
       buildingColorMaterial: {fileID: 2100000, guid: a2085ab309c94a143a706621cd42e213,
         type: 2}
-    playerControlled: 1
+    playerControlled: 0
     maxPopulation: 200
     capitalBuilding: {fileID: 1028066853}
     camLookAtPos: {fileID: 1028066852}
-    npcType: {fileID: 0}
+    npcType: {fileID: 11400000, guid: 141b92f98de5f33408d94c1b95917d2f, type: 2}
     defaultFactionEntities:
     - instances:
       - {fileID: 1554696096}

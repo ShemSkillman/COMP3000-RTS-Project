@@ -10,6 +10,7 @@ namespace RTSEngine
     {
         GameManager gameMgr;
         FactionManager factionMgr;
+        FactionSlot factionSlot;
 
         [SerializeField] int actionsPerMinute = 60;
 
@@ -18,15 +19,14 @@ namespace RTSEngine
 
         bool intiated = false;
 
-        private void Start()
-        {
-            timeBetweenActions = 60f / actionsPerMinute;
-        }
-
         public void Init(GameManager gameMgr, FactionManager factionMgr)
         {
             this.gameMgr = gameMgr;
             this.factionMgr = factionMgr;
+
+            timeBetweenActions = 60f / actionsPerMinute;
+
+            factionSlot = gameMgr.GetFaction(factionMgr.FactionID);
 
             intiated = true;
         }
@@ -49,7 +49,15 @@ namespace RTSEngine
 
         private void PerformAction()
         {
-            factionMgr.TownCenter.TaskLauncherComp.Add(0);
+            int villagerCountGoal = factionSlot.MaxPopulation / 2;
+
+            int villagerCount = factionMgr.Villagers.Count + factionSlot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount();
+
+            if (villagerCount < villagerCountGoal &&
+                factionSlot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
+            {
+                factionSlot.CapitalBuilding.TaskLauncherComp.Add(0);
+            }
         }
     }
 }

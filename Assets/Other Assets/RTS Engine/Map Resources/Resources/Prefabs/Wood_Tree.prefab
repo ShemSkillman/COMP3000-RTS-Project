@@ -179,12 +179,6 @@ MonoBehaviour:
   - position: {fileID: 0}
   - position: {fileID: 0}
   - position: {fileID: 0}
-  - position: {fileID: 0}
-  - position: {fileID: 0}
-  - position: {fileID: 0}
-  - position: {fileID: 0}
-  - position: {fileID: 0}
-  - position: {fileID: 0}
 --- !u!208 &208194398242451984
 NavMeshObstacle:
   m_ObjectHideFlags: 0
