@@ -57,11 +57,13 @@ namespace RTSEngine
         public bool InProgress { get { return inProgress; } }
 
         protected E target; //the target object that this unit component deals with.
+        protected E lastTarget;
         /// <summary>
         /// Does this entity component has an active valid target?
         /// </summary>
         public bool HasTarget { get { return target != null; } }
         public E GetTarget() { return target; }
+        public E GetLastTarget() { return lastTarget; }
 
         protected float timer;
 

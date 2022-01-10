@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsPerMinute: 60
+  villagerPrefab: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
+    type: 3}
 --- !u!1 &2962538194023733835
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,4 +105,3 @@ MonoBehaviour:
   moveDistance:
     min: 0.5
     max: 1.5
-  heightCheckReload: 0.2

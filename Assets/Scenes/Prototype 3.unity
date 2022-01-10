@@ -10459,7 +10459,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 863504127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33c0b45dfaf97b4f94a7eaee5e165ba, type: 3}
+  m_Script: {fileID: 11500000, guid: e6956214b200b5547b4d65a28be95aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lowerLeftCorner:
@@ -10469,7 +10469,7 @@ MonoBehaviour:
     x: 160
     y: 160
   cellSize: 4
-  gizmoColor: {r: 0.015686274, g: 1, b: 0.1890162, a: 1}
+  gizmoColor: {r: 0.063232645, g: 1, b: 0.015686274, a: 1}
   gizmoHeight: 1
 --- !u!1001 &865755698
 PrefabInstance:

@@ -25,10 +25,6 @@ namespace RTSEngine
     public class NPCBuildingPlacer : NPCComponent
     {
         #region Component Properties
-        private Stack<NPCPendingBuilding> pendingBuildings = new Stack<NPCPendingBuilding>(); //list that holds all pending building infos that haven't started being placed yet.
-        private NPCPendingBuilding currPendingBuilding; //the current pending building that's being placed by this component.
-
-        public int PendingCount { get { return pendingBuildings.Count; } }
 
         //placement settings:
         [SerializeField, Tooltip("NPC faction will only start placing buildings after this delay.")]
@@ -72,18 +68,20 @@ namespace RTSEngine
         /// <param name="buildAroundRadius">How far should the building from its 'buildAround' position?</param>
         /// <param name="buildAroundDistance">Initial ditsance between the building and its 'buildAround' position.</param>
         /// <param name="rotate">Can the building be rotated while getting placed?</param>
-        public void OnBuildingPlacementRequest(Building buildingPrefab, GameObject buildAround, bool rotate)
+        public bool OnBuildingPlacementRequest(Building buildingPrefab, GameObject buildAround, bool rotate, out Building placedBuilding)
         {
+            placedBuilding = null;
+
             //if the building center or the build around object hasn't been specified:
             if (buildAround == null)
             {
                 Debug.LogError("Build Around object for " + buildingPrefab.GetName() + " hasn't been specified in the Building Placement Request!");
-                return;
+                return false;
             }
 
             if (!gameMgr.ResourceMgr.HasRequiredResources(buildingPrefab.GetResources(), factionMgr.FactionID))
             {
-                return;
+                return false;
             }
 
             //take resources to place building.
@@ -110,63 +108,28 @@ namespace RTSEngine
 
             if (rotate)
             {
-                //float yRot = Mathf.RoundToInt(Random.Range(0, 360) / 90f) * 90;
-                //newPendingBuilding.instance.transform.rotation = Quaternion.Euler(0, yRot, 0);
-
                 float yRot = Random.Range(0, 360);
                 newPendingBuilding.instance.transform.rotation = Quaternion.Euler(0, yRot, 0);
             }
 
             //we need to hide the building initially, when its turn comes to be placed, appropriate settings will be applied.
-            newPendingBuilding.instance.gameObject.SetActive(false);
             newPendingBuilding.instance.ToggleModel(false); //Hide the building's model:
 
-            //Call the start building placement custom event:
-            CustomEvents.OnBuildingStartPlacement(newPendingBuilding.instance);
-
-            //add the new pending building to the list:
-            pendingBuildings.Push(newPendingBuilding);
-
-            StartPlacingNextBuilding(); //immediately start placing it.
-        }
-
-        /// <summary>
-        /// Starts placing the next building in the pending buildings list: First In, First Out
-        /// </summary>
-        private void StartPlacingNextBuilding()
-        {
-            //if there's no pending building:
-            if (pendingBuildings.Count == 0)
+            if (PositionBuilding(newPendingBuilding))
             {
-                return; //stop.
+                placedBuilding = PlaceBuilding(newPendingBuilding);
+                return true;
             }
-
-            currPendingBuilding = pendingBuildings.Pop(); //get the next pending building to start placing it
-            emptyCellIndex = 0;
-
-            currPendingBuilding.instance.gameObject.SetActive(true); //activate it
-
-            PositionBuilding();
-        }
-
-        /// <summary>
-        /// Stops placing the current pending building that's getting placed.
-        /// </summary>
-        private void StopPlacingBuilding()
-        {
-            if (currPendingBuilding.instance != null) //valid building instance:
+            else
             {
-                //Call the stop building placement custom event:
-                CustomEvents.OnBuildingStopPlacement(currPendingBuilding.instance);
-
                 //Give back resources:
-                gameMgr.ResourceMgr.UpdateRequiredResources(currPendingBuilding.instance.GetResources(), true, factionMgr.FactionID);
+                gameMgr.ResourceMgr.UpdateRequiredResources(newPendingBuilding.instance.GetResources(), true, factionMgr.FactionID);
 
                 //destroy the building instance that was supposed to be placed:
-                Destroy(currPendingBuilding.instance.gameObject);
+                Destroy(newPendingBuilding.instance.gameObject);
             }
 
-            StartPlacingNextBuilding(); //start placing next building, if it exists.
+            return false;
         }
         #endregion
 
@@ -174,19 +137,15 @@ namespace RTSEngine
 
         int emptyCellIndex = 0;
 
-        private void PositionBuilding()
+        private bool PositionBuilding(NPCPendingBuilding pendingBuilding)
         {
-            if (currPendingBuilding.instance == null) //invalid building instance:
-            {
-                StopPlacingBuilding(); //discard this pending building slot
-                return; //do not continue
-            }
+            emptyCellIndex = 0;
 
-            List<Vector3> emptyCellPositions = gameMgr.BuildingMgr.BuildingSearchGrid.SearchForEmptyCellPositions(currPendingBuilding.buildAroundPos, 40f);
+            List<Vector3> emptyCellPositions = gameMgr.BuildingMgr.BuildingSearchGrid.SearchForEmptyCellPositions(pendingBuilding.buildAroundPos, 40f);
 
             if (emptyCellPositions.Count < 1)
             {
-                return;
+                return false;
             }
             else if (emptyCellIndex >= emptyCellPositions.Count)
             {
@@ -195,23 +154,24 @@ namespace RTSEngine
 
             while(emptyCellIndex < emptyCellPositions.Count)
             {
-                currPendingBuilding.instance.transform.position = emptyCellPositions[emptyCellIndex];
+                pendingBuilding.instance.transform.position = emptyCellPositions[emptyCellIndex];
                 //HeightCheck();
 
                 //Check if the building is in a valid position or not:
-                currPendingBuilding.instance.PlacerComp.CheckBuildingPos(2f);
+                pendingBuilding.instance.PlacerComp.CheckBuildingPos(2f);
 
                 //can we place the building:
-                if (currPendingBuilding.instance.PlacerComp.CanPlace == true)
+                if (pendingBuilding.instance.PlacerComp.CanPlace == true)
                 {
-                    PlaceBuilding();
-                    return;
+                    return true;
                 }
                 else
                 {
                     emptyCellIndex++;
                 }
             }
+
+            return false;
         }
 
         /// <summary>
@@ -219,32 +179,31 @@ namespace RTSEngine
         /// </summary>
         /// <param name="waitTime">How much time to wait before updating the pending building's height again?</param>
         /// <returns></returns>
-        private void HeightCheck()
+        private void HeightCheck(NPCPendingBuilding pendingBuilding)
         {
-            if (currPendingBuilding.instance != null)
+            if (pendingBuilding.instance != null)
             {
-                currPendingBuilding.instance.transform.position = new Vector3(
-                            currPendingBuilding.instance.transform.position.x,
+                pendingBuilding.instance.transform.position = new Vector3(
+                            pendingBuilding.instance.transform.position.x,
                             //thrid argument: navmesh layer, use the built-in walkable layer to sample height.
-                            gameMgr.TerrainMgr.SampleHeight(currPendingBuilding.instance.transform.position, currPendingBuilding.instance.GetRadius(), 1) + gameMgr.PlacementMgr.GetBuildingYOffset(),
-                            currPendingBuilding.instance.transform.position.z);
+                            gameMgr.TerrainMgr.SampleHeight(pendingBuilding.instance.transform.position, pendingBuilding.instance.GetRadius(), 1) + gameMgr.PlacementMgr.GetBuildingYOffset(),
+                            pendingBuilding.instance.transform.position.z);
             }                    
         }
 
         /// <summary>
         /// Places the pending building at its position.
         /// </summary>
-        private void PlaceBuilding()
+        private Building PlaceBuilding(NPCPendingBuilding pendingBuilding)
         {
             //destroy the building instance that was supposed to be placed:
-            Destroy(currPendingBuilding.instance.gameObject);
+            Destroy(pendingBuilding.instance.gameObject);
 
             //ask the building manager to create a new placed building:
-            gameMgr.BuildingMgr.CreatePlacedInstance(currPendingBuilding.prefab, 
-                currPendingBuilding.instance.transform.position,
-                currPendingBuilding.instance.transform.rotation.eulerAngles.y,
+            return gameMgr.BuildingMgr.CreatePlacedInstance(pendingBuilding.prefab,
+                pendingBuilding.instance.transform.position,
+                pendingBuilding.instance.transform.rotation.eulerAngles.y,
                 null, factionMgr.FactionID);
-            StartPlacingNextBuilding(); //start placing next building
         }
         #endregion
     }

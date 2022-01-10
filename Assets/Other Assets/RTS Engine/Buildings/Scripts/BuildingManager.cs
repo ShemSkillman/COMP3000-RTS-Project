@@ -58,26 +58,9 @@ namespace RTSEngine
         }
 
         //creates an instance of a building that is instantly placed:
-        public void CreatePlacedInstance(Building buildingPrefab, Vector3 placementPosition, float yEulerAngle, Border buildingCenter, int factionID, bool placedByDefault = false, bool factionCapital = false)
+        public Building CreatePlacedInstance(Building buildingPrefab, Vector3 placementPosition, float yEulerAngle, Border buildingCenter, int factionID, bool placedByDefault = false, bool factionCapital = false)
         {
-            if (GameManager.MultiplayerGame == false)
-            { //if it's a single player game.
-                CreatePlacedInstanceLocal(buildingPrefab, placementPosition, yEulerAngle, buildingCenter, factionID, placedByDefault, factionCapital); //place the building
-            }
-            else
-            { //in case it's a multiplayer game:
-
-                //ask the server to spawn the building for all clients:
-                NetworkInput newInput = new NetworkInput()
-                {
-                    sourceMode = (byte)InputMode.create,
-                    targetMode = (byte)InputMode.building,
-                    value = (placedByDefault && factionCapital) ? 3 : (placedByDefault ? 1 : (factionCapital ? 2 : 0)),
-                    initialPosition = placementPosition,
-                    targetPosition = new Vector3(0.0f,yEulerAngle, 0.0f)
-                };
-                InputManager.SendInput(newInput, buildingPrefab, buildingCenter?.building); //send input to input manager
-            }
+            return CreatePlacedInstanceLocal(buildingPrefab, placementPosition, yEulerAngle, buildingCenter, factionID, placedByDefault, factionCapital); //place the building
         }
 
         //creates an instance of a building that is instantly placed:

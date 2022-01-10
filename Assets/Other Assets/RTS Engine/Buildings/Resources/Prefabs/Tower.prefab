@@ -387,7 +387,7 @@ MonoBehaviour:
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 0
-  searchRange: 25
+  searchRange: 20
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
@@ -398,8 +398,8 @@ MonoBehaviour:
   requireTarget: 1
   damage:
     canDealDamage: 1
-    unitDamage: 20
-    buildingDamage: 20
+    unitDamage: 10
+    buildingDamage: 5
     customDamages: []
     areaAttackEnabled: 0
     attackRanges: []

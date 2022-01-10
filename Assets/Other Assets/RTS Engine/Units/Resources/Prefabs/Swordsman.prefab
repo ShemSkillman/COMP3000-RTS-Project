@@ -243,9 +243,6 @@ MonoBehaviour:
   animatorOverrideController: {fileID: 22100000, guid: 99c62c13787412349ba7bcdbf404052d,
     type: 2}
   spawnLookAt: {fileID: 0}
-  regulatorData:
-    allTypes: {fileID: 0}
-    typeSpecific: []
 --- !u!114 &6412724998090325175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 3
+  tabID: 2
   isLocked: 0
   isActive: 1
   code: swordsman_attack
@@ -353,8 +350,8 @@ MonoBehaviour:
   requireTarget: 1
   damage:
     canDealDamage: 1
-    unitDamage: 10
-    buildingDamage: 10
+    unitDamage: 5
+    buildingDamage: 5
     customDamages: []
     areaAttackEnabled: 0
     attackRanges: []

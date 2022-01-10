@@ -24,6 +24,8 @@ namespace RTSEngine
         [SerializeField, Tooltip("When enabled, the restrictions will only apply to placing the buildings but the builder will still be able to construct buildings in the ")]
         private bool restrictBuildingPlacementOnly = true;
 
+        public Building BuildingTarget { get { return target; } }
+
         public bool CanPlaceBuilding (Building building) //checks whether the input building can be constructed by this builder
         {
             return building != null ? !restrictions.Contains(building.GetCode(), building.GetCategory()) : false;
@@ -131,6 +133,7 @@ namespace RTSEngine
             //set new target
             inProgress = false;
             target = newTarget;
+            lastTarget = newTarget;
 
             gameMgr.MvtMgr.MoveLocal(unit, target.WorkerMgr.Add(unit), target.GetRadius(), target, InputMode.building, false); //move the unit towards the target building
 

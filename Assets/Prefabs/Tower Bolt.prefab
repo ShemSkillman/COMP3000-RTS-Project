@@ -80,8 +80,8 @@ MonoBehaviour:
   mvtType: 1
   maxHeight: 1
   minDistance: 2
-  speed: 30
-  followTarget: 1
+  speed: 20
+  followTarget: 0
   followTargetDistance: 10
   damageOnce: 1
   destroyOnDamage: 1
