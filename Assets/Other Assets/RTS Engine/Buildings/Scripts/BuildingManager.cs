@@ -29,12 +29,12 @@ namespace RTSEngine
 
         private GameManager gameMgr;
 
-        public GridSearchHandler BuildingSearchGrid { get; private set; }
+        public BuildingGridSearchHandler BuildingSearchGrid { get; private set; }
 
         public void Init(GameManager gameMgr)
         {
             freeBuildings = villages.GetComponentsInChildren<Building>();
-            BuildingSearchGrid = GetComponent<GridSearchHandler>();
+            BuildingSearchGrid = GetComponent<BuildingGridSearchHandler>();
 
             this.gameMgr = gameMgr;
 

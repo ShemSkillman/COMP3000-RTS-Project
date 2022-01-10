@@ -229,5 +229,10 @@ namespace RTSEngine
         {
             unitTargetPositionMarkers.Remove(marker);
         }
+
+        public Vector3 GetRandomPosWithinCell()
+        {
+            return new Vector3(position.x - Random.Range(0, handler.CellSize), 0, position.y - Random.Range(0, handler.CellSize));
+        }
     }
 }

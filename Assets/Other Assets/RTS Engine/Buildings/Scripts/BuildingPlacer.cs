@@ -24,9 +24,6 @@ namespace RTSEngine
         //new position of the building is correct or not, are called.
         public bool CanPlace { private set; get; } //Can the player place the building at its current position?
 
-        private bool testCollision = false; //when true, the building placer will test to see if the building collides with any obstacle that prevents it from being placed
-        private bool inCollision = false; //result of the collision test will be given here
-
         //Building only near resources:
         [SerializeField]
         private bool placeNearResource = false; //if true then this building will only be placable in range of a resource of the type below.
@@ -139,7 +136,7 @@ namespace RTSEngine
         }
 
         //method called when placing a building to check if it's current position is valid or not:
-        public void CheckBuildingPos()
+        public void CheckBuildingPos(float sizeOffset = 0f)
         {
             NewPos = false;
 
@@ -164,21 +161,9 @@ namespace RTSEngine
             else 
             {
                 BoxCollider collider = GetComponent<BoxCollider>();
-                bool isCollision = Physics.CheckBox(transform.position + collider.center, collider.size/2, Quaternion.identity, LayerMask.GetMask("Building","Default"));
+                bool isCollision = Physics.CheckBox(transform.position + collider.center, collider.size/2 + new Vector3(sizeOffset, sizeOffset, sizeOffset), Quaternion.identity, LayerMask.GetMask("Default"));
                 TogglePlacementStatus(!isCollision); //toggle placement status depending on result
             }
-        }
-
-        private void OnDrawGizmos()
-        {
-            BoxCollider collider = GetComponent<BoxCollider>();
-            Gizmos.DrawCube(collider.center, collider.size);
-        }
-
-        //as long as the building is in collision, set the test collision result
-        private void OnTriggerStay(Collider other)
-        {
-            inCollision = true;
         }
 
         //toggle the placement status for this building

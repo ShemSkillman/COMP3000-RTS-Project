@@ -65,7 +65,7 @@ namespace RTSEngine
 
             if (BuildingPlacer.PendingCount < 2)
             {
-                BuildingPlacer.OnBuildingPlacementRequest(house, factionMgr.Slot.CapitalBuilding.gameObject, 10f, 10f, false);
+                BuildingPlacer.OnBuildingPlacementRequest(house, factionMgr.Slot.CapitalBuilding.gameObject, true);
             }            
         }
     }

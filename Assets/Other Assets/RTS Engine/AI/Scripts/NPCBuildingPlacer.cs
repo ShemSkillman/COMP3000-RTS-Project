@@ -45,13 +45,11 @@ namespace RTSEngine
         [SerializeField, Tooltip("Each time the NPC faction attempts another position to place a building, this value is added to the 'Placement Mvt Reload' field0")]
         private FloatRange placementMoveReloadInc = new FloatRange(1.5f, 2.5f); 
         //this will be added to the move timer each time the building moves.
-        int placementMoveReloadIncCount = 0;
 
         [SerializeField, Tooltip("The distance between the new and previous positions of a pending building."), Min(0.0f)]
         private FloatRange moveDistance = new FloatRange(0.5f, 1.5f); //this the distance that the building will move at.
 
         [SerializeField, Range(0.0f,1.0f), Tooltip("How often is the height of a building sampled from the terrain's height?")]
-        private float heightCheckReload = 0.2f; //how often does this component update the height of the pending building in a second?
         private IEnumerator heightCheckCoroutine; //this coroutine is running as long as there's a building to be placed and it allows NPC factions to place buildings on different heights
         #endregion
 
@@ -74,7 +72,7 @@ namespace RTSEngine
         /// <param name="buildAroundRadius">How far should the building from its 'buildAround' position?</param>
         /// <param name="buildAroundDistance">Initial ditsance between the building and its 'buildAround' position.</param>
         /// <param name="rotate">Can the building be rotated while getting placed?</param>
-        public void OnBuildingPlacementRequest(Building buildingPrefab, GameObject buildAround, float buildAroundRadius, float buildAroundDistance, bool rotate)
+        public void OnBuildingPlacementRequest(Building buildingPrefab, GameObject buildAround, bool rotate)
         {
             //if the building center or the build around object hasn't been specified:
             if (buildAround == null)
@@ -83,15 +81,19 @@ namespace RTSEngine
                 return;
             }
 
+            if (!gameMgr.ResourceMgr.HasRequiredResources(buildingPrefab.GetResources(), factionMgr.FactionID))
+            {
+                return;
+            }
+
             //take resources to place building.
-            gameMgr.ResourceMgr.UpdateRequiredResources(buildingPrefab.GetResources(), false, factionMgr.FactionID);
+            gameMgr.ResourceMgr.UpdateRequiredResources(buildingPrefab.GetResources(), false, factionMgr.FactionID);            
 
             //pick the building's spawn pos:
             Vector3 buildAroundPos = buildAround.transform.position;
             //for the sample height method, the last parameter presents the navigation layer mask and 0 stands for the built-in walkable layer where buildings can be placed
-            buildAroundPos.y = gameMgr.TerrainMgr.SampleHeight(buildAround.transform.position, buildAroundRadius, 0) + gameMgr.PlacementMgr.GetBuildingYOffset();
+            buildAroundPos.y = gameMgr.TerrainMgr.SampleHeight(buildAround.transform.position, 0f, 0) + gameMgr.PlacementMgr.GetBuildingYOffset();
             Vector3 buildingSpawnPos = buildAroundPos;
-            buildingSpawnPos.x += buildAroundDistance;
 
             //create new instance of building and add it to the pending buildings list:
             NPCPendingBuilding newPendingBuilding = new NPCPendingBuilding
@@ -99,17 +101,21 @@ namespace RTSEngine
                 prefab = buildingPrefab,
                 instance = Instantiate(buildingPrefab.gameObject, buildingSpawnPos, buildingPrefab.transform.rotation).GetComponent<Building>(),
                 buildAroundPos = buildAroundPos,
-                buildAroundDistance = buildAroundDistance,
+                buildAroundDistance = 0f,
                 rotate = rotate
             };
 
-            ////pick a random starting position for building by randomly rotating it around its build around positio
-            //newPendingBuilding.instance.transform.RotateAround(newPendingBuilding.buildAroundPos, Vector3.up, Random.Range(0.0f, 360.0f));
-            ////keep initial rotation (because the RotateAround method will change the building's rotation as well which we do not want)
-            //newPendingBuilding.instance.transform.rotation = newPendingBuilding.prefab.transform.rotation; 
-
             //initialize the building instance for placement:
             newPendingBuilding.instance.InitPlacementInstance(gameMgr, factionMgr.FactionID);
+
+            if (rotate)
+            {
+                //float yRot = Mathf.RoundToInt(Random.Range(0, 360) / 90f) * 90;
+                //newPendingBuilding.instance.transform.rotation = Quaternion.Euler(0, yRot, 0);
+
+                float yRot = Random.Range(0, 360);
+                newPendingBuilding.instance.transform.rotation = Quaternion.Euler(0, yRot, 0);
+            }
 
             //we need to hide the building initially, when its turn comes to be placed, appropriate settings will be applied.
             newPendingBuilding.instance.gameObject.SetActive(false);
@@ -121,10 +127,7 @@ namespace RTSEngine
             //add the new pending building to the list:
             pendingBuildings.Push(newPendingBuilding);
 
-            if(!IsActive) //if building placer was not active (had no building to place)
-            {
-                StartPlacingNextBuilding(); //immediately start placing it.
-            }
+            StartPlacingNextBuilding(); //immediately start placing it.
         }
 
         /// <summary>
@@ -143,12 +146,7 @@ namespace RTSEngine
 
             currPendingBuilding.instance.gameObject.SetActive(true); //activate it
 
-            //reset building rotation/movement timer:
-            placementMoveTimer = -1; //this will move the building from its initial position in the beginning of the placement process.
-            placementMoveReloadIncCount = 0;
-            placementDelayTimer = placementDelayRange.getRandomValue(); //start the placement delay timer.
-
-            Activate(); //mark component as active
+            PositionBuilding();
         }
 
         /// <summary>
@@ -168,48 +166,23 @@ namespace RTSEngine
                 Destroy(currPendingBuilding.instance.gameObject);
             }
 
-            Deactivate(); //component is no longer active
-
             StartPlacingNextBuilding(); //start placing next building, if it exists.
         }
         #endregion
 
         #region Building Placement
-        /// <summary>
-        /// Update the building placement timer.
-        /// </summary>
-        protected override void OnActiveUpdate()
-        {
-            base.OnActiveUpdate();
-
-            //placement delay timer
-            if (placementDelayTimer > 0)
-                placementDelayTimer -= Time.deltaTime;
-            //pending building movement timer
-            if (placementMoveTimer > 0)
-                placementMoveTimer -= Time.deltaTime;
-        }
 
         int emptyCellIndex = 0;
-        List<Vector3> emptyCellPositions = null;
 
-        /// <summary>
-        /// Updates the current pending building position to find a suitable placement position.
-        /// </summary>
-        private void FixedUpdate()
+        private void PositionBuilding()
         {
-            if (!IsActive)
-                return;
-
-            if(currPendingBuilding.instance == null) //invalid building instance:
+            if (currPendingBuilding.instance == null) //invalid building instance:
             {
                 StopPlacingBuilding(); //discard this pending building slot
                 return; //do not continue
             }
-            if (emptyCellPositions == null)
-            {
-                emptyCellPositions = gameMgr.BuildingMgr.BuildingSearchGrid.SearchForEmptyCellPositions(currPendingBuilding.buildAroundPos, 1000f);
-            }
+
+            List<Vector3> emptyCellPositions = gameMgr.BuildingMgr.BuildingSearchGrid.SearchForEmptyCellPositions(currPendingBuilding.buildAroundPos, 40f);
 
             if (emptyCellPositions.Count < 1)
             {
@@ -220,21 +193,24 @@ namespace RTSEngine
                 emptyCellIndex = 0;
             }
 
-            currPendingBuilding.instance.transform.position = emptyCellPositions[emptyCellIndex];
-            //HeightCheck();
-
-            //Check if the building is in a valid position or not:
-            currPendingBuilding.instance.PlacerComp.CheckBuildingPos();
-
-            //can we place the building:
-            if (currPendingBuilding.instance.PlacerComp.CanPlace == true)
+            while(emptyCellIndex < emptyCellPositions.Count)
             {
-                PlaceBuilding();
-                return;
-            }
-            else
-            {
-                emptyCellIndex++;
+                currPendingBuilding.instance.transform.position = emptyCellPositions[emptyCellIndex];
+                //HeightCheck();
+
+                //Check if the building is in a valid position or not:
+                currPendingBuilding.instance.PlacerComp.CheckBuildingPos(2f);
+
+                //can we place the building:
+                if (currPendingBuilding.instance.PlacerComp.CanPlace == true)
+                {
+                    PlaceBuilding();
+                    return;
+                }
+                else
+                {
+                    emptyCellIndex++;
+                }
             }
         }
 
@@ -268,9 +244,6 @@ namespace RTSEngine
                 currPendingBuilding.instance.transform.position,
                 currPendingBuilding.instance.transform.rotation.eulerAngles.y,
                 null, factionMgr.FactionID);
-
-            Deactivate(); //component is now inactive and awaiting next building to place.
-
             StartPlacingNextBuilding(); //start placing next building
         }
         #endregion
