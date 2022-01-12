@@ -87,6 +87,9 @@ namespace RTSEngine
 
             CustomEvents.TaskLauncherAdded += OnTaskLauncherAdded;
             CustomEvents.TaskLauncherRemoved += OnTaskLauncherRemoved;
+
+            CustomEvents.UnitStartCollecting += OnStartCollecting;
+            CustomEvents.UnitStopCollecting += OnFinishCollecting;
         }
 
         private void OnDisable()
@@ -104,6 +107,9 @@ namespace RTSEngine
 
             CustomEvents.TaskLauncherAdded -= OnTaskLauncherAdded;
             CustomEvents.TaskLauncherRemoved -= OnTaskLauncherRemoved;
+
+            CustomEvents.UnitStartCollecting -= OnStartCollecting;
+            CustomEvents.UnitStopCollecting -= OnFinishCollecting;
         }
 
         //before the conversion starts, remove the unit from the faction lists...
@@ -310,6 +316,44 @@ namespace RTSEngine
 
             //no center found? 
             return null;
+        }
+
+        Dictionary<string, List<Unit>> resourceCollectors = new Dictionary<string, List<Unit>>();
+
+        private void OnStartCollecting(Unit villager, Resource resource)
+        {
+            if (villager.FactionID != FactionID) return;
+
+            if (!resourceCollectors.ContainsKey(resource.GetResourceType().Key))
+            {
+                resourceCollectors[resource.GetResourceType().Key] = new List<Unit>();
+            }
+
+            resourceCollectors[resource.GetResourceType().Key].Add(villager);
+        }
+
+        private void OnFinishCollecting(Unit villager, Resource resource)
+        {
+            if (villager.FactionID != FactionID) return;
+
+            if (!resourceCollectors.ContainsKey(resource.GetResourceType().Key))
+            {
+                resourceCollectors[resource.GetResourceType().Key] = new List<Unit>();
+            }
+
+            resourceCollectors[resource.GetResourceType().Key].Remove(villager);
+        }
+
+        public List<Unit> GetVillagersCollectingResource(string resourceName)
+        {
+            if (resourceCollectors.TryGetValue(resourceName, out List<Unit> ret))
+            {
+                return ret;
+            }
+            else
+            {
+                return new List<Unit>();
+            }
         }
     }
 }

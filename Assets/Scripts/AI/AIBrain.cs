@@ -20,6 +20,10 @@ public class AIBrain : MonoBehaviour
     [SerializeField] Building house;
     [SerializeField] Building barracks;
     [SerializeField] Building tower;
+
+    [Header("Resources")]
+    [SerializeField] ResourceTypeInfo coin;
+    [SerializeField] ResourceTypeInfo wood;
      
     float timeSinceLastAction = 0f;
     float timeBetweenActions;
@@ -45,6 +49,9 @@ public class AIBrain : MonoBehaviour
 
     private void Update()
     {
+        print("Wood collectors: " + factionMgr.GetVillagersCollectingResource(wood.Key).Count);
+        print("Coin collectors: " + factionMgr.GetVillagersCollectingResource(coin.Key).Count);
+
         if (!intiated)
         {
             return;
