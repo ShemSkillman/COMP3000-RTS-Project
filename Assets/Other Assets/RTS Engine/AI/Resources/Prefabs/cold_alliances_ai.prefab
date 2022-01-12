@@ -46,8 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsPerMinute: 60
-  villagerPrefab: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
+  villager: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
     type: 3}
+  swordsman: {fileID: 5478135404590290437, guid: 8019b7d3f3bbe844787c3d9abd18df24,
+    type: 3}
+  house: {fileID: 4810416383647272699, guid: 94426e9307b14324eb0c20c00b3ddb5d, type: 3}
+  barracks: {fileID: 4810416383647272699, guid: 68de7e2e71baa6d41aaea1310fa2522f,
+    type: 3}
+  tower: {fileID: 6689805100552360329, guid: 9fc8bba75da076e4abe98be346461550, type: 3}
 --- !u!1 &2962538194023733835
 GameObject:
   m_ObjectHideFlags: 0

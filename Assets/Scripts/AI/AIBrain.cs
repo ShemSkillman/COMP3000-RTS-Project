@@ -12,10 +12,19 @@ public class AIBrain : MonoBehaviour
 
     [SerializeField] int actionsPerMinute = 60;
 
-    [SerializeField] FactionEntity villagerPrefab;
+    [Header("Units")]
+    [SerializeField] Unit villager;
+    [SerializeField] Unit swordsman;
+
+    [Header("Buildings")]
+    [SerializeField] Building house;
+    [SerializeField] Building barracks;
+    [SerializeField] Building tower;
      
     float timeSinceLastAction = 0f;
     float timeBetweenActions;
+
+    List<ConstructionTask> constructionTasks = new List<ConstructionTask>();
 
     public NPCBuildingPlacer BuildingPlacer { private set; get; }
 
@@ -34,16 +43,6 @@ public class AIBrain : MonoBehaviour
         intiated = true;
     }
 
-    private void OnEnable()
-    {
-        CustomEvents.UnitStopBuilding += OnStopBuilding;
-    }
-
-    private void OnDisable()
-    {
-        CustomEvents.UnitStopBuilding += OnStopBuilding;
-    }
-
     private void Update()
     {
         if (!intiated)
@@ -56,6 +55,8 @@ public class AIBrain : MonoBehaviour
         if (timeSinceLastAction >= timeBetweenActions)
         {
             timeSinceLastAction = 0f;
+            constructionTasks.RemoveAll(ConstructionTask.IsConstructionTaskInvalid);
+
             PerformAction();
         }
     }
@@ -71,37 +72,90 @@ public class AIBrain : MonoBehaviour
         {
             factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
         }
+        else if (IsHouseNeeded())
+        {
+            ConstructBuilding(house);
+        }
+        else if (gameMgr.ResourceMgr.HasRequiredResources(tower.GetResources(), factionMgr.FactionID))
+        {
+            ConstructBuilding(tower);
+        }
         else
         {
-            Building house = factionMgr.Slot.GetTypeInfo().GetPopulationBuilding();
-            if (BuildingPlacer.OnBuildingPlacementRequest(house, factionMgr.Slot.CapitalBuilding.gameObject, true, out Building placedBuilding))
+            foreach (ConstructionTask task in constructionTasks)
             {
-                AssignVillagerToBuild(placedBuilding);
+                if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
+                {
+                    AssignVillagerToBuild(task);
+                }
             }
-        }        
-    }
-
-    public void OnStopBuilding(Unit unit, Building building)
-    {
-        if (unit.FactionID == factionMgr.FactionID &&
-            !building.IsBuilt)
-        {
-            AssignVillagerToBuild(building);
         }
     }
 
-    private void AssignVillagerToBuild(Building toBuild)
+    public bool IsHouseNeeded()
     {
-        BasicTargetPicker targetPicker = new BasicTargetPicker(villagerPrefab);
+        int housePop = house.GetAddedPopulationSlots();
+        return factionMgr.Slot.GetFreePopulation() + (housePop * GetBuildingInConstructionCount(house)) < housePop &&
+            gameMgr.ResourceMgr.HasRequiredResources(house.GetResources(), factionMgr.FactionID);
+    }
 
-        if (gameMgr.GridSearch.Search(toBuild.transform.position,
+    private void ConstructBuilding(Building building)
+    {
+        if (BuildingPlacer.OnBuildingPlacementRequest(building, factionMgr.Slot.CapitalBuilding.gameObject, true, out Building placedBuilding))
+        {
+            ConstructionTask task = new ConstructionTask(placedBuilding);
+            AssignVillagerToBuild(task);
+
+            constructionTasks.Add(task);
+        }
+    }    
+
+    private void AssignVillagerToBuild(ConstructionTask task)
+    {
+        BasicTargetPicker targetPicker = new BasicTargetPicker(villager);
+
+        if (gameMgr.GridSearch.Search(task.InConstruction.transform.position,
                                     1000f,
                                     false,
                                     targetPicker.IsValidTarget,
                                     out FactionEntity potentialTarget) == ErrorMessage.none)
         {
             Unit newVillager = potentialTarget as Unit;
-            newVillager.BuilderComp.SetTarget(toBuild);
+            newVillager.BuilderComp.SetTarget(task.InConstruction);
+
+            task.Builder = newVillager;
         }
+    }
+
+    private int GetBuildingInConstructionCount(Building building)
+    {
+        int counter = 0;
+
+        foreach (ConstructionTask task in constructionTasks)
+        {
+            if (task.InConstruction.GetCode() == building.GetCode())
+            {
+                counter++;
+            }
+        }
+
+        return counter;
+    }
+}
+
+class ConstructionTask
+{
+    public Building InConstruction { get; private set; }
+    public Unit Builder { get; set; }
+
+    public ConstructionTask(Building inConstruction, Unit builder = null)
+    {
+        InConstruction = inConstruction;
+        Builder = builder;
+    }
+
+    public static bool IsConstructionTaskInvalid(ConstructionTask task)
+    {
+        return task.InConstruction.IsBuilt || task.InConstruction.HealthComp.IsDestroyed;
     }
 }

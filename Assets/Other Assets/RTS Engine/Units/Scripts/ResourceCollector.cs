@@ -407,8 +407,6 @@ namespace RTSEngine
 
         public void PlayCollectionSFX()
         {
-            //gameMgr.AudioMgr.PlaySFX(target.GetResourceType().GetCollectionAudio(), false);
-
             GetComponent<AudioSource>().clip = target.GetResourceType().GetCollectionAudio();
             GetComponent<AudioSource>().Play();
         }
