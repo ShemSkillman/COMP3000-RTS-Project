@@ -340,15 +340,7 @@ namespace RTSEngine
         public void SelectIdleUnits () //if worker only is set to true then only units with the builder or the resource collector components will be selected
         {
 
-            List<Unit> idleUnits = new List<Unit>();
-            foreach (Unit unit in GameManager.PlayerFactionMgr.GetUnits()) //go through all units in player faction
-            {
-                //if the unit is idle and check whether we have to select workers only (builder & collectors) or not
-                if (unit.IsIdle() == true && (idleUnitsSelection.workersOnly == false || unit.BuilderComp != null || unit.CollectorComp))
-                {
-                    idleUnits.Add(unit);
-                }
-            }
+            List<Unit> idleUnits = GameManager.PlayerFactionMgr.GetIdleVillagers();
 
             if (idleUnits.Count < 1)
             {

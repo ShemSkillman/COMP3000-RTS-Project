@@ -22,8 +22,8 @@ public class AIBrain : MonoBehaviour
     [SerializeField] Building tower;
 
     [Header("Resources")]
-    [SerializeField] ResourceTypeInfo coin;
-    [SerializeField] ResourceTypeInfo wood;
+    [SerializeField] Resource coinSource;
+    [SerializeField] Resource woodSource;
      
     float timeSinceLastAction = 0f;
     float timeBetweenActions;
@@ -49,9 +49,6 @@ public class AIBrain : MonoBehaviour
 
     private void Update()
     {
-        print("Wood collectors: " + factionMgr.GetVillagersCollectingResource(wood.Key).Count);
-        print("Coin collectors: " + factionMgr.GetVillagersCollectingResource(coin.Key).Count);
-
         if (!intiated)
         {
             return;
@@ -70,25 +67,74 @@ public class AIBrain : MonoBehaviour
 
     private void PerformAction()
     {
+        List<Unit> idleVillagers = factionMgr.GetIdleVillagers();
+
         int villagerCountGoal = factionMgr.Slot.MaxPopulation / 2;
 
         int villagerCount = factionMgr.Villagers.Count + factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount();
 
-        if (villagerCount < villagerCountGoal &&
-            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
+        List<Unit> woodCollectors = factionMgr.GetVillagersCollectingResource(woodSource.GetResourceType().Key);
+        List<Unit> coinCollectors = factionMgr.GetVillagersCollectingResource(coinSource.GetResourceType().Key);
+
+        if (factionMgr.Villagers.Count > 0 && 
+            (idleVillagers.Count > 0)) //|| coinCollectors.Count != woodCollectors.Count + 1))
         {
-            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
+
+            print("assigning idle villagers");
+
+            Unit villager;
+            if (idleVillagers.Count > 0)
+            {
+                villager = idleVillagers[0];
+                print("assigning idle villager");
+            }
+            else
+            {
+                return;
+
+                if (coinCollectors.Count > woodCollectors.Count)
+                {
+                    villager = coinCollectors[0];
+                }
+                else
+                {
+                    villager = woodCollectors[0];
+                }
+            }
+
+            if (villager == null)
+            {
+                print("NULL VILLAGER - THIS SHOULD NEVER HAPPEN!");
+            }
+
+            if (coinCollectors.Count > woodCollectors.Count)
+            {
+                AssignVillagerToResource(villager, woodSource);
+            }
+            else
+            {
+                AssignVillagerToResource(villager, coinSource);
+            }
         }
         else if (IsHouseNeeded())
         {
+            print("Building house");
             ConstructBuilding(house);
+        }
+        else if (villagerCount < villagerCountGoal &&
+            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
+        {
+            print("Training villager");
+            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
         }
         else if (gameMgr.ResourceMgr.HasRequiredResources(tower.GetResources(), factionMgr.FactionID))
         {
+            print("Building tower");
             ConstructBuilding(tower);
         }
         else
         {
+            print("Assigned villager to building task");
             foreach (ConstructionTask task in constructionTasks)
             {
                 if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
@@ -119,7 +165,7 @@ public class AIBrain : MonoBehaviour
 
     private void AssignVillagerToBuild(ConstructionTask task)
     {
-        BasicTargetPicker targetPicker = new BasicTargetPicker(villager);
+        IdleBuilderTargetPicker targetPicker = new IdleBuilderTargetPicker(villager.GetCode());
 
         if (gameMgr.GridSearch.Search(task.InConstruction.transform.position,
                                     1000f,
@@ -131,6 +177,22 @@ public class AIBrain : MonoBehaviour
             newVillager.BuilderComp.SetTarget(task.InConstruction);
 
             task.Builder = newVillager;
+        }
+    }
+
+    private void AssignVillagerToResource(Unit villager, Resource resource)
+    {
+        BasicTargetPicker targetPicker = new BasicTargetPicker(resource.GetCode());
+
+        if (gameMgr.GridSearch.Search<Entity>(villager.transform.position,
+                                    1000f,
+                                    true,
+                                    targetPicker.IsValidTarget,
+                                    out Entity potentialTarget) == ErrorMessage.none)
+        {
+            Resource closestResource = potentialTarget as Resource;
+
+            villager.CollectorComp.SetTarget(closestResource);
         }
     }
 

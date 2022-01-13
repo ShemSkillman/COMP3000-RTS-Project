@@ -355,5 +355,20 @@ namespace RTSEngine
                 return new List<Unit>();
             }
         }
+
+        public List<Unit> GetIdleVillagers()
+        {
+            List<Unit> idleUnits = new List<Unit>();
+            foreach (Unit unit in GetUnits()) //go through all units in player faction
+            {
+                //if the unit is idle and check whether we have to select workers only (builder & collectors) or not
+                if (unit.IsIdle() == true && (unit.BuilderComp != null || unit.CollectorComp))
+                {
+                    idleUnits.Add(unit);
+                }
+            }
+
+            return idleUnits;
+        }
     }
 }

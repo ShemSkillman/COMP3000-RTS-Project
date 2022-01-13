@@ -5,12 +5,13 @@ using UnityEngine;
 namespace RTSEngine
 {
     [System.Serializable]
-    public class BasicTargetPicker : TargetPicker<FactionEntity, string>
+    public class BasicTargetPicker : TargetPicker<Entity, string>
     {
-        public override ErrorMessage IsValidTarget(FactionEntity entity)
+
+        public override ErrorMessage IsValidTarget(Entity entity)
         {
             if (base.IsValidTarget(entity) == ErrorMessage.none &&
-                (entity as Unit).BuilderComp.BuildingTarget == null)
+                EntitySatisfiesConditions(entity))
             {
                 return ErrorMessage.none;
             }
@@ -19,20 +20,25 @@ namespace RTSEngine
             return ErrorMessage.invalid;
         }
 
-        public BasicTargetPicker(params FactionEntity[] entities)
+        protected virtual bool EntitySatisfiesConditions(Entity entity)
+        {
+            return true;
+        }
+
+        public BasicTargetPicker(params string[] entitykeys)
         {
             type = TargetPickerType.allInList;
 
-            foreach (FactionEntity entity in entities)
+            foreach (string key in entitykeys)
             {
-                targetList.Add(entity.GetCode());
+                targetList.Add(key);
             }
         }
 
-        protected override bool IsInList(FactionEntity factionEntity)
+        protected override bool IsInList(Entity entity)
         {
             foreach (string targetCode in targetList)
-                if (factionEntity.GetCode() == targetCode)
+                if (entity.GetCode() == targetCode)
                     return true;
 
             return false;

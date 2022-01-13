@@ -54,8 +54,10 @@ MonoBehaviour:
   barracks: {fileID: 4810416383647272699, guid: 68de7e2e71baa6d41aaea1310fa2522f,
     type: 3}
   tower: {fileID: 6689805100552360329, guid: 9fc8bba75da076e4abe98be346461550, type: 3}
-  coin: {fileID: 11400000, guid: 9d777b69ade157b419696347a92dc071, type: 2}
-  wood: {fileID: 11400000, guid: a3e40a20a0b603d4793ed1985b005aed, type: 2}
+  coinSource: {fileID: 114093271303909552, guid: a8d319f6f5e1ec34d84b44d04a7d6a64,
+    type: 3}
+  woodSource: {fileID: 114472513907078762, guid: 759400f2399de0449a8f399a73b6b15f,
+    type: 3}
 --- !u!1 &2962538194023733835
 GameObject:
   m_ObjectHideFlags: 0
