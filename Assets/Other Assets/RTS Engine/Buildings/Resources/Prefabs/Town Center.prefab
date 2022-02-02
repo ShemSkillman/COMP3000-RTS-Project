@@ -298,7 +298,6 @@ GameObject:
   - component: {fileID: 7529840544717193334}
   - component: {fileID: 5824909206303636667}
   - component: {fileID: 4280048532710495494}
-  - component: {fileID: 6506298923793842603}
   m_Layer: 10
   m_Name: Town Center
   m_TagString: Untagged
@@ -664,37 +663,6 @@ MonoBehaviour:
   minHealth: 1
   maxTasks: 5
   launchDeclinedAudio: {fileID: 0}
---- !u!114 &6506298923793842603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5146744234690131466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edddac3108d6221418e8a42fc680a8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  resources:
-  - Name: Coin
-    Amount: 1
-  period: 1
-  requiredResources: []
-  collectionThreshold: []
-  autoCollect: 1
-  stopGeneratingOnThresholdMet: 0
-  collectionAudio:
-    fetchType: 0
-    audioClips: []
-  collectionTaskUI: {fileID: 0}
-  onThresholdMet:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollected:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5866108260735187356
 GameObject:
   m_ObjectHideFlags: 0

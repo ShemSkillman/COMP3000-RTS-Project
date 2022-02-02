@@ -29,6 +29,7 @@ public class AIBrain : MonoBehaviour
     float timeBetweenActions;
 
     List<ConstructionTask> constructionTasks = new List<ConstructionTask>();
+    Dictionary<string, List<CollectionTask>> collectionTasksDic = new Dictionary<string, List<CollectionTask>>();
 
     public NPCBuildingPlacer BuildingPlacer { private set; get; }
 
@@ -43,6 +44,9 @@ public class AIBrain : MonoBehaviour
 
         BuildingPlacer = GetComponentInChildren<NPCBuildingPlacer>();
         BuildingPlacer.Init(gameMgr, this, factionMgr);
+
+        collectionTasksDic[woodSource.GetResourceType().Key] = new List<CollectionTask>();
+        collectionTasksDic[coinSource.GetResourceType().Key] = new List<CollectionTask>();
 
         intiated = true;
     }
@@ -61,6 +65,11 @@ public class AIBrain : MonoBehaviour
             timeSinceLastAction = 0f;
             constructionTasks.RemoveAll(ConstructionTask.IsConstructionTaskInvalid);
 
+            foreach (List<CollectionTask> collectionTasks in collectionTasksDic.Values)
+            {
+                collectionTasks.RemoveAll(CollectionTask.IsCollectionTaskInvalid);
+            }
+
             PerformAction();
         }
     }
@@ -76,23 +85,20 @@ public class AIBrain : MonoBehaviour
         List<Unit> woodCollectors = factionMgr.GetVillagersCollectingResource(woodSource.GetResourceType().Key);
         List<Unit> coinCollectors = factionMgr.GetVillagersCollectingResource(coinSource.GetResourceType().Key);
 
+        int woodCollectorCount = woodCollectors.Count + collectionTasksDic[woodSource.GetResourceType().Key].Count;
+        int coinCollectorCount = coinCollectors.Count + collectionTasksDic[coinSource.GetResourceType().Key].Count;
+
         if (factionMgr.Villagers.Count > 0 && 
-            (idleVillagers.Count > 0)) //|| coinCollectors.Count != woodCollectors.Count + 1))
+            (idleVillagers.Count > 0 || Mathf.Abs(coinCollectorCount - woodCollectorCount) > 1))
         {
-
-            print("assigning idle villagers");
-
             Unit villager;
             if (idleVillagers.Count > 0)
             {
                 villager = idleVillagers[0];
-                print("assigning idle villager");
             }
             else
             {
-                return;
-
-                if (coinCollectors.Count > woodCollectors.Count)
+                if (coinCollectorCount > woodCollectorCount)
                 {
                     villager = coinCollectors[0];
                 }
@@ -107,7 +113,7 @@ public class AIBrain : MonoBehaviour
                 print("NULL VILLAGER - THIS SHOULD NEVER HAPPEN!");
             }
 
-            if (coinCollectors.Count > woodCollectors.Count)
+            if (coinCollectorCount > woodCollectorCount)
             {
                 AssignVillagerToResource(villager, woodSource);
             }
@@ -118,23 +124,19 @@ public class AIBrain : MonoBehaviour
         }
         else if (IsHouseNeeded())
         {
-            print("Building house");
             ConstructBuilding(house);
         }
         else if (villagerCount < villagerCountGoal &&
             factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
         {
-            print("Training villager");
             factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
         }
         else if (gameMgr.ResourceMgr.HasRequiredResources(tower.GetResources(), factionMgr.FactionID))
         {
-            print("Building tower");
             ConstructBuilding(tower);
         }
         else
         {
-            print("Assigned villager to building task");
             foreach (ConstructionTask task in constructionTasks)
             {
                 if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
@@ -193,6 +195,10 @@ public class AIBrain : MonoBehaviour
             Resource closestResource = potentialTarget as Resource;
 
             villager.CollectorComp.SetTarget(closestResource);
+
+            CollectionTask task = new CollectionTask(villager.CollectorComp, resource.GetResourceType());
+
+            collectionTasksDic[resource.GetResourceType().Key].Add(task);
         }
     }
 
@@ -226,5 +232,24 @@ class ConstructionTask
     public static bool IsConstructionTaskInvalid(ConstructionTask task)
     {
         return task.InConstruction.IsBuilt || task.InConstruction.HealthComp.IsDestroyed;
+    }
+}
+
+class CollectionTask
+{
+    public ResourceCollector Collector { get; set; }
+    public ResourceTypeInfo ToCollect { get; set; }
+
+    public CollectionTask(ResourceCollector collector, ResourceTypeInfo toCollect)
+    {
+        Collector = collector;
+        ToCollect = toCollect;
+    }
+
+    public static bool IsCollectionTaskInvalid(CollectionTask task)
+    {
+        return task.Collector.GetTarget() == null || 
+            task.Collector.GetTarget().GetResourceType().Key != task.ToCollect.Key ||
+            task.Collector.InProgress;
     }
 }

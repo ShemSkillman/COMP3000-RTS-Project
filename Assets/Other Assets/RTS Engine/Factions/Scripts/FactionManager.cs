@@ -318,7 +318,7 @@ namespace RTSEngine
             return null;
         }
 
-        Dictionary<string, List<Unit>> resourceCollectors = new Dictionary<string, List<Unit>>();
+        Dictionary<string, Dictionary<Unit, bool>> resourceCollectors = new Dictionary<string, Dictionary<Unit, bool>>();
 
         private void OnStartCollecting(Unit villager, Resource resource)
         {
@@ -326,10 +326,10 @@ namespace RTSEngine
 
             if (!resourceCollectors.ContainsKey(resource.GetResourceType().Key))
             {
-                resourceCollectors[resource.GetResourceType().Key] = new List<Unit>();
+                resourceCollectors[resource.GetResourceType().Key] = new Dictionary<Unit, bool>();
             }
 
-            resourceCollectors[resource.GetResourceType().Key].Add(villager);
+            resourceCollectors[resource.GetResourceType().Key][villager] = true;
         }
 
         private void OnFinishCollecting(Unit villager, Resource resource)
@@ -338,7 +338,7 @@ namespace RTSEngine
 
             if (!resourceCollectors.ContainsKey(resource.GetResourceType().Key))
             {
-                resourceCollectors[resource.GetResourceType().Key] = new List<Unit>();
+                resourceCollectors[resource.GetResourceType().Key] = new Dictionary<Unit, bool>();
             }
 
             resourceCollectors[resource.GetResourceType().Key].Remove(villager);
@@ -346,9 +346,9 @@ namespace RTSEngine
 
         public List<Unit> GetVillagersCollectingResource(string resourceName)
         {
-            if (resourceCollectors.TryGetValue(resourceName, out List<Unit> ret))
+            if (resourceCollectors.TryGetValue(resourceName, out Dictionary<Unit, bool> ret))
             {
-                return ret;
+                return ret.Keys.ToList();
             }
             else
             {
