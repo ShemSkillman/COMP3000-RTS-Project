@@ -233,7 +233,7 @@ MonoBehaviour:
   plane: {fileID: 2669450379128452835}
   model: {fileID: 1694177144318104738}
   selection: {fileID: 3843984389090726423}
-  radius: 4.64
+  radius: 5
   factionID: 0
   coloredRenderers:
   - renderer: {fileID: 1694177144315841122}

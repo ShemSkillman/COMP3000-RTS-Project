@@ -35,6 +35,8 @@ public class AIBrain : MonoBehaviour
 
     bool intiated = false;
 
+    bool isBarracksNeeded = false;
+
     public void Init(GameManager gameMgr, FactionManager factionMgr)
     {
         this.gameMgr = gameMgr;
@@ -131,12 +133,19 @@ public class AIBrain : MonoBehaviour
         {
             factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
         }
+        else if (gameMgr.ResourceMgr.HasRequiredResources(barracks.GetResources(), factionMgr.FactionID) && isBarracksNeeded)
+        {
+            ConstructBuilding(barracks);
+            isBarracksNeeded = false;
+        }
         else if (gameMgr.ResourceMgr.HasRequiredResources(tower.GetResources(), factionMgr.FactionID))
         {
             ConstructBuilding(tower);
         }
         else
         {
+            TrainSoldiers();
+
             foreach (ConstructionTask task in constructionTasks)
             {
                 if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
@@ -152,6 +161,31 @@ public class AIBrain : MonoBehaviour
         int housePop = house.GetAddedPopulationSlots();
         return factionMgr.Slot.GetFreePopulation() + (housePop * GetBuildingInConstructionCount(house)) < housePop &&
             gameMgr.ResourceMgr.HasRequiredResources(house.GetResources(), factionMgr.FactionID);
+    }
+
+    private void TrainSoldiers()
+    {
+        foreach(Building building in factionMgr.GetBuildings())
+        {
+            if (gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[coinSource.ID].GetCurrAmount() < 100)
+            {
+                isBarracksNeeded = false;
+                return;
+            }
+
+            if (building.GetCode() == barracks.GetCode() && building.IsBuilt)
+            {
+                if (building.TaskLauncherComp.GetTaskQueueCount() < 2)
+                {
+                    building.TaskLauncherComp.Add(0);
+                }
+            }
+        }
+
+        if (gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[coinSource.ID].GetCurrAmount() > 100)
+        {
+            isBarracksNeeded = true;
+        }
     }
 
     private void ConstructBuilding(Building building)
