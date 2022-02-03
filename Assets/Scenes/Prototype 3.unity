@@ -10072,7 +10072,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: 4a8b820c98c7b4540bab4e4f3d70d7fb,
         type: 2}
     playerControlled: 1
-    maxPopulation: 200
+    maxPopulation: 100
     capitalBuilding: {fileID: 412907458}
     camLookAtPos: {fileID: 412907450}
     npcType: {fileID: 0}
@@ -10093,7 +10093,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: a2085ab309c94a143a706621cd42e213,
         type: 2}
     playerControlled: 0
-    maxPopulation: 200
+    maxPopulation: 100
     capitalBuilding: {fileID: 1028066853}
     camLookAtPos: {fileID: 1028066852}
     npcType: {fileID: 11400000, guid: 141b92f98de5f33408d94c1b95917d2f, type: 2}

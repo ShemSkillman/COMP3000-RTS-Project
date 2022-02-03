@@ -129,7 +129,9 @@ public class AIBrain : MonoBehaviour
             ConstructBuilding(house);
         }
         else if (villagerCount < villagerCountGoal &&
-            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2)
+            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2 &&
+            gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[coinSource.ID].GetCurrAmount() >= 100 &&
+            factionMgr.Slot.GetFreePopulation() > 0)
         {
             factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
         }
@@ -138,14 +140,17 @@ public class AIBrain : MonoBehaviour
             ConstructBuilding(barracks);
             isBarracksNeeded = false;
         }
-        else if (gameMgr.ResourceMgr.HasRequiredResources(tower.GetResources(), factionMgr.FactionID))
+        else if (gameMgr.ResourceMgr.HasRequiredResources(tower.GetResources(), factionMgr.FactionID) &&
+            !factionMgr.HasReachedLimit("tower",""))
         {
             ConstructBuilding(tower);
         }
+        else if (TrainSoldiers())
+        {
+
+        }
         else
         {
-            TrainSoldiers();
-
             foreach (ConstructionTask task in constructionTasks)
             {
                 if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
@@ -160,24 +165,27 @@ public class AIBrain : MonoBehaviour
     {
         int housePop = house.GetAddedPopulationSlots();
         return factionMgr.Slot.GetFreePopulation() + (housePop * GetBuildingInConstructionCount(house)) < housePop &&
+            factionMgr.Slot.GetCurrentPopulation() < factionMgr.Slot.MaxPopulation &&
             gameMgr.ResourceMgr.HasRequiredResources(house.GetResources(), factionMgr.FactionID);
     }
 
-    private void TrainSoldiers()
+    private bool TrainSoldiers()
     {
-        foreach(Building building in factionMgr.GetBuildings())
+        if (gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[coinSource.ID].GetCurrAmount() < 100 ||
+            factionMgr.Slot.GetFreePopulation() < 1)
         {
-            if (gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[coinSource.ID].GetCurrAmount() < 100)
-            {
-                isBarracksNeeded = false;
-                return;
-            }
+            isBarracksNeeded = false;
+            return false;
+        }
 
+        foreach (Building building in factionMgr.GetBuildings())
+        {
             if (building.GetCode() == barracks.GetCode() && building.IsBuilt)
             {
                 if (building.TaskLauncherComp.GetTaskQueueCount() < 2)
                 {
                     building.TaskLauncherComp.Add(0);
+                    return true;
                 }
             }
         }
@@ -186,6 +194,8 @@ public class AIBrain : MonoBehaviour
         {
             isBarracksNeeded = true;
         }
+
+        return false;
     }
 
     private void ConstructBuilding(Building building)

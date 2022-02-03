@@ -21,4 +21,9 @@ MonoBehaviour:
   populationBuilding: {fileID: 4810416383647272699, guid: 94426e9307b14324eb0c20c00b3ddb5d,
     type: 3}
   extraBuildings: []
-  limits: []
+  limits:
+  - code:
+      type: 0
+      code:
+      - tower
+    maxAmount: 7
