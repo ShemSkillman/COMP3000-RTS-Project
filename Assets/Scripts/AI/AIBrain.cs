@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.Assertions;
 using UnityEngine;
 using RTSEngine;
+using RTSEngine.EntityComponent;
 
 public class AIBrain : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class AIBrain : MonoBehaviour
     [Header("Resources")]
     [SerializeField] Resource coinSource;
     [SerializeField] Resource woodSource;
+    [SerializeField] ResourceTypeInfo defensePower;
+    [SerializeField] ResourceTypeInfo attackPower;
      
     float timeSinceLastAction = 0f;
     float timeBetweenActions;
@@ -58,6 +61,17 @@ public class AIBrain : MonoBehaviour
         if (!intiated)
         {
             return;
+        }
+
+        int attackPowerID = gameMgr.ResourceMgr.GetResourceID(attackPower.Key);
+        int defensePowerID = gameMgr.ResourceMgr.GetResourceID(defensePower.Key);
+
+        int myAttack = gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[attackPowerID].GetCurrAmount();
+        int enemyDefense = gameMgr.ResourceMgr.GetFactionResources(GameManager.PlayerFactionID).Resources[defensePowerID].GetCurrAmount();
+
+        if (myAttack > enemyDefense)
+        {
+            print("Can attack! Player def: " + enemyDefense + " my attack: " + myAttack);
         }
 
         timeSinceLastAction += Time.deltaTime;
@@ -129,7 +143,7 @@ public class AIBrain : MonoBehaviour
             ConstructBuilding(house);
         }
         else if (villagerCount < villagerCountGoal &&
-            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 2 &&
+            factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount() < 1 &&
             gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[coinSource.ID].GetCurrAmount() >= 100 &&
             factionMgr.Slot.GetFreePopulation() > 0)
         {
@@ -182,7 +196,7 @@ public class AIBrain : MonoBehaviour
         {
             if (building.GetCode() == barracks.GetCode() && building.IsBuilt)
             {
-                if (building.TaskLauncherComp.GetTaskQueueCount() < 2)
+                if (building.TaskLauncherComp.GetTaskQueueCount() < 1)
                 {
                     building.TaskLauncherComp.Add(0);
                     return true;
@@ -295,5 +309,18 @@ class CollectionTask
         return task.Collector.GetTarget() == null || 
             task.Collector.GetTarget().GetResourceType().Key != task.ToCollect.Key ||
             task.Collector.InProgress;
+    }
+}
+
+class ArmyGroup
+{
+    public List<UnitAttack> AttackUnits { get; set; }
+
+    public void Attack(FactionEntity target)
+    {
+        foreach (UnitAttack unit in AttackUnits)
+        {
+            unit.SetTarget(target, target.GetEntityCenterPos());
+        }
     }
 }

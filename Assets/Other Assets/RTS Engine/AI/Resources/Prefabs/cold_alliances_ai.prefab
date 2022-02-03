@@ -58,6 +58,8 @@ MonoBehaviour:
     type: 3}
   woodSource: {fileID: 114472513907078762, guid: 759400f2399de0449a8f399a73b6b15f,
     type: 3}
+  defensePower: {fileID: 11400000, guid: f2bb55131c0ba8749a96f92497ed3562, type: 2}
+  attackPower: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
 --- !u!1 &2962538194023733835
 GameObject:
   m_ObjectHideFlags: 0

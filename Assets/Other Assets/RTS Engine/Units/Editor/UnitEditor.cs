@@ -47,8 +47,6 @@ public class UnitEditor : Editor
 
         EditorGUILayout.Space();
 
-        EditorGUILayout.PropertyField(unit_SO.FindProperty("regulatorData"), true);
-
         unit_SO.ApplyModifiedProperties(); //apply all modified properties always at the end of this method.
     }
 }

@@ -234,8 +234,16 @@ MonoBehaviour:
     materialID: 0
   - renderer: {fileID: 3093407169780682166}
     materialID: 0
-  initResources: []
-  disableResources: []
+  initResources:
+  - Name: DefensePower
+    Amount: 1
+  - Name: AttackPower
+    Amount: 1
+  disableResources:
+  - Name: DefensePower
+    Amount: -1
+  - Name: AttackPower
+    Amount: -1
   populationSlots: 1
   apcSlots: 1
   canBeConverted: 0

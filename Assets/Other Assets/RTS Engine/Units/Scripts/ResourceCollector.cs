@@ -411,15 +411,15 @@ namespace RTSEngine
             GetComponent<AudioSource>().Play();
         }
 
-        public override void Update()
-        {
-            if (unit.HealthComp.IsDead() == true) //if the unit is dead, do not proceed.
-                return;
+        //public override void Update()
+        //{
+        //    if (unit.HealthComp.IsDead() == true) //if the unit is dead, do not proceed.
+        //        return;
 
-            if (target != null) //unit has target -> active
-                OnActiveUpdate(1.0f, UnitAnimatorState.idle, null); //on active update
-            else //no target? -> inactive
-                OnInactiveUpdate();
-        }
+        //    if (target != null) //unit has target -> active
+        //        OnActiveUpdate(1.0f, UnitAnimatorState.idle, null); //on active update
+        //    else //no target? -> inactive
+        //        OnInactiveUpdate();
+        //}
     }
 }

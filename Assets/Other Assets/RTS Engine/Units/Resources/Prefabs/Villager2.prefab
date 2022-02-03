@@ -328,12 +328,8 @@ MonoBehaviour:
   coloredRenderers:
   - renderer: {fileID: 7435700186029769823}
     materialID: 0
-  initResources:
-  - Name: FactionPower
-    Amount: 1
-  disableResources:
-  - Name: FactionPower
-    Amount: -1
+  initResources: []
+  disableResources: []
   populationSlots: 1
   apcSlots: 1
   canBeConverted: 1

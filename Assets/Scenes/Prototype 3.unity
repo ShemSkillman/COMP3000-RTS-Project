@@ -8839,6 +8839,99 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 759400f2399de0449a8f399a73b6b15f, type: 3}
+--- !u!1 &768854088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768854089}
+  - component: {fileID: 768854091}
+  - component: {fileID: 768854090}
+  - component: {fileID: 768854092}
+  m_Layer: 5
+  m_Name: FPS Counter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &768854089
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768854088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1144191627}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -269.09998, y: -30.6}
+  m_SizeDelta: {x: 119.29999, y: 36.299988}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &768854090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768854088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8156863, g: 0.8156863, b: 0.8156863, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: bc6289b5467678c49886c3997ad120b1, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'FPS: '
+--- !u!222 &768854091
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768854088}
+  m_CullTransparentMesh: 0
+--- !u!114 &768854092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768854088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a53a2af9be764793f09dca7ccc6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &768857112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4839631576485286, guid: 759400f2399de0449a8f399a73b6b15f,
@@ -13823,6 +13916,7 @@ RectTransform:
   - {fileID: 316387566}
   - {fileID: 350024381}
   - {fileID: 116942841}
+  - {fileID: 768854089}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17632,20 +17726,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcesParent: {fileID: 2103657167}
   mapResources:
-  - type: {fileID: 11400000, guid: 7fad61ec7c519fc48bda4c4cab2cb727, type: 2}
-    showUI: 0
-    allowedFactionTypes:
-      type: 0
-      targetList: []
-    imageUI: {fileID: 2129314181}
-    textUI: {fileID: 544280752}
   - type: {fileID: 11400000, guid: 9d777b69ade157b419696347a92dc071, type: 2}
     showUI: 1
     allowedFactionTypes:
       type: 0
       targetList: []
-    imageUI: {fileID: 1374496278}
-    textUI: {fileID: 445694347}
+    imageUI: {fileID: 2129314181}
+    textUI: {fileID: 544280752}
   - type: {fileID: 11400000, guid: a3e40a20a0b603d4793ed1985b005aed, type: 2}
     showUI: 1
     allowedFactionTypes:
@@ -17654,7 +17741,14 @@ MonoBehaviour:
     imageUI: {fileID: 1833218521}
     textUI: {fileID: 424058391}
   - type: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
-    showUI: 0
+    showUI: 1
+    allowedFactionTypes:
+      type: 0
+      targetList: []
+    imageUI: {fileID: 1374496278}
+    textUI: {fileID: 445694347}
+  - type: {fileID: 11400000, guid: f2bb55131c0ba8749a96f92497ed3562, type: 2}
+    showUI: 1
     allowedFactionTypes:
       type: 0
       targetList: []

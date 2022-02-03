@@ -238,8 +238,12 @@ MonoBehaviour:
   coloredRenderers:
   - renderer: {fileID: 2882046780211868852}
     materialID: 0
-  initResources: []
-  disableResources: []
+  initResources:
+  - Name: DefensePower
+    Amount: 4
+  disableResources:
+  - Name: DefensePower
+    Amount: -4
   taskPanelCategory: 2
   factionEntityRequirements: []
   resources:

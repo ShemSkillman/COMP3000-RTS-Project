@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 992e646db1208fc46bbbe5ddc17aa7f5, type: 3}
-  m_Name: FactionPower
+  m_Name: DefensePower
   m_EditorClassIdentifier: 
-  _name: FactionPower
+  _name: DefensePower
   startingAmount: 0
-  icon: {fileID: 21300000, guid: 9dcdd40ce91e25649b53cae423053e2e, type: 3}
+  icon: {fileID: 21300000, guid: 66a51d56464123a41bb2ab1bddf58d1b, type: 3}
   minimapIconColor: {r: 1, g: 1, b: 1, a: 1}
   collectionAudio:
     fetchType: 0
