@@ -39,7 +39,7 @@ namespace RTSEngine
 		private List<Building> dropOffBuildings = new List<Building>(); //list containing all the resource drop off buildings that this faction owns.
         public IEnumerable<Building> GetDropOffBuildings () { return dropOffBuildings; }
 		private List<Building> enemyBuildings = new List<Building>(); //list containing all the enemy buildings.
-        public IEnumerable<Building> GetEnemyBuildings () { return enemyBuildings; }
+        public List<Building> GetEnemyBuildings () { return enemyBuildings; }
 
         //Task Launchers:
         private List<TaskLauncher> taskLaunchers = new List<TaskLauncher>();

@@ -40,6 +40,38 @@ public class AIBrain : MonoBehaviour
 
     bool isBarracksNeeded = false;
 
+    ArmyGroup armyGroup;
+
+    private void OnEnable()
+    {
+        CustomEvents.UnitCreated += UnitCreated;
+    }
+
+    private void OnDisable()
+    {
+        CustomEvents.UnitCreated -= UnitCreated;
+    }
+
+    private void UnitCreated(Unit unit)
+    {
+        if (unit.IsFree() || unit.FactionID != factionMgr.FactionID)
+        {
+            return;
+        }
+
+        if (unit.AttackComp != null)
+        {
+            if (armyGroup == null)
+            {
+                armyGroup = new ArmyGroup(unit);
+            }
+            else
+            {
+                armyGroup.AttackUnits.Add(unit);
+            }
+        }
+    }
+
     public void Init(GameManager gameMgr, FactionManager factionMgr)
     {
         this.gameMgr = gameMgr;
@@ -61,17 +93,6 @@ public class AIBrain : MonoBehaviour
         if (!intiated)
         {
             return;
-        }
-
-        int attackPowerID = gameMgr.ResourceMgr.GetResourceID(attackPower.Key);
-        int defensePowerID = gameMgr.ResourceMgr.GetResourceID(defensePower.Key);
-
-        int myAttack = gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[attackPowerID].GetCurrAmount();
-        int enemyDefense = gameMgr.ResourceMgr.GetFactionResources(GameManager.PlayerFactionID).Resources[defensePowerID].GetCurrAmount();
-
-        if (myAttack > enemyDefense)
-        {
-            print("Can attack! Player def: " + enemyDefense + " my attack: " + myAttack);
         }
 
         timeSinceLastAction += Time.deltaTime;
@@ -171,6 +192,31 @@ public class AIBrain : MonoBehaviour
                 {
                     AssignVillagerToBuild(task);
                 }
+            }
+
+            int attackPowerID = gameMgr.ResourceMgr.GetResourceID(attackPower.Key);
+            int defensePowerID = gameMgr.ResourceMgr.GetResourceID(defensePower.Key);
+
+            int myAttack = gameMgr.ResourceMgr.GetFactionResources(factionMgr.FactionID).Resources[attackPowerID].GetCurrAmount();
+            int enemyDefense = gameMgr.ResourceMgr.GetFactionResources(GameManager.PlayerFactionID).Resources[defensePowerID].GetCurrAmount();
+
+            if (myAttack > enemyDefense)
+            {
+                List<Building> buildings = factionMgr.GetEnemyBuildings();
+                Vector3 armyPos = armyGroup.GetLocation();
+                Building closestBuilding = null;
+                float closestDist = Mathf.Infinity;
+                foreach (Building b in buildings)
+                {
+                    float dist = Vector3.Distance(b.transform.position, armyPos);
+                    if (dist < closestDist)
+                    {
+                        closestBuilding = b;
+                        closestDist = dist;
+                    }
+                }
+
+                gameMgr.AttackMgr.LaunchAttack(armyGroup.AttackUnits, closestBuilding, closestBuilding.GetEntityCenterPos(), false);
             }
         }
     }
@@ -314,13 +360,32 @@ class CollectionTask
 
 class ArmyGroup
 {
-    public List<UnitAttack> AttackUnits { get; set; }
+    public List<Unit> AttackUnits { get; set; }
 
-    public void Attack(FactionEntity target)
+    public ArmyGroup(Unit unit)
     {
-        foreach (UnitAttack unit in AttackUnits)
+        AttackUnits = new List<Unit>();
+        AttackUnits.Add(unit);
+    }
+
+    public void Validate()
+    {
+        AttackUnits.RemoveAll(IsUnitDead);
+    }
+
+    private static bool IsUnitDead(Unit unit)
+    {
+        return unit.HealthComp.IsDead();
+    }
+
+    public Vector3 GetLocation()
+    {
+        Vector3 ret = Vector3.zero;
+        foreach (Unit unit in AttackUnits)
         {
-            unit.SetTarget(target, target.GetEntityCenterPos());
+            ret += unit.transform.position;
         }
+
+        return ret / AttackUnits.Count;
     }
 }

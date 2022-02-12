@@ -126,7 +126,7 @@ namespace RTSEngine
                     //if current unit is able to engage with its target using the computed path then move to the next path, if not, test the path on the next unit.
                     //the last argument of the SetTarget method is set to the playerCommand because we still want to move the units to computed attack position...
                     //...even if it is out of the attack range because the player issued the attack/movement command.
-                    ErrorMessage errorMessage = unit.AttackComp.SetTargetLocal(targetEntity, targetPosition, pathDestinations[destinationID], playerCommand);
+                    ErrorMessage errorMessage = unit.AttackComp.SetTargetLocal(targetEntity, targetPosition, pathDestinations[destinationID], true);
                     if(errorMessage == ErrorMessage.none || errorMessage == ErrorMessage.moveToTargetNoAttack)
                     {
                         if(refUnit == null) //assign the reference unit from which the attack order will be played.
@@ -218,7 +218,7 @@ namespace RTSEngine
 
             //calculate a target attack position and attempt to set a new attack target for the source unit.
             //and if the target has been successuflly set and this is a player command.
-            return unit.AttackComp.SetTargetLocal(targetEntity, targetPosition, GetAttackPosition(unit, targetEntity, targetPosition), playerCommand); 
+            return unit.AttackComp.SetTargetLocal(targetEntity, targetPosition, GetAttackPosition(unit, targetEntity, targetPosition), true); 
         }
 
         /// <summary>
