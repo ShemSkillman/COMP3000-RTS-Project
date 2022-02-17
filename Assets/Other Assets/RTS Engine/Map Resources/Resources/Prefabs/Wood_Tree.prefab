@@ -159,7 +159,7 @@ MonoBehaviour:
   secondaryModel: {fileID: 7608229589807266689}
   secondarySelection: {fileID: 8251946193899418903}
   canCollectOutsideBorder: 1
-  collectOneUnitDuration: 3
+  collectOneUnitDuration: 1.5
   showCollectors: 1
   showAmount: 1
 --- !u!114 &114952485777389764

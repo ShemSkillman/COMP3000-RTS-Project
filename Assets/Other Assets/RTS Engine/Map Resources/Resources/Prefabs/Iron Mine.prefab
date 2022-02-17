@@ -220,7 +220,7 @@ MonoBehaviour:
   secondaryModel: {fileID: 0}
   secondarySelection: {fileID: 0}
   canCollectOutsideBorder: 1
-  collectOneUnitDuration: 1.5
+  collectOneUnitDuration: 0.75
   showCollectors: 1
   showAmount: 1
 --- !u!208 &208720352841937452

@@ -375,7 +375,7 @@ class ArmyGroup
 
     private static bool IsUnitDead(Unit unit)
     {
-        return unit.HealthComp.IsDead();
+        return unit == null || unit.HealthComp.IsDead();
     }
 
     public Vector3 GetLocation()
