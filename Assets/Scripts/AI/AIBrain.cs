@@ -194,6 +194,11 @@ public class AIBrain : MonoBehaviour
                 }
             }
 
+            if (armyGroup == null)
+                return;
+
+            armyGroup.Validate();
+
             int attackPowerID = gameMgr.ResourceMgr.GetResourceID(attackPower.Key);
             int defensePowerID = gameMgr.ResourceMgr.GetResourceID(defensePower.Key);
 

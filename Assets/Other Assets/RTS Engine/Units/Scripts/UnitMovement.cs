@@ -246,11 +246,11 @@ namespace RTSEngine.EntityComponent
             }
 
             //to sync the unit's movement with its animation state, only handle movement if the unit is in its mvt animator state.
-            if (!unit.IsInAnimatorMvtState())
-            {
-                Stop();
-                return;
-            }                
+            //if (!unit.IsInAnimatorMvtState())
+            //{
+            //    Stop();
+            //    return;
+            //}                
 
             UpdateMovementRotation(); 
 

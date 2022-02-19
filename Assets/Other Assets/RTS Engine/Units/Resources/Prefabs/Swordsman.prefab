@@ -358,7 +358,7 @@ MonoBehaviour:
   requireTarget: 1
   damage:
     canDealDamage: 1
-    unitDamage: 40
+    unitDamage: 10
     buildingDamage: 5
     customDamages: []
     areaAttackEnabled: 0
