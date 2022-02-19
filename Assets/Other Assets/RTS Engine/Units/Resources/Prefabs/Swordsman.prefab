@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 2
+  tabID: 1
   isLocked: 0
   isActive: 1
   code: swordsman_attack
@@ -358,7 +358,7 @@ MonoBehaviour:
   requireTarget: 1
   damage:
     canDealDamage: 1
-    unitDamage: 5
+    unitDamage: 40
     buildingDamage: 5
     customDamages: []
     areaAttackEnabled: 0
@@ -1717,27 +1717,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9585764, guid: 46628851bff3fa341a13534728534ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46628851bff3fa341a13534728534ea3, type: 3}
---- !u!1 &3093407169778701024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 111318, guid: 46628851bff3fa341a13534728534ea3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3093407169778802742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3093407169778331954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 479492, guid: 46628851bff3fa341a13534728534ea3,
     type: 3}
   m_PrefabInstance: {fileID: 3093407169778802742}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &3093407169780682166 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2321792, guid: 46628851bff3fa341a13534728534ea3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3093407169778802742}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &3093407169783953190 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13735696, guid: 46628851bff3fa341a13534728534ea3,
+--- !u!1 &3093407169778701024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 111318, guid: 46628851bff3fa341a13534728534ea3,
     type: 3}
   m_PrefabInstance: {fileID: 3093407169778802742}
   m_PrefabAsset: {fileID: 0}
@@ -1759,3 +1747,15 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!23 &3093407169780682166 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2321792, guid: 46628851bff3fa341a13534728534ea3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3093407169778802742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3093407169783953190 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13735696, guid: 46628851bff3fa341a13534728534ea3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3093407169778802742}
+  m_PrefabAsset: {fileID: 0}
