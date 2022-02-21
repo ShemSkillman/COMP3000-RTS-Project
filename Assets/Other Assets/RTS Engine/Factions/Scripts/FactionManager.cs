@@ -163,6 +163,11 @@ namespace RTSEngine
                 return;
             }
 
+            if (unit.CollectorComp != null)
+            {
+                OnFinishCollecting(unit, unit.CollectorComp.GetTarget());
+            }
+
 			units.Remove (unit);
             factionEntities.Remove(unit);
 
@@ -336,12 +341,11 @@ namespace RTSEngine
         {
             if (villager.FactionID != FactionID) return;
 
-            if (!resourceCollectors.ContainsKey(resource.GetResourceType().Key))
+            if (resourceCollectors.ContainsKey(resource.GetResourceType().Key) && 
+                resourceCollectors[resource.GetResourceType().Key].ContainsKey(villager))
             {
-                resourceCollectors[resource.GetResourceType().Key] = new Dictionary<Unit, bool>();
+                resourceCollectors[resource.GetResourceType().Key].Remove(villager);
             }
-
-            resourceCollectors[resource.GetResourceType().Key].Remove(villager);
         }
 
         public List<Unit> GetVillagersCollectingResource(string resourceName)
