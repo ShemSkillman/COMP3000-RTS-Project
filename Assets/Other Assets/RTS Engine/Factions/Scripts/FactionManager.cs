@@ -165,7 +165,14 @@ namespace RTSEngine
 
             if (unit.CollectorComp != null)
             {
-                OnFinishCollecting(unit, unit.CollectorComp.GetTarget());
+                foreach (Dictionary<Unit, bool> d in resourceCollectors.Values)
+                {
+                    if (d.ContainsKey(unit))
+                    {
+                        d.Remove(unit);
+                        break;
+                    }
+                }
             }
 
 			units.Remove (unit);
@@ -339,7 +346,7 @@ namespace RTSEngine
 
         private void OnFinishCollecting(Unit villager, Resource resource)
         {
-            if (villager.FactionID != FactionID) return;
+            if (villager.FactionID != FactionID || resource == null) return;
 
             if (resourceCollectors.ContainsKey(resource.GetResourceType().Key) && 
                 resourceCollectors[resource.GetResourceType().Key].ContainsKey(villager))
