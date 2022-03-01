@@ -368,7 +368,7 @@ MonoBehaviour:
     _isAvailable: 1
     unitCreationAttributes:
       prefabs:
-      - {fileID: 5478135404590290437, guid: 8019b7d3f3bbe844787c3d9abd18df24, type: 3}
+      - {fileID: 5478135404590290437, guid: c54e380ca340c9940a2f9d3c348f76f6, type: 3}
     upgrade: {fileID: 0}
     upgradeTargetID: 0
     oneInstanceUpgrade: 0
@@ -927,6 +927,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2f28d7d7478cb64597ebb9077abfe6e, type: 3}
+--- !u!23 &1694177144315841122 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: e2f28d7d7478cb64597ebb9077abfe6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1694177144318136834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1694177144318104738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: e2f28d7d7478cb64597ebb9077abfe6e,
@@ -936,12 +942,6 @@ GameObject:
 --- !u!4 &1694177144318265474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e2f28d7d7478cb64597ebb9077abfe6e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1694177144318136834}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &1694177144315841122 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2300000, guid: e2f28d7d7478cb64597ebb9077abfe6e,
     type: 3}
   m_PrefabInstance: {fileID: 1694177144318136834}
   m_PrefabAsset: {fileID: 0}

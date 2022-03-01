@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 7426046671300633383}
   - component: {fileID: 755095021717396398}
   m_Layer: 12
-  m_Name: Spearman
+  m_Name: Horseman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ Transform:
   - {fileID: 6890344121001928725}
   - {fileID: 1784252055391802500}
   - {fileID: 2183898043610944431}
-  - {fileID: 8003489575511687900}
+  - {fileID: 1391339425433412056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -188,7 +188,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2787197986251586902}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 02ded044b8e0963439276550f50be6f9, type: 3}
+  m_Avatar: {fileID: 9000000, guid: cf2f4f48c57855a4faee32e736b71983, type: 3}
   m_Controller: {fileID: 9100000, guid: 4f28c54bfb24b3a489502c2758d6e46e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -211,10 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336368cae8283464db5dddd78bd08437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Spearman
-  code: spearman
+  _name: Horseman
+  code: horseman
   category: military
-  description: Man with a spear to counter cavalry.
+  description: Man on Horse!
   icon: {fileID: 21300000, guid: bafe43eeff69e30469df178cf5f1c479, type: 3}
   free: 0
   selectionAudio:
@@ -225,14 +225,14 @@ MonoBehaviour:
         min: 1
         max: 2
   plane: {fileID: 5469239455339361201}
-  model: {fileID: 8003489575511888888}
+  model: {fileID: 1391339425433206900}
   selection: {fileID: 6687203284340130100}
   radius: 2
   factionID: 0
   coloredRenderers:
-  - renderer: {fileID: 8003489575500440154}
+  - renderer: {fileID: 1391339425419631626}
     materialID: 0
-  - renderer: {fileID: 8003489575509948110}
+  - renderer: {fileID: 1391339425431037346}
     materialID: 0
   initResources:
   - Name: DefensePower
@@ -248,7 +248,7 @@ MonoBehaviour:
   apcSlots: 1
   canBeConverted: 0
   animator: {fileID: 2094293790657338115}
-  animatorOverrideController: {fileID: 22100000, guid: 3a6f58826201e3d49b1c2ec3644c5d9b,
+  animatorOverrideController: {fileID: 22100000, guid: 7cb2e25df9f03fb47aadd6d039e9e9fe,
     type: 2}
   spawnLookAt: {fileID: 0}
 --- !u!114 &6412724998090325175
@@ -299,7 +299,7 @@ MonoBehaviour:
     maxEmpty: 1
     spacing: 0.4
   resetPendingMovement: 0
-  speed: 5
+  speed: 6
   acceleration: 50
   mvtAngularSpeed: 250
   canMoveRotate: 1
@@ -689,95 +689,89 @@ MonoBehaviour:
   canSelect: 1
   selectOwnerOnly: 0
   minimapIconSize: 0.5
---- !u!1001 &8003489575511814952
+--- !u!1001 &1391339425433379660
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 3219414558332336073}
     m_Modifications:
-    - target: {fileID: 123088, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 172856, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_Name
-      value: TT_Spearman
+      value: TT_Light_Cavalry
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
+    - target: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 9500222, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 0755a95e2e1b5f44e8226989fb76f2cf, type: 3}
---- !u!137 &8003489575500440154 stripped
+    - {fileID: 9516860, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6, type: 3}
+--- !u!137 &1391339425419631626 stripped
 SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13799794, guid: 0755a95e2e1b5f44e8226989fb76f2cf,
+  m_CorrespondingSourceObject: {fileID: 13762374, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6,
     type: 3}
-  m_PrefabInstance: {fileID: 8003489575511814952}
+  m_PrefabInstance: {fileID: 1391339425433379660}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &8003489575509948110 stripped
+--- !u!23 &1391339425431037346 stripped
 MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2328038, guid: 0755a95e2e1b5f44e8226989fb76f2cf,
+  m_CorrespondingSourceObject: {fileID: 2344686, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6,
     type: 3}
-  m_PrefabInstance: {fileID: 8003489575511814952}
+  m_PrefabInstance: {fileID: 1391339425433379660}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8003489575511687900 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 455156, guid: 0755a95e2e1b5f44e8226989fb76f2cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 8003489575511814952}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8003489575511888888 stripped
+--- !u!1 &1391339425433206900 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 123088, guid: 0755a95e2e1b5f44e8226989fb76f2cf,
+  m_CorrespondingSourceObject: {fileID: 172856, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6,
     type: 3}
-  m_PrefabInstance: {fileID: 8003489575511814952}
+  m_PrefabInstance: {fileID: 1391339425433379660}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8870311992874846056
+--- !u!114 &4534270799192922185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8003489575511888888}
+  m_GameObject: {fileID: 1391339425433206900}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
@@ -789,3 +783,9 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!4 &1391339425433412056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 492180, guid: 4e3c7da5fb6ce5a47a0a7dbc18b843c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1391339425433379660}
+  m_PrefabAsset: {fileID: 0}
