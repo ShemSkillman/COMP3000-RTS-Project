@@ -368,7 +368,7 @@ MonoBehaviour:
     _isAvailable: 1
     unitCreationAttributes:
       prefabs:
-      - {fileID: 5478135404590290437, guid: 521c1ca95dd476245a37ae03467d67f6, type: 3}
+      - {fileID: 5478135404590290437, guid: 41eb0c38623f5634a9aed677ff3478ea, type: 3}
     upgrade: {fileID: 0}
     upgradeTargetID: 0
     oneInstanceUpgrade: 0
