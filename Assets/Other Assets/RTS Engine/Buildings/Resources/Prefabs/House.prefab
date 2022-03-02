@@ -384,7 +384,7 @@ MonoBehaviour:
     materialID: 0
   initResources: []
   disableResources: []
-  taskPanelCategory: 2
+  taskPanelCategory: 0
   factionEntityRequirements: []
   resources:
   - Name: Wood

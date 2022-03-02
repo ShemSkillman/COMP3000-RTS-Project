@@ -244,7 +244,7 @@ MonoBehaviour:
   disableResources:
   - Name: DefensePower
     Amount: -4
-  taskPanelCategory: 2
+  taskPanelCategory: 1
   factionEntityRequirements: []
   resources:
   - Name: Wood
@@ -1123,15 +1123,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 240875b6dee8d804883a4a485f4ed145, type: 3}
---- !u!4 &2089167856140131344 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 240875b6dee8d804883a4a485f4ed145,
-    type: 3}
-  m_PrefabInstance: {fileID: 2089167856139994768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2089167856139894832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 240875b6dee8d804883a4a485f4ed145,
+    type: 3}
+  m_PrefabInstance: {fileID: 2089167856139994768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2089167856140131344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 240875b6dee8d804883a4a485f4ed145,
     type: 3}
   m_PrefabInstance: {fileID: 2089167856139994768}
   m_PrefabAsset: {fileID: 0}
@@ -1563,15 +1563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8b6056e281f7c40b4f6f25ef610477, type: 3}
---- !u!4 &9161279192163560198 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: ce8b6056e281f7c40b4f6f25ef610477,
-    type: 3}
-  m_PrefabInstance: {fileID: 9161279192163168646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9161279192163268390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: ce8b6056e281f7c40b4f6f25ef610477,
+    type: 3}
+  m_PrefabInstance: {fileID: 9161279192163168646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9161279192163560198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ce8b6056e281f7c40b4f6f25ef610477,
     type: 3}
   m_PrefabInstance: {fileID: 9161279192163168646}
   m_PrefabAsset: {fileID: 0}

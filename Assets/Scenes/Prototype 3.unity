@@ -10515,6 +10515,7 @@ MonoBehaviour:
   - {fileID: 4810416383647272699, guid: 94426e9307b14324eb0c20c00b3ddb5d, type: 3}
   - {fileID: 4810416383647272699, guid: 75f08936e7381684394716846d386c45, type: 3}
   - {fileID: 4810416383647272699, guid: cb4297c2b5e0bf748816be8193892b08, type: 3}
+  - {fileID: 4810416383647272699, guid: fed7c6dbf3b8d284aaa4206205d1f5c6, type: 3}
   buildingYOffset: 0.01
   groundMaxDistance: 1.5
   holdAndSpawnEnabled: 1
