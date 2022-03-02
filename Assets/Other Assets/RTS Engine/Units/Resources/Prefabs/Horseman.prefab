@@ -215,7 +215,7 @@ MonoBehaviour:
   code: horseman
   category: military
   description: Man on Horse!
-  icon: {fileID: 21300000, guid: bafe43eeff69e30469df178cf5f1c479, type: 3}
+  icon: {fileID: 21300000, guid: 4da7fcaa89cd22c42abf4b7d035a3b54, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
     Amount: -1
   - Name: AttackPower
     Amount: -1
-  populationSlots: 1
+  populationSlots: 2
   apcSlots: 1
   canBeConverted: 0
   animator: {fileID: 2094293790657338115}
@@ -329,10 +329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 1
+  tabID: 0
   isLocked: 0
   isActive: 1
-  code: spearman_attack
+  code: horseman_attack
   basic: 1
   targetPicker:
     type: 0
@@ -358,8 +358,8 @@ MonoBehaviour:
   requireTarget: 1
   damage:
     canDealDamage: 1
-    unitDamage: 5
-    buildingDamage: 2
+    unitDamage: 10
+    buildingDamage: 4
     customDamages: []
     areaAttackEnabled: 0
     attackRanges: []
@@ -416,14 +416,14 @@ MonoBehaviour:
     audioClips: []
   range:
     unitStoppingDistance:
-      min: 0
+      min: 1
       max: 2
     buildingStoppingDistance:
-      min: 0
-      max: 1
+      min: 1
+      max: 2
     noTargetStoppingDistance:
-      min: 0
-      max: 1
+      min: 1
+      max: 2
     moveOnAttackOffset: 0
     updateMvtDistance: 2
     formation:
