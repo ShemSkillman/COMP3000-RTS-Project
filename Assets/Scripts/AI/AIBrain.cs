@@ -76,6 +76,8 @@ namespace ColdAlliances.AI
 
         public void Init(GameManager gameMgr, FactionManager factionMgr)
         {
+
+
             this.gameMgr = gameMgr;
             this.factionMgr = factionMgr;
 
