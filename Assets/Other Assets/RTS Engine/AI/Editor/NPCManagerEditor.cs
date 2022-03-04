@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using RTSEngine;
+using ColdAlliances.AI;
 
 /* NPC Manager Editor script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */
