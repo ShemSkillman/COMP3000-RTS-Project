@@ -311,7 +311,7 @@ MonoBehaviour:
   code: villager2
   category: civilian
   description: Gathers resources and constructs buildings.
-  icon: {fileID: 21300000, guid: ed4290bf44e6ff24289d4f3d49c81d18, type: 3}
+  icon: {fileID: 21300000, guid: 7fd835532c5128843a2f99c11a185387, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -2366,21 +2366,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9589574, guid: 53eb1e18130e9be4387a785b482187e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53eb1e18130e9be4387a785b482187e1, type: 3}
---- !u!1 &7435700186024535621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 155500, guid: 53eb1e18130e9be4387a785b482187e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7435700186024655145}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7435700186024248497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408984, guid: 53eb1e18130e9be4387a785b482187e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7435700186024655145}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7435700186024760655 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 126054, guid: 53eb1e18130e9be4387a785b482187e1,
     type: 3}
   m_PrefabInstance: {fileID: 7435700186024655145}
   m_PrefabAsset: {fileID: 0}
@@ -2390,15 +2378,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7435700186024655145}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7435700186024552487 stripped
+--- !u!1 &7435700186024535621 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 168206, guid: 53eb1e18130e9be4387a785b482187e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7435700186024655145}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &7435700186029769823 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13794678, guid: 53eb1e18130e9be4387a785b482187e1,
+  m_CorrespondingSourceObject: {fileID: 155500, guid: 53eb1e18130e9be4387a785b482187e1,
     type: 3}
   m_PrefabInstance: {fileID: 7435700186024655145}
   m_PrefabAsset: {fileID: 0}
@@ -2420,3 +2402,21 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &7435700186024552487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 168206, guid: 53eb1e18130e9be4387a785b482187e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7435700186024655145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7435700186024760655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 126054, guid: 53eb1e18130e9be4387a785b482187e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7435700186024655145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7435700186029769823 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13794678, guid: 53eb1e18130e9be4387a785b482187e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7435700186024655145}
+  m_PrefabAsset: {fileID: 0}

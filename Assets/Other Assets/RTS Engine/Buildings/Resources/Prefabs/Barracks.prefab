@@ -221,7 +221,7 @@ MonoBehaviour:
   code: barracks
   category: military
   description: Trains swordsmen and pikemen.
-  icon: {fileID: 21300000, guid: f1428e6d4fab8d740bdb7eca131b9caf, type: 3}
+  icon: {fileID: 21300000, guid: 2e16263a6c9e4484e831bfdd58045d7f, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0

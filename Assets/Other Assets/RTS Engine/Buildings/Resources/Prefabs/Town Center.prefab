@@ -504,7 +504,7 @@ MonoBehaviour:
   code: town_center
   category: new_building_category
   description: Key economic building that trains villagers.
-  icon: {fileID: 21300000, guid: d1c09ae7e09d42a46a047d582fe6da54, type: 3}
+  icon: {fileID: 21300000, guid: fcd3ff5962350814b88f6e904da9749f, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
     type: 11
     allowedType: 0
     taskPanelCategory: 0
-    icon: {fileID: 21300000, guid: ed4290bf44e6ff24289d4f3d49c81d18, type: 3}
+    icon: {fileID: 21300000, guid: 7fd835532c5128843a2f99c11a185387, type: 3}
     reloadTime: 25
     requiredResources:
     - Name: Coin
@@ -823,6 +823,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4a8b820c98c7b4540bab4e4f3d70d7fb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5f43a47e4b64c14da6e0081f639fdd3, type: 3}
+--- !u!23 &4365373876583669847 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: c5f43a47e4b64c14da6e0081f639fdd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4365373876585707575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4365373876585676439 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c5f43a47e4b64c14da6e0081f639fdd3,
@@ -832,12 +838,6 @@ GameObject:
 --- !u!4 &4365373876586095287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c5f43a47e4b64c14da6e0081f639fdd3,
-    type: 3}
-  m_PrefabInstance: {fileID: 4365373876585707575}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &4365373876583669847 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2300000, guid: c5f43a47e4b64c14da6e0081f639fdd3,
     type: 3}
   m_PrefabInstance: {fileID: 4365373876585707575}
   m_PrefabAsset: {fileID: 0}
