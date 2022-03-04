@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Assertions;
+using ColdAlliances.AI;
 
 /* NPCUnitRegulator script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */

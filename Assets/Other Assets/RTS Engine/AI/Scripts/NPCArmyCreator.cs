@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 using RTSEngine.EntityComponent;
+using ColdAlliances.AI;
 
 /* NPCArmyCreator script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */

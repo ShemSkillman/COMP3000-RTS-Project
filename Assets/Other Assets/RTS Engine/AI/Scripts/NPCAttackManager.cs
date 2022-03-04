@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 
 using RTSEngine.Attack;
+using ColdAlliances.AI;
 
 /* NPCAttackManager script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */

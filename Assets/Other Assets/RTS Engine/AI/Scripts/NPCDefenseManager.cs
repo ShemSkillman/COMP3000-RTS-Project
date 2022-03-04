@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 
 using RTSEngine.EntityComponent;
+using ColdAlliances.AI;
 
 /* NPCDefenseManager script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */

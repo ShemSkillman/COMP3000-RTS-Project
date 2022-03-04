@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ColdAlliances.AI;
+using System.Collections.Generic;
 using UnityEngine;
 
 /* NPCUnitCreator script created by Oussama Bouanani, SoumiDelRio.

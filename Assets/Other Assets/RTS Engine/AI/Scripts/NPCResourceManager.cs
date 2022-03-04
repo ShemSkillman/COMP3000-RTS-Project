@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using ColdAlliances.AI;
 
 /* NPCResourceManager script created by Oussama Bouanani, SoumiDelRio.
  * This script is part of the Unity RTS Engine */

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ColdAlliances.AI;
+using System.Collections.Generic;
 using UnityEngine;
 
 /* NPCBuildingCreator script created by Oussama Bouanani, SoumiDelRio.
