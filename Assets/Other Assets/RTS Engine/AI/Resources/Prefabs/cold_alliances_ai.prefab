@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4775314185703692}
   - component: {fileID: 114475972782975292}
+  - component: {fileID: -2645502187718189570}
   m_Layer: 0
   m_Name: cold_alliances_ai
   m_TagString: Untagged
@@ -60,6 +61,19 @@ MonoBehaviour:
     type: 3}
   defensePower: {fileID: 11400000, guid: f2bb55131c0ba8749a96f92497ed3562, type: 2}
   attackPower: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
+--- !u!114 &-2645502187718189570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206597408391560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: e1ac12b4212a4654180dfcf52c8f94b8, type: 2}
 --- !u!1 &2962538194023733835
 GameObject:
   m_ObjectHideFlags: 0

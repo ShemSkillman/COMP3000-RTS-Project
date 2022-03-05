@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using RTSEngine;
 using UnityEngine;
 
 namespace TheKiwiCoder {
@@ -11,26 +10,30 @@ namespace TheKiwiCoder {
         // Storage container object to hold game object subsystems
         Context context;
 
-        // Start is called before the first frame update
-        void Start() {
-            context = CreateBehaviourTreeContext();
+        bool initialized = false;
+
+        public void Init(GameManager gameMgr, FactionManager factionMgr)
+        {
+            context = CreateBehaviourTreeContext(gameMgr, factionMgr);
             tree = tree.Clone();
             tree.Bind(context);
+
+            initialized = true;
         }
 
         // Update is called once per frame
         void Update() {
-            if (tree) {
+            if (initialized && tree) {
                 tree.Update();
             }
         }
 
-        Context CreateBehaviourTreeContext() {
-            return Context.CreateFromGameObject(gameObject);
+        Context CreateBehaviourTreeContext(GameManager gameMgr, FactionManager factionMgr) {
+            return Context.CreateFromGameObject(gameObject, gameMgr, factionMgr);
         }
 
         private void OnDrawGizmosSelected() {
-            if (!tree) {
+            if (!initialized || !tree) {
                 return;
             }
 
