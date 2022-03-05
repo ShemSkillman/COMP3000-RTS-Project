@@ -24,5 +24,7 @@ namespace TheKiwiCoder {
 
             return context;
         }
+
+        public FactionTypeInfo Info { get { return factionMgr.Slot.GetTypeInfo(); } }
     }
 }

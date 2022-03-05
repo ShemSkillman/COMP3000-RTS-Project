@@ -37,6 +37,52 @@ public class FactionTypeInfo : ScriptableObject, IAssetFile
     [SerializeField]
     private List<FactionLimit> limits = new List<FactionLimit>(); //building/unit limits for this faction type.
     public IEnumerable<FactionLimit> GetLimits() { return limits; }
+
+    [Header("Faction Buildings")]
+    [SerializeField] private Building barracks;
+    public Building Barracks { get { return barracks; } }
+
+    [SerializeField] private Building tower;
+    public Building Tower { get { return tower; } }
+
+    [SerializeField] private Building foundry;
+    public Building Foundry { get { return foundry; } }
+
+    [SerializeField] private Building archeryRange;
+    public Building ArcheryRange { get { return archeryRange; } }
+
+    [SerializeField] private Building stables;
+    public Building Stables { get { return stables; } }
+
+    [SerializeField] private Building house;
+    public Building House { get { return house; } }
+
+    [SerializeField] private Building townCenter;
+    public Building TownCenter { get { return townCenter; } }
+
+    [Header("Faction Units")]
+    [SerializeField] private Unit villager;
+    public Unit Villager { get { return villager; } }
+
+    [SerializeField] private Unit spearman;
+    public Unit Spearman { get { return spearman; } }
+
+    [SerializeField] private Unit horseman;
+    public Unit Horseman { get { return horseman; } }
+
+    [SerializeField] private Unit archer;
+    public Unit Archer { get { return archer; } }
+
+    [SerializeField] private Unit catapult;
+    public Unit Catapult { get { return catapult; } }
+
+    [Header("Resources")]
+    [SerializeField] private Resource ironMine;
+    public Resource IronMine { get { return ironMine; } }
+
+    [SerializeField] private Resource tree;
+    public Resource Tree { get { return tree; } }
+
 }
 
 [System.Serializable]

@@ -32,6 +32,26 @@ namespace RTSEngine.EditorOnly
 
             EditorGUILayout.PropertyField(target_SO.FindProperty("limits"), true);
 
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(target_SO.FindProperty("barracks"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("tower"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("foundry"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("archeryRange"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("stables"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("house"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("townCenter"));
+
+            EditorGUILayout.PropertyField(target_SO.FindProperty("villager"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("spearman"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("horseman"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("archer"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("catapult"));
+
+            EditorGUILayout.PropertyField(target_SO.FindProperty("ironMine"));
+            EditorGUILayout.PropertyField(target_SO.FindProperty("tree"));
+
+
             target_SO.ApplyModifiedProperties(); //Apply all modified properties always at the end of this method.
         }
     }

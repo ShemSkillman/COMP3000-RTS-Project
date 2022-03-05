@@ -23,4 +23,4 @@ MonoBehaviour:
     type: 3}
   scriptTemplateDecoratorNode: {fileID: 4900000, guid: 68ec90eda70221843b347ce647ce661a,
     type: 3}
-  newNodeBasePath: Assets/Other Assets/TheKiwiCoder/BehaviourTree/Scripts/
+  newNodeBasePath: Assets/Behaviour Trees/
