@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
-  position: {x: 0, y: 328}
+  position: {x: -197.80504, y: 591.3175}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -40,7 +40,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  child: {fileID: 1007276457213025770}
+  child: {fileID: 5402094367133825494}
 --- !u!114 &-1697166588000990583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,12 +56,58 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 02b2f7d6deb80ad45aa919331171c774
-  position: {x: -309, y: 328}
+  position: {x: -535.3875, y: 313}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
   duration: 0.5
+--- !u!114 &-1191702089655948401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460be9e34c566ea45b9e282b1adcb028, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 43a35c52aee3048469fda9aa0437ddb5
+  position: {x: -0.00012207031, y: 126.066895}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -1697166588000990583}
+  - {fileID: -941991324772222228}
+--- !u!114 &-941991324772222228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d676e0c5c156ad8489fbe0e36a5df47e
+  position: {x: -287.80502, y: 396.3175}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: 7416001806080285645}
+  - {fileID: -9044492220249875899}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,13 +125,14 @@ MonoBehaviour:
   nodes:
   - {fileID: -5093452499250331579}
   - {fileID: -1697166588000990583}
-  - {fileID: 3091035547736491433}
-  - {fileID: 1007276457213025770}
   - {fileID: -9044492220249875899}
-  - {fileID: 1908476329928928625}
+  - {fileID: 7416001806080285645}
+  - {fileID: -941991324772222228}
+  - {fileID: 5402094367133825494}
+  - {fileID: -1191702089655948401}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
---- !u!114 &1007276457213025770
+--- !u!114 &5402094367133825494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,16 +146,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 375de5a52a12d9044a6091698e36786b
-  position: {x: 0.000015258789, y: -24.254953}
+  guid: d617adadf1bd18342906cec07c6362be
+  position: {x: -0.00012816429, y: -13.133242}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  child: {fileID: 3091035547736491433}
+  child: {fileID: -1191702089655948401}
   restartOnSuccess: 1
   restartOnFailure: 1
---- !u!114 &1908476329928928625
+--- !u!114 &7416001806080285645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,39 +164,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9e411f4095d0a44acd9a25323f5e73, type: 3}
-  m_Name: Log
+  m_Script: {fileID: 11500000, guid: 258a9b10937280949b8ab79707e61fe6, type: 3}
+  m_Name: NeedsVillager
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 020760e0827f54a48b2e55214a44a906
-  position: {x: 331, y: 328}
+  guid: 180b01d6015239e47a8d0e7f8e2b7e21
+  position: {x: -388.805, y: 591.3175}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  message: Training villager!
---- !u!114 &3091035547736491433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
-  m_Name: Sequencer
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 47efd22cbbf119a40a350431ca20c8de
-  position: {x: 0, y: 126}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-  description: 
-  drawGizmos: 0
-  children:
-  - {fileID: -1697166588000990583}
-  - {fileID: -9044492220249875899}
-  - {fileID: 1908476329928928625}
