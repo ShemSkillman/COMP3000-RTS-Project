@@ -15,9 +15,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
-  position: {x: -197.80504, y: 591.3175}
+  position: {x: -212.99995, y: 590.99994}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
 --- !u!114 &-5093452499250331579
@@ -38,9 +39,31 @@ MonoBehaviour:
   position: {x: 0.000014781952, y: -167.15996}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
   child: {fileID: 5402094367133825494}
+--- !u!114 &-2866905899003913017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ba7a17778ecb94f8d404954a0ca9b3, type: 3}
+  m_Name: FindIdleVillager
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 561dce29a7a0d884583a2db74bbd7fa4
+  position: {x: -11, y: 591}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
 --- !u!114 &-1697166588000990583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,9 +82,31 @@ MonoBehaviour:
   position: {x: -535.3875, y: 313}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
   duration: 0.5
+--- !u!114 &-1265492658124667434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55813423d3c3f64b9721e00826aa8ba, type: 3}
+  m_Name: AssignIdleVillager
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 44a677985728455498ca0580f723b9af
+  position: {x: 179, y: 591}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
 --- !u!114 &-1191702089655948401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,11 +125,13 @@ MonoBehaviour:
   position: {x: -0.00012207031, y: 126.066895}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
   children:
   - {fileID: -1697166588000990583}
   - {fileID: -941991324772222228}
+  - {fileID: 6424446392284461930}
 --- !u!114 &-941991324772222228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +150,7 @@ MonoBehaviour:
   position: {x: -287.80502, y: 396.3175}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
   children:
@@ -130,8 +178,12 @@ MonoBehaviour:
   - {fileID: -941991324772222228}
   - {fileID: 5402094367133825494}
   - {fileID: -1191702089655948401}
+  - {fileID: 6424446392284461930}
+  - {fileID: -2866905899003913017}
+  - {fileID: -1265492658124667434}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
 --- !u!114 &5402094367133825494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,11 +202,36 @@ MonoBehaviour:
   position: {x: -0.00012816429, y: -13.133242}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
   child: {fileID: -1191702089655948401}
   restartOnSuccess: 1
   restartOnFailure: 1
+--- !u!114 &6424446392284461930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f9caab93ccc4bb04f85d68e3ffcd0617
+  position: {x: 93.77495, y: 396}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -2866905899003913017}
+  - {fileID: -1265492658124667434}
 --- !u!114 &7416001806080285645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +247,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 180b01d6015239e47a8d0e7f8e2b7e21
-  position: {x: -388.805, y: 591.3175}
+  position: {x: -400.9024, y: 591}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
