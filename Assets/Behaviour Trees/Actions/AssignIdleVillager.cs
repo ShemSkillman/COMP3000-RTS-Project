@@ -12,7 +12,7 @@ public class AssignIdleVillager : ActionNode
     protected override void OnStop() {
     }
 
-    protected override State OnUpdate()
+    protected override State PerformAction()
     {
         if (blackboard.idleVillager != null)
         {

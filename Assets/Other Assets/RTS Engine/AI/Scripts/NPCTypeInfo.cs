@@ -36,6 +36,11 @@ namespace RTSEngine
         /// </summary>
         /// <param name="factionType">FactionTypeInfo instance to search a match for.</param>
         /// <returns>NPCManager prefab that manages the NPC type with the given faction type.</returns>
+        /// 
+
+        [SerializeField] private float actionsPerMinute = 60f;
+        public float PerformActionTime { get { return actionsPerMinute / 60f; } }
+
         public AIBrain GetNPCManagerPrefab (FactionTypeInfo factionType)
         {
             return npcManagers.Filter(factionType);

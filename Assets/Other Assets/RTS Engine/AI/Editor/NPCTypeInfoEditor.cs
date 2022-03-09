@@ -21,6 +21,7 @@ namespace RTSEngine.EditorOnly
             EditorGUILayout.PropertyField(target_SO.FindProperty("_name"));
             EditorGUILayout.PropertyField(target_SO.FindProperty("code"));
             EditorGUILayout.PropertyField(target_SO.FindProperty("npcManagers"), true);
+            EditorGUILayout.PropertyField(target_SO.FindProperty("actionsPerMinute"));
 
             target_SO.ApplyModifiedProperties(); //Apply all modified properties always at the end of this method.
         }

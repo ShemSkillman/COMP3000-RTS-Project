@@ -14,7 +14,7 @@ public class FindIdleVillager : ActionNode
     protected override void OnStop() {
     }
 
-    protected override State OnUpdate() {
+    protected override State PerformAction() {
 
         if (state == State.Running)
         {

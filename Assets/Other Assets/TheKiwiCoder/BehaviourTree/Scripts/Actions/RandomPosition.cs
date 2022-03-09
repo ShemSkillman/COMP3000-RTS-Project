@@ -14,7 +14,7 @@ public class RandomPosition : ActionNode
     protected override void OnStop() {
     }
 
-    protected override State OnUpdate() {
+    protected override State PerformAction() {
         blackboard.moveToPosition.x = Random.Range(min.x, max.x);
         blackboard.moveToPosition.z = Random.Range(min.y, max.y);
         return State.Success;

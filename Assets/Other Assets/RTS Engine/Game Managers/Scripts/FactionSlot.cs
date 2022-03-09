@@ -109,6 +109,8 @@ namespace RTSEngine
         [SerializeField, Tooltip("Default NPC type for this slot.")]
         private NPCTypeInfo npcType = null; //Drag and drop the NPCTypeInfo asset here.
 
+        public NPCTypeInfo NPCType { get { return npcType; } }
+
         private AIBrain aiBrain; //the active instance of the NPC manager prefab.
         //get the NPC Manager instance:
         public AIBrain GetAIBrain() { return aiBrain; }

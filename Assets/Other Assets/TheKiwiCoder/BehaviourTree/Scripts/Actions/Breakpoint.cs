@@ -13,7 +13,7 @@ public class Breakpoint : ActionNode
     protected override void OnStop() {
     }
 
-    protected override State OnUpdate() {
+    protected override State PerformAction() {
         return State.Success;
     }
 }

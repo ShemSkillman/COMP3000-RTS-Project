@@ -13,7 +13,7 @@ namespace TheKiwiCoder {
         protected override void OnStop() {
         }
 
-        protected override State OnUpdate() {
+        protected override State PerformAction() {
             Debug.Log($"{message}");
             return State.Success;
         }

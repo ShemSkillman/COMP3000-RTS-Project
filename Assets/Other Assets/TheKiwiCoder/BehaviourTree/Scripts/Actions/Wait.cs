@@ -14,7 +14,7 @@ namespace TheKiwiCoder {
         protected override void OnStop() {
         }
 
-        protected override State OnUpdate() {
+        protected override State PerformAction() {
             if (Time.time - startTime > duration) {
                 return State.Success;
             }

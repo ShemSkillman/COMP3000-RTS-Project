@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
-  position: {x: -212.99995, y: 590.99994}
+  position: {x: 92.00004, y: 609.4634}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -43,70 +43,6 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   child: {fileID: 5402094367133825494}
---- !u!114 &-2866905899003913017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ba7a17778ecb94f8d404954a0ca9b3, type: 3}
-  m_Name: FindIdleVillager
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 561dce29a7a0d884583a2db74bbd7fa4
-  position: {x: -11, y: 591}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    idleVillager: {fileID: 0}
-  description: 
-  drawGizmos: 0
---- !u!114 &-1697166588000990583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5134d9de14153468b48928d3e7359a, type: 3}
-  m_Name: Wait
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 02b2f7d6deb80ad45aa919331171c774
-  position: {x: -535.3875, y: 313}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    idleVillager: {fileID: 0}
-  description: 
-  drawGizmos: 0
-  duration: 0.5
---- !u!114 &-1265492658124667434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55813423d3c3f64b9721e00826aa8ba, type: 3}
-  m_Name: AssignIdleVillager
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 44a677985728455498ca0580f723b9af
-  position: {x: 179, y: 591}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    idleVillager: {fileID: 0}
-  description: 
-  drawGizmos: 0
 --- !u!114 &-1191702089655948401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,9 +65,7 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   children:
-  - {fileID: -1697166588000990583}
   - {fileID: -941991324772222228}
-  - {fileID: 6424446392284461930}
 --- !u!114 &-941991324772222228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +81,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d676e0c5c156ad8489fbe0e36a5df47e
-  position: {x: -287.80502, y: 396.3175}
+  position: {x: 0.00012207031, y: 280.84543}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -155,7 +89,31 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: 7416001806080285645}
-  - {fileID: -9044492220249875899}
+  - {fileID: -633477727225039932}
+--- !u!114 &-633477727225039932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5496e8cd973748a10b3e3ef436ebd, type: 3}
+  m_Name: Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 9c5f3f582d0d31e438fb926678d1173a
+  position: {x: 91.81004, y: 476}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
+  child: {fileID: -9044492220249875899}
+  restartOnSuccess: 1
+  restartOnFailure: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,15 +130,12 @@ MonoBehaviour:
   treeState: 0
   nodes:
   - {fileID: -5093452499250331579}
-  - {fileID: -1697166588000990583}
   - {fileID: -9044492220249875899}
   - {fileID: 7416001806080285645}
   - {fileID: -941991324772222228}
   - {fileID: 5402094367133825494}
   - {fileID: -1191702089655948401}
-  - {fileID: 6424446392284461930}
-  - {fileID: -2866905899003913017}
-  - {fileID: -1265492658124667434}
+  - {fileID: -633477727225039932}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -199,7 +154,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d617adadf1bd18342906cec07c6362be
-  position: {x: -0.00012816429, y: -13.133242}
+  position: {x: -0.0000166893, y: -12.999999}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -208,30 +163,6 @@ MonoBehaviour:
   child: {fileID: -1191702089655948401}
   restartOnSuccess: 1
   restartOnFailure: 1
---- !u!114 &6424446392284461930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
-  m_Name: Sequencer
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: f9caab93ccc4bb04f85d68e3ffcd0617
-  position: {x: 93.77495, y: 396}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    idleVillager: {fileID: 0}
-  description: 
-  drawGizmos: 0
-  children:
-  - {fileID: -2866905899003913017}
-  - {fileID: -1265492658124667434}
 --- !u!114 &7416001806080285645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,12 +173,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 258a9b10937280949b8ab79707e61fe6, type: 3}
-  m_Name: NeedsVillager
+  m_Name: NeedsToTrainVillager
   m_EditorClassIdentifier: 
   state: 0
   started: 0
   guid: 180b01d6015239e47a8d0e7f8e2b7e21
-  position: {x: -400.9024, y: 591}
+  position: {x: -112.99994, y: 475.84543}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}

@@ -5,13 +5,7 @@ using TheKiwiCoder;
 
 public class TrainVillager : ActionNode
 {
-    protected override void OnStart() {
-    }
-
-    protected override void OnStop() {
-    }
-
-    protected override State OnUpdate() {
+    protected override State PerformAction() {
         int villagerCountGoal = context.factionMgr.Slot.MaxPopulation / 2;
         int villagerCount = context.factionMgr.Villagers.Count + context.factionMgr.Slot.CapitalBuilding.TaskLauncherComp.GetTaskQueueCount();
 
@@ -22,7 +16,7 @@ public class TrainVillager : ActionNode
         {
             context.factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
 
-            return State.Running;
+            return State.Success;
         }
 
         return State.Failure;
