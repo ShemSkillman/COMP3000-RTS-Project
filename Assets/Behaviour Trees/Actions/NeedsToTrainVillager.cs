@@ -21,7 +21,7 @@ public class NeedsToTrainVillager : ActionNode
         }
         else
         {
-            return State.Running;
+            return State.Failure;
         }        
     }
 }

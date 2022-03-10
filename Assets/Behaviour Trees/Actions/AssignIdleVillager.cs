@@ -6,15 +6,11 @@ using RTSEngine;
 
 public class AssignIdleVillager : ActionNode
 {
-    protected override void OnStart() {
-    }
-
-    protected override void OnStop() {
-    }
-
     protected override State PerformAction()
     {
-        if (blackboard.idleVillager != null)
+        List<Unit> idleVillagers = context.factionMgr.GetIdleVillagers();
+
+        if (idleVillagers.Count > 0)
         {
             List<Unit> woodCollectors = context.factionMgr.GetVillagersCollectingResource(context.Info.Tree.GetResourceType().Key);
             List<Unit> coinCollectors = context.factionMgr.GetVillagersCollectingResource(context.Info.IronMine.GetResourceType().Key);
@@ -25,15 +21,19 @@ public class AssignIdleVillager : ActionNode
             
             if (coinCollectorCount > woodCollectorCount)
             {
-                AssignVillagerToResource(blackboard.idleVillager, context.Info.Tree);
+                AssignVillagerToResource(idleVillagers[0], context.Info.Tree);
             }
             else
             {
-                AssignVillagerToResource(blackboard.idleVillager, context.Info.IronMine);
-            }     
-        }
+                AssignVillagerToResource(idleVillagers[0], context.Info.IronMine);
+            }
 
-        return State.Success;
+            return State.Success;
+        }
+        else
+        {
+            return State.Failure;
+        }        
     }
 
     private void AssignVillagerToResource(Unit villager, Resource resource)

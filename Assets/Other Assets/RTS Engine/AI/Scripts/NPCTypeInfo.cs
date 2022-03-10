@@ -39,7 +39,7 @@ namespace RTSEngine
         /// 
 
         [SerializeField] private float actionsPerMinute = 60f;
-        public float PerformActionTime { get { return actionsPerMinute / 60f; } }
+        public float PerformActionTime { get { return 60f / actionsPerMinute; } }
 
         public AIBrain GetNPCManagerPrefab (FactionTypeInfo factionType)
         {
