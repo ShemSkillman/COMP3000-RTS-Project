@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
-  position: {x: -143.73561, y: 640.33}
+  position: {x: -477.08087, y: 642.3131}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -36,7 +36,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d78e62f54bf8f894c9b770c354c8fd21
-  position: {x: 138.41545, y: 531}
+  position: {x: -195.08084, y: 533.3131}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 02d70ec2d4cb3c34e92322535a08b00d
-  position: {x: 256.1252, y: 337.64612}
+  position: {x: -77.08084, y: 340.3131}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d676e0c5c156ad8489fbe0e36a5df47e
-  position: {x: -235.73564, y: 312.33002}
+  position: {x: -569.0808, y: 314.3131}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9c5f3f582d0d31e438fb926678d1173a
-  position: {x: -143.73561, y: 507.33002}
+  position: {x: -477.08087, y: 509.31308}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2e353741f9f7d4c499c316bdcdb0caa7
-  position: {x: 368, y: 506.99994}
+  position: {x: 34.91922, y: 509.31308}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ee609442e07ec0342993beeb769303b1
-  position: {x: 368.00018, y: 640.00006}
+  position: {x: 34.91922, y: 642.3131}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 180b01d6015239e47a8d0e7f8e2b7e21
-  position: {x: -348.73563, y: 507.33002}
+  position: {x: -682.0808, y: 509.31308}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}

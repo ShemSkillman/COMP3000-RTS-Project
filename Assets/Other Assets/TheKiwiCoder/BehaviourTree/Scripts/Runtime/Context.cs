@@ -2,7 +2,7 @@ using RTSEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using ColdAlliances.AI;
 
 namespace TheKiwiCoder {
 
@@ -14,13 +14,15 @@ namespace TheKiwiCoder {
         public GameObject gameObject;
         public GameManager gameMgr;
         public FactionManager factionMgr;
-
+        public AIEconomyManager economyManager;
 
         public static Context CreateFromGameObject(GameObject gameObject, GameManager gameMgr, FactionManager factionMgr) {
             Context context = new Context();
             context.gameObject = gameObject;
             context.gameMgr = gameMgr;
             context.factionMgr = factionMgr;
+
+            context.economyManager = gameObject.GetComponent<AIEconomyManager>();
 
             return context;
         }

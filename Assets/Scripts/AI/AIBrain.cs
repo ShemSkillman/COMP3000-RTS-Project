@@ -15,6 +15,9 @@ namespace ColdAlliances.AI
         {
             BehaviourTreeRunner behaviourTreeRunner = GetComponent<BehaviourTreeRunner>();
             behaviourTreeRunner.Init(gameMgr, factionMgr);
+
+            AIEconomyManager economyManager = GetComponent<AIEconomyManager>();
+            economyManager.Init(gameMgr, factionMgr);
         }
     }
 }

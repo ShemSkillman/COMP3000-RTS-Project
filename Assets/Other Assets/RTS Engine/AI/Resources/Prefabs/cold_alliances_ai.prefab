@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4775314185703692}
   - component: {fileID: 114475972782975292}
   - component: {fileID: -2645502187718189570}
+  - component: {fileID: 5370083453301698367}
   m_Layer: 0
   m_Name: cold_alliances_ai
   m_TagString: Untagged
@@ -46,21 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ec0524a4a846a42accb0ff9c1e59af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionsPerMinute: 60
-  villager: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
-    type: 3}
-  swordsman: {fileID: 5478135404590290437, guid: 8019b7d3f3bbe844787c3d9abd18df24,
-    type: 3}
-  house: {fileID: 4810416383647272699, guid: 94426e9307b14324eb0c20c00b3ddb5d, type: 3}
-  barracks: {fileID: 4810416383647272699, guid: 68de7e2e71baa6d41aaea1310fa2522f,
-    type: 3}
-  tower: {fileID: 6689805100552360329, guid: 9fc8bba75da076e4abe98be346461550, type: 3}
-  coinSource: {fileID: 114093271303909552, guid: a8d319f6f5e1ec34d84b44d04a7d6a64,
-    type: 3}
-  woodSource: {fileID: 114472513907078762, guid: 759400f2399de0449a8f399a73b6b15f,
-    type: 3}
-  defensePower: {fileID: 11400000, guid: f2bb55131c0ba8749a96f92497ed3562, type: 2}
-  attackPower: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
 --- !u!114 &-2645502187718189570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +60,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: e1ac12b4212a4654180dfcf52c8f94b8, type: 2}
+--- !u!114 &5370083453301698367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206597408391560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39889fd58215bd040b7cd01f4769df55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2962538194023733835
 GameObject:
   m_ObjectHideFlags: 0
