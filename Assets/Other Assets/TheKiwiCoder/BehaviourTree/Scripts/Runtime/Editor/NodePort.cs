@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
 namespace TheKiwiCoder {
 #if UNITY_EDITOR
-    using UnityEditor.Experimental.GraphView;
     public class NodePort : Port {
 
         // GITHUB:UnityCsReference-master\UnityCsReference-master\Modules\GraphViewEditor\Elements\Port.cs

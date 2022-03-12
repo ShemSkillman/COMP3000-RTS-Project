@@ -323,7 +323,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ca30d8870e5e33846ac1cc09d1b3dbe9
-  position: {x: 451.4812, y: 342.8863}
+  position: {x: 437.00797, y: 356.99997}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
