@@ -21,8 +21,27 @@ namespace ColdAlliances.AI
             BuildingPlacer = buildingPlacer;
         }
 
+        bool pollRequired = false;
+        private void Update()
+        {
+            pollRequired = true;   
+        }
+
+        private void Poll()
+        {
+            if (!pollRequired)
+            {
+                return;
+            }
+            pollRequired = false;
+
+            constructionTasks.RemoveAll(ConstructionTask.IsConstructionTaskInvalid);
+        }
+
         public void ConstructBuilding(Building building)
         {
+            Poll();
+
             if (BuildingPlacer.OnBuildingPlacementRequest(building, factionMgr.Slot.CapitalBuilding.gameObject, true, out Building placedBuilding))
             {
                 ConstructionTask task = new ConstructionTask(placedBuilding);
@@ -51,6 +70,8 @@ namespace ColdAlliances.AI
 
         public int GetBuildingInConstructionCount(Building building)
         {
+            Poll();
+
             int counter = 0;
 
             foreach (ConstructionTask task in constructionTasks)

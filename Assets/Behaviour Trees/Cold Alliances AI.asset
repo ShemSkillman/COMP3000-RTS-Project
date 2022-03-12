@@ -78,7 +78,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0162a175401459f4489850b0762d7a76
-  position: {x: 401.7172, y: 507}
+  position: {x: 332.75003, y: 501.00003}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -281,6 +281,7 @@ MonoBehaviour:
   - {fileID: 2219814779002539214}
   - {fileID: 1570301842518086064}
   - {fileID: -5916230461538138028}
+  - {fileID: 6701679231711062797}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -331,6 +332,7 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: -5916230461538138028}
+  - {fileID: 6701679231711062797}
 --- !u!114 &2219814779002539214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +402,27 @@ MonoBehaviour:
   child: {fileID: -1191702089655948401}
   restartOnSuccess: 1
   restartOnFailure: 1
+--- !u!114 &6701679231711062797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4867e7882070c31429d6d2d761bdeb75, type: 3}
+  m_Name: BuildTower
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: df8213ed11419a444a99da4e07ef633a
+  position: {x: 538.75006, y: 501.00003}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
 --- !u!114 &7416001806080285645
 MonoBehaviour:
   m_ObjectHideFlags: 0
