@@ -12,10 +12,12 @@ public class FindIdleVillager : ActionNode
 
         if (idleVillagers.Count > 0)
         {
+            Print("Idle villagers are present.");
             return State.Success;
         }
         else
         {
+            Print("No idle villagers are found.");
             return State.Failure;
         }
     }

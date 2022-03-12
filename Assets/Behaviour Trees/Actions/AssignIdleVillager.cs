@@ -15,16 +15,19 @@ public class AssignIdleVillager : ActionNode
             if (context.economyManager.GetResourceCollectorCount(context.Info.IronMine) > context.economyManager.GetResourceCollectorCount(context.Info.Tree))
             {
                 context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.Tree);
+                Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.Tree.GetName());
             }
             else
             {
                 context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.IronMine);
+                Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
             }
 
             return State.Success;
         }
         else
         {
+            Print("No more idle villagers to assign.");
             return State.Failure;
         }        
     }

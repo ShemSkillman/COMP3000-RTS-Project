@@ -18,6 +18,12 @@ namespace ColdAlliances.AI
 
             AIEconomyManager economyManager = GetComponent<AIEconomyManager>();
             economyManager.Init(gameMgr, factionMgr);
+
+            NPCBuildingPlacer buildingPlacer = GetComponent<NPCBuildingPlacer>();
+            buildingPlacer.Init(gameMgr, this, factionMgr);
+
+            AIBuildingManager buildingManager = GetComponent<AIBuildingManager>();
+            buildingManager.Init(gameMgr, factionMgr, buildingPlacer);            
         }
     }
 }

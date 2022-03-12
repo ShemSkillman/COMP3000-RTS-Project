@@ -41,16 +41,19 @@ public class DistributeResourceCollection : ActionNode
             if (coinCollectorCount > woodCollectorCount)
             {
                 context.economyManager.AssignVillagerToResource(villager, context.Info.Tree);
+                Print("Moving villager to gather wood.");
             }
             else
             {
                 context.economyManager.AssignVillagerToResource(villager, context.Info.IronMine);
+                Print("Moving villager to gather coin.");
             }
 
             return State.Success;
         }
         else
         {
+            Print("No need to move villagers to other resources.");
             return State.Failure;
         }        
     }

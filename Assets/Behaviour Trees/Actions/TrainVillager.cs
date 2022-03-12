@@ -15,10 +15,12 @@ public class TrainVillager : ActionNode
                 context.factionMgr.Slot.GetFreePopulation() > 0)
         {
             context.factionMgr.Slot.CapitalBuilding.TaskLauncherComp.Add(0);
+            Print("Training villager.");
 
             return State.Success;
         }
 
+        Print("No need to train more villagers");
         return State.Failure;
     }
 }

@@ -17,10 +17,12 @@ public class NeedsToTrainVillager : ActionNode
 
         if (needsVillager)
         {
+            Print("Need to train villager from town center");
             return State.Success;
         }
         else
         {
+            Print("No need to train villager.");
             return State.Failure;
         }        
     }

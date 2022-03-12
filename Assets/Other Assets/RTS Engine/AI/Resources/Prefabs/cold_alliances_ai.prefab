@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 114475972782975292}
   - component: {fileID: -2645502187718189570}
   - component: {fileID: 5370083453301698367}
+  - component: {fileID: 6824379007969598156}
+  - component: {fileID: 3624659296776508025}
   m_Layer: 0
   m_Name: cold_alliances_ai
   m_TagString: Untagged
@@ -71,3 +73,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39889fd58215bd040b7cd01f4769df55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6824379007969598156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206597408391560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76cf40547dca1d4c9c97cf245e0be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3624659296776508025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206597408391560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ece6181f3e942a41976ee9390b14919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placementDelayRange:
+    min: 7
+    max: 20
+  rotationSpeed: 50
+  placementMoveReload:
+    min: 8
+    max: 12
+  placementMoveReloadInc:
+    min: 1.5
+    max: 2.5
+  moveDistance:
+    min: 0.5
+    max: 1.5

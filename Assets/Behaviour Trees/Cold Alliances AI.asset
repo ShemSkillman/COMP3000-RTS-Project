@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
-  position: {x: -477.08087, y: 642.3131}
+  position: {x: -878.9999, y: 746.5905}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -36,7 +36,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d78e62f54bf8f894c9b770c354c8fd21
-  position: {x: -195.08084, y: 533.3131}
+  position: {x: -669.9999, y: 637.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -57,12 +57,33 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 79483fa0fad7bf84f8ea5df57192f046
-  position: {x: 488.32254, y: 674}
+  position: {x: 85.99997, y: 778.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
+--- !u!114 &-5916230461538138028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38d540ce52c596449a998970f9bf722, type: 3}
+  m_Name: BuildHouse
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0162a175401459f4489850b0762d7a76
+  position: {x: 401.7172, y: 507}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 1
 --- !u!114 &-5093452499250331579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +121,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 02d70ec2d4cb3c34e92322535a08b00d
-  position: {x: -77.08084, y: 340.3131}
+  position: {x: -478.99988, y: 444.59048}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -124,7 +145,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7bc15989ed70cf049ad2ab59837234ce
-  position: {x: 282.54495, y: 509.00006}
+  position: {x: -118.99997, y: 613.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -145,7 +166,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 309249154a63c734e8ecda2759d5198d
-  position: {x: 401.56262, y: 340}
+  position: {x: -0.000061035156, y: 444.59048}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -153,7 +174,7 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: -2101275522397320712}
-  - {fileID: -8069775589077560167}
+  - {fileID: 2219814779002539214}
 --- !u!114 &-1191702089655948401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +200,7 @@ MonoBehaviour:
   - {fileID: -941991324772222228}
   - {fileID: -4461960330881439438}
   - {fileID: -1529653454985209552}
+  - {fileID: 1570301842518086064}
 --- !u!114 &-941991324772222228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +216,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d676e0c5c156ad8489fbe0e36a5df47e
-  position: {x: -569.0808, y: 314.3131}
+  position: {x: -970.9999, y: 418.59048}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -218,7 +240,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9c5f3f582d0d31e438fb926678d1173a
-  position: {x: -477.08087, y: 509.31308}
+  position: {x: -878.9999, y: 613.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -257,6 +279,8 @@ MonoBehaviour:
   - {fileID: -2101275522397320712}
   - {fileID: -8069775589077560167}
   - {fileID: 2219814779002539214}
+  - {fileID: 1570301842518086064}
+  - {fileID: -5916230461538138028}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -275,7 +299,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2e353741f9f7d4c499c316bdcdb0caa7
-  position: {x: 34.91922, y: 509.31308}
+  position: {x: -386.99994, y: 613.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -284,6 +308,29 @@ MonoBehaviour:
   child: {fileID: 2723987988502880356}
   restartOnSuccess: 1
   restartOnFailure: 0
+--- !u!114 &1570301842518086064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ca30d8870e5e33846ac1cc09d1b3dbe9
+  position: {x: 451.4812, y: 342.8863}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -5916230461538138028}
 --- !u!114 &2219814779002539214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,13 +346,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f02666f7e4b371240aa0a0e574de1923
-  position: {x: 0, y: 0}
+  position: {x: 116.00015, y: 613.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
-  child: {fileID: 0}
+  child: {fileID: -8069775589077560167}
   restartOnSuccess: 1
   restartOnFailure: 0
 --- !u!114 &2723987988502880356
@@ -323,7 +370,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ee609442e07ec0342993beeb769303b1
-  position: {x: 34.91922, y: 642.3131}
+  position: {x: -386.99994, y: 746.5905}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -368,7 +415,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 180b01d6015239e47a8d0e7f8e2b7e21
-  position: {x: -682.0808, y: 509.31308}
+  position: {x: -1083.9999, y: 613.59045}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}

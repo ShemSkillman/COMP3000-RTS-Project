@@ -12,10 +12,12 @@ public class CheckEcoOutOfBalance : ActionNode
 
         if (Mathf.Abs(coinCollectorCount - woodCollectorCount) > 1)
         {
+            Print("Eco needs rebalancing.");
             return State.Success;
         }
         else
         {
+            Print("Eco is balanced.");
             return State.Failure;
         }
     }

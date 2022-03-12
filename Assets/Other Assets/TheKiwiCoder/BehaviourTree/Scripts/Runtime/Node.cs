@@ -53,5 +53,10 @@ namespace TheKiwiCoder {
         protected abstract void OnStart();
         protected abstract void OnStop();
         protected abstract State OnUpdate();
+
+        protected void Print(string message)
+        {
+            Debug.Log($"{message}");
+        }
     }
 }
