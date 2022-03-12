@@ -23,12 +23,12 @@ public class AssignIdleVillager : ActionNode
                 Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
             }
 
-            return State.Success;
+            return State.Running;
         }
         else
         {
             Print("No more idle villagers to assign.");
-            return State.Failure;
+            return State.Success;
         }        
     }
 }
