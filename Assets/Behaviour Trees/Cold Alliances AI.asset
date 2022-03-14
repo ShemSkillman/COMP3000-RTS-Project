@@ -68,6 +68,28 @@ MonoBehaviour:
   - {fileID: -9044492220249875899}
   - {fileID: 2723987988502880356}
   - {fileID: 6577386053768356369}
+--- !u!114 &-1299241409376585128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14dc0013142fc64f91f048ea7272399, type: 3}
+  m_Name: Iterator
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: cbc6498dc6e31cb488cc1440347f2c52
+  position: {x: 192.00002, y: 117}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
+  children: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +114,8 @@ MonoBehaviour:
   - {fileID: 6701679231711062797}
   - {fileID: 6577386053768356369}
   - {fileID: 8674864344088877103}
-  - {fileID: 4143158311647712029}
+  - {fileID: 7796261396022516521}
+  - {fileID: -1299241409376585128}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -111,7 +134,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ca30d8870e5e33846ac1cc09d1b3dbe9
-  position: {x: 318.3717, y: 313}
+  position: {x: 422, y: 313.00006}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}
@@ -141,30 +164,6 @@ MonoBehaviour:
     idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
---- !u!114 &4143158311647712029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
-  m_Name: Sequencer
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: cd1be9737c23b124f98bdca3687313b0
-  position: {x: 0.0000014305115, y: 161}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    idleVillager: {fileID: 0}
-  description: 
-  drawGizmos: 0
-  children:
-  - {fileID: -1529653454985209552}
-  - {fileID: 1570301842518086064}
 --- !u!114 &5402094367133825494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +185,7 @@ MonoBehaviour:
     idleVillager: {fileID: 0}
   description: 
   drawGizmos: 0
-  child: {fileID: 4143158311647712029}
+  child: {fileID: 0}
   restartOnSuccess: 1
   restartOnFailure: 1
 --- !u!114 &6577386053768356369
@@ -226,6 +225,27 @@ MonoBehaviour:
   started: 0
   guid: df8213ed11419a444a99da4e07ef633a
   position: {x: 422.37177, y: 500}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    idleVillager: {fileID: 0}
+  description: 
+  drawGizmos: 0
+--- !u!114 &7796261396022516521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed63edb276218040b8597859633c689, type: 3}
+  m_Name: EnsureBuildingConstruction
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7555f9e10a024c842ab545ae010b22a0
+  position: {x: 628, y: 500}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     idleVillager: {fileID: 0}

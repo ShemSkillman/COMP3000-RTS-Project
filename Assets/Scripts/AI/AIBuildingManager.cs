@@ -38,6 +38,20 @@ namespace ColdAlliances.AI
             constructionTasks.RemoveAll(ConstructionTask.IsConstructionTaskInvalid);
         }
 
+        public bool AssignVillagerToBuildingWithNoBuilder()
+        {
+            foreach (ConstructionTask task in constructionTasks)
+            {
+                if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
+                {
+                    AssignVillagerToBuild(task);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void ConstructBuilding(Building building)
         {
             Poll();
