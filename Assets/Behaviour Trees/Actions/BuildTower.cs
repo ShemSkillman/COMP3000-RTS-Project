@@ -13,10 +13,12 @@ public class BuildTower : ActionNode
         else if (!context.factionMgr.HasReachedLimit(context.Info.Tower.GetCode(), ""))
         {
             context.buildingManager.ConstructBuilding(context.Info.Tower);
+            Print("Placing tower.");
             return State.Running;
         }
         else
         {
+            Print("No need to build tower.");
             return State.Success;
         }        
     }
