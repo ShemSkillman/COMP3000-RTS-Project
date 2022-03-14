@@ -16,6 +16,7 @@ namespace TheKiwiCoder {
         public FactionManager factionMgr;
         public AIEconomyManager economyManager;
         public AIBuildingManager buildingManager;
+        public AICombatManager combatManager;
 
         public static Context CreateFromGameObject(GameObject gameObject, GameManager gameMgr, FactionManager factionMgr) {
             Context context = new Context();
@@ -25,6 +26,7 @@ namespace TheKiwiCoder {
 
             context.economyManager = gameObject.GetComponent<AIEconomyManager>();
             context.buildingManager = gameObject.GetComponent<AIBuildingManager>();
+            context.combatManager = gameObject.GetComponent<AICombatManager>();
 
             return context;
         }

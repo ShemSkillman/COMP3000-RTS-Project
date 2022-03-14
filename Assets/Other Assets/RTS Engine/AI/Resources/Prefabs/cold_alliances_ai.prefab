@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5370083453301698367}
   - component: {fileID: 6824379007969598156}
   - component: {fileID: 3624659296776508025}
+  - component: {fileID: 5974649315365988687}
   m_Layer: 0
   m_Name: cold_alliances_ai
   m_TagString: Untagged
@@ -110,3 +111,15 @@ MonoBehaviour:
   moveDistance:
     min: 0.5
     max: 1.5
+--- !u!114 &5974649315365988687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206597408391560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3557f4473dad6ef489a55a65e72cd14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

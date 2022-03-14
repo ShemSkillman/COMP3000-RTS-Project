@@ -40,6 +40,8 @@ namespace ColdAlliances.AI
 
         public bool AssignVillagerToBuildingWithNoBuilder()
         {
+            Poll();
+
             foreach (ConstructionTask task in constructionTasks)
             {
                 if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)

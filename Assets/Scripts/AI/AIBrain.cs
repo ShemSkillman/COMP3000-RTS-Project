@@ -23,7 +23,10 @@ namespace ColdAlliances.AI
             buildingPlacer.Init(gameMgr, this, factionMgr);
 
             AIBuildingManager buildingManager = GetComponent<AIBuildingManager>();
-            buildingManager.Init(gameMgr, factionMgr, buildingPlacer);            
+            buildingManager.Init(gameMgr, factionMgr, buildingPlacer);
+
+            AICombatManager combatManager = GetComponent<AICombatManager>();
+            combatManager.Init(gameMgr, factionMgr);
         }
     }
 }
