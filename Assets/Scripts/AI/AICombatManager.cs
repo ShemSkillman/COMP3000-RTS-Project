@@ -11,6 +11,11 @@ namespace ColdAlliances.AI
         FactionManager factionMgr;
 
         ArmyGroup armyGroup;
+        public ArmyGroup GetArmyGroup()
+        {
+            armyGroup?.Validate();
+            return armyGroup;
+        }
 
         public void Init(GameManager gameMgr, FactionManager factionMgr)
         {
@@ -46,38 +51,38 @@ namespace ColdAlliances.AI
                     armyGroup.AttackUnits.Add(unit);
                 }
             }
+        }        
+    }
+
+    public class ArmyGroup
+    {
+        public List<Unit> AttackUnits { get; set; }
+
+        public ArmyGroup(Unit unit)
+        {
+            AttackUnits = new List<Unit>();
+            AttackUnits.Add(unit);
         }
 
-        class ArmyGroup
+        public void Validate()
         {
-            public List<Unit> AttackUnits { get; set; }
+            AttackUnits.RemoveAll(IsUnitDead);
+        }
 
-            public ArmyGroup(Unit unit)
+        private static bool IsUnitDead(Unit unit)
+        {
+            return unit == null || unit.HealthComp.IsDead();
+        }
+
+        public Vector3 GetLocation()
+        {
+            Vector3 ret = Vector3.zero;
+            foreach (Unit unit in AttackUnits)
             {
-                AttackUnits = new List<Unit>();
-                AttackUnits.Add(unit);
+                ret += unit.transform.position;
             }
 
-            public void Validate()
-            {
-                AttackUnits.RemoveAll(IsUnitDead);
-            }
-
-            private static bool IsUnitDead(Unit unit)
-            {
-                return unit == null || unit.HealthComp.IsDead();
-            }
-
-            public Vector3 GetLocation()
-            {
-                Vector3 ret = Vector3.zero;
-                foreach (Unit unit in AttackUnits)
-                {
-                    ret += unit.transform.position;
-                }
-
-                return ret / AttackUnits.Count;
-            }
+            return ret / AttackUnits.Count;
         }
     }
 }

@@ -119,6 +119,7 @@ MonoBehaviour:
   - {fileID: 9085278094221856902}
   - {fileID: 6576708370995578661}
   - {fileID: 1907467501008722105}
+  - {fileID: 7778928815638719364}
   blackboard:
     isBarracksNeeded: 0
 --- !u!114 &1570301842518086064
@@ -223,7 +224,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dce9d07b98f5074438f3b1ffd757e950
-  position: {x: 508.8725, y: 712.775}
+  position: {x: 422.09756, y: 719}
   blackboard:
     isBarracksNeeded: 0
   description: 
@@ -264,6 +265,26 @@ MonoBehaviour:
   started: 0
   guid: df8213ed11419a444a99da4e07ef633a
   position: {x: 235.90001, y: 718.99994}
+  blackboard:
+    isBarracksNeeded: 0
+  description: 
+  drawGizmos: 0
+--- !u!114 &7778928815638719364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d91e33e98614b7438ab6f1c1764f5e8, type: 3}
+  m_Name: ArmyOffense
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f6ca7e96271c6f74f800fc4011086970
+  position: {x: 593.09753, y: 719}
   blackboard:
     isBarracksNeeded: 0
   description: 
@@ -330,3 +351,4 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: 6576708370995578661}
+  - {fileID: 7778928815638719364}
