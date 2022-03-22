@@ -10170,7 +10170,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7411bb2ca53140e449bc847a9aa06aef, type: 3}
     - {fileID: 8300000, guid: e2516bf8865396944ab2e50c9888a9ce, type: 3}
   playMusicOnStart: 1
-  musicVolume: 0
+  musicVolume: 0.2
   musicVolumeSlider: {fileID: 1769916774}
   musicAudioSource: {fileID: 982646470}
   globalSFXAudioSource: {fileID: 1583241190}
@@ -17218,7 +17218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
