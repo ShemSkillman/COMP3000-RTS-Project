@@ -7395,7 +7395,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33292087
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -8800,7 +8800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -269.09998, y: -30.6}
+  m_AnchoredPosition: {x: -269.09998, y: -30.599976}
   m_SizeDelta: {x: 119.29999, y: 36.299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &768854090
@@ -22619,7 +22619,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.9886086, b: 0.9103774, a: 1}
-  m_Intensity: 1.8
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
