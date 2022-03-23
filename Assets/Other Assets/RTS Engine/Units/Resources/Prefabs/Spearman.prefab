@@ -360,7 +360,12 @@ MonoBehaviour:
     canDealDamage: 1
     unitDamage: 5
     buildingDamage: 2
-    customDamages: []
+    customDamages:
+    - code:
+        type: 0
+        code:
+        - horseman
+      damage: 10
     areaAttackEnabled: 0
     attackRanges: []
     dotEnabled: 0

@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fa461a43bafd643867159a6e2e38e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   hoverHealthBarY: 4
   canBeAttacked: 1
   takeDamage: 1
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 0
+  tabID: 1
   isLocked: 0
   isActive: 1
   code: horseman_attack
@@ -360,7 +360,13 @@ MonoBehaviour:
     canDealDamage: 1
     unitDamage: 10
     buildingDamage: 4
-    customDamages: []
+    customDamages:
+    - code:
+        type: 0
+        code:
+        - archer
+        - catapult
+      damage: 20
     areaAttackEnabled: 0
     attackRanges: []
     dotEnabled: 0

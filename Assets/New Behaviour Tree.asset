@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
   m_Name: New Behaviour Tree
   m_EditorClassIdentifier: 
-  rootNode: {fileID: 5086479688105539714}
+  rootNode: {fileID: 7233660239111291049}
   treeState: 0
   nodes:
-  - {fileID: 5086479688105539714}
+  - {fileID: 7233660239111291049}
   blackboard:
     isBarracksNeeded: 0
---- !u!114 &5086479688105539714
+--- !u!114 &7233660239111291049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: d63549978b0dcc74fa9164545524d889
+  guid: f40ed34421b10dc4aa8df3d4444ccabb
   position: {x: 0, y: 0}
   blackboard:
     isBarracksNeeded: 0

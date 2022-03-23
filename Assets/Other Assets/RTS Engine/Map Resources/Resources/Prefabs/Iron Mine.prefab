@@ -215,12 +215,12 @@ MonoBehaviour:
   radius: 4
   resourceType: {fileID: 11400000, guid: 9d777b69ade157b419696347a92dc071, type: 2}
   infiniteAmount: 0
-  amount: 4000
+  amount: 10000
   destroyOnEmpty: 1
   secondaryModel: {fileID: 0}
   secondarySelection: {fileID: 0}
   canCollectOutsideBorder: 1
-  collectOneUnitDuration: 0.75
+  collectOneUnitDuration: 0.5
   showCollectors: 1
   showAmount: 1
 --- !u!208 &208720352841937452
