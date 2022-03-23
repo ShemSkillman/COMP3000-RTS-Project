@@ -299,7 +299,7 @@ MonoBehaviour:
     maxEmpty: 1
     spacing: 0.4
   resetPendingMovement: 0
-  speed: 6
+  speed: 7
   acceleration: 50
   mvtAngularSpeed: 250
   canMoveRotate: 1

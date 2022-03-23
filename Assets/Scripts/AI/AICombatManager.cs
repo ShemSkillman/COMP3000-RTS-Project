@@ -74,6 +74,19 @@ namespace ColdAlliances.AI
             return unit == null || unit.HealthComp.IsDead();
         }
 
+        public bool IsIdle()
+        {
+            foreach (Unit unit in AttackUnits)
+            {
+                if (unit.AttackComp.Target == null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public Vector3 GetLocation()
         {
             Vector3 ret = Vector3.zero;

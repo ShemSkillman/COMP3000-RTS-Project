@@ -14,23 +14,21 @@ public class ArmyOffense : ActionNode
             return State.Success;
         }
 
-        if (context.combatManager.GetArmyGroup().AttackUnits.Count > 4)
+        if (army.AttackUnits.Count > 4 && army.IsIdle())
         {
-            List<Building> buildings = context.factionMgr.GetEnemyBuildings();
-            Vector3 armyPos = army.GetLocation();
-            Building closestBuilding = null;
-            float closestDist = Mathf.Infinity;
-            foreach (Building b in buildings)
-            {
-                float dist = Vector3.Distance(b.transform.position, armyPos);
-                if (dist < closestDist)
-                {
-                    closestBuilding = b;
-                    closestDist = dist;
-                }
-            }
+            EnemyTargetPicker targetPicker = new EnemyTargetPicker(context.factionMgr.FactionID);
 
-            context.gameMgr.AttackMgr.LaunchAttack(army.AttackUnits, closestBuilding, closestBuilding.GetEntityCenterPos(), false);
+            Vector3 armyPos = army.GetLocation();
+
+            if (context.gameMgr.GridSearch.Search<FactionEntity>(armyPos,
+                                        1000f,
+                                        false,
+                                        targetPicker.IsValidTarget,
+                                        out FactionEntity potentialTarget) == ErrorMessage.none)
+            {
+
+                context.gameMgr.AttackMgr.LaunchAttack(army.AttackUnits, potentialTarget, potentialTarget.GetEntityCenterPos(), false);
+            }
         }
 
         return State.Success;
