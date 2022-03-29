@@ -6,37 +6,69 @@ using RTSEngine;
 
 public class TrainArmy : ActionNode
 {
+    int buildingIndex = 0;
+
     protected override State PerformAction() {
-        if (context.gameMgr.ResourceMgr.GetFactionResources(context.factionMgr.FactionID).Resources[context.Info.IronMine.ID].GetCurrAmount() < 100 ||
-                context.factionMgr.Slot.GetFreePopulation() < 1)
+        List<Building> allBuildings = new List<Building>(context.factionMgr.GetBuildings());
+
+        if (allBuildings.Count < 1)
         {
-            blackboard.isBarracksNeeded = false;
-
-            Print("Cannot afford to train army.");
-
             return State.Success;
         }
 
-        foreach (Building building in context.factionMgr.GetBuildings())
+        if (buildingIndex > allBuildings.Count - 1)
         {
-            if (building.GetCode() == context.Info.Barracks.GetCode() && building.IsBuilt)
+            buildingIndex = 0;
+        }
+
+        int startIndex = buildingIndex;
+
+        do
+        {
+            Building building = allBuildings[buildingIndex];
+
+            if (building.GetCategory() == "military" && building.IsBuilt &&
+                building.TaskLauncherComp.GetTaskQueueCount() < 1)
             {
-                if (building.TaskLauncherComp.GetTaskQueueCount() < 1)
+                if (building.TaskLauncherComp.GetTask(0).HasRequiredResources() &&
+                building.TaskLauncherComp.GetTask(0).UnitPopulationSlots <= context.factionMgr.Slot.GetFreePopulation())
                 {
                     building.TaskLauncherComp.Add(0);
 
-                    Print("Training solider from barracks.");
+                    Print("Training unit from military building.");
+
+                    buildingIndex++;
                     return State.Running;
                 }
+                else
+                {
+                    if (!building.TaskLauncherComp.GetTask(0).HasRequiredResources())
+                    {
+                        Print("Not enough resources to train military unit.");
+                    }
+
+                    if (!(building.TaskLauncherComp.GetTask(0).UnitPopulationSlots <= context.factionMgr.Slot.GetFreePopulation()))
+                    {
+                        Print("Not enough pop to train military unit.");
+                    }
+
+                    blackboard.isMilitaryBuildingNeeded = false;
+
+                    return State.Success;
+                }
             }
-        }
 
-        if (context.gameMgr.ResourceMgr.GetFactionResources(context.factionMgr.FactionID).Resources[context.Info.IronMine.ID].GetCurrAmount() > 100)
-        {
-            blackboard.isBarracksNeeded = true;
-        }
+            buildingIndex++;
 
-        Print("No need to train more soldiers from barracks.");
+            if (buildingIndex > allBuildings.Count - 1)
+            {
+                buildingIndex = 0;
+            }
+        } while (buildingIndex != startIndex);
+
+        blackboard.isMilitaryBuildingNeeded = true;
+
+        Print("All existing military buildings are training units.");
         return State.Success;
     }
 }

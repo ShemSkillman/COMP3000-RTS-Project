@@ -87,6 +87,18 @@ namespace ColdAlliances.AI
             return false;
         }
 
+        public int ArmyPop()
+        {
+            int pop = 0;
+
+            foreach (Unit unit in AttackUnits)
+            {
+                pop += unit.GetPopulationSlots();
+            }
+
+            return pop;
+        }
+
         public Vector3 GetLocation()
         {
             Vector3 ret = Vector3.zero;

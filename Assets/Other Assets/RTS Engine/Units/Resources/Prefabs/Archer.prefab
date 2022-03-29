@@ -232,6 +232,8 @@ MonoBehaviour:
   coloredRenderers:
   - renderer: {fileID: 420351496746094769}
     materialID: 0
+  - renderer: {fileID: 420351496751176361}
+    materialID: 0
   initResources:
   - Name: DefensePower
     Amount: 1
@@ -327,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 1
+  tabID: 0
   isLocked: 0
   isActive: 1
   code: archer_attack
@@ -345,7 +347,7 @@ MonoBehaviour:
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 1
-  searchRange: 15
+  searchRange: 28
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
@@ -428,14 +430,14 @@ MonoBehaviour:
     audioClips: []
   range:
     unitStoppingDistance:
-      min: 10
-      max: 15
+      min: 12
+      max: 18
     buildingStoppingDistance:
-      min: 10
-      max: 15
+      min: 12
+      max: 18
     noTargetStoppingDistance:
-      min: 10
-      max: 15
+      min: 12
+      max: 18
     moveOnAttackOffset: 0
     updateMvtDistance: 2
     formation:
@@ -799,6 +801,12 @@ Transform:
 --- !u!4 &420351496749391055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425848, guid: 04c79b5f6e9ebab48af48fdcf7b6d570,
+    type: 3}
+  m_PrefabInstance: {fileID: 420351496749278135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &420351496751176361 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2308382, guid: 04c79b5f6e9ebab48af48fdcf7b6d570,
     type: 3}
   m_PrefabInstance: {fileID: 420351496749278135}
   m_PrefabAsset: {fileID: 0}

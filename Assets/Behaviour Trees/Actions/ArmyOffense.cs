@@ -14,7 +14,7 @@ public class ArmyOffense : ActionNode
             return State.Success;
         }
 
-        if (army.AttackUnits.Count > 4 && army.IsIdle())
+        if (army.ArmyPop() >= 5 && army.IsIdle())
         {
             EnemyTargetPicker targetPicker = new EnemyTargetPicker(context.factionMgr.FactionID);
 

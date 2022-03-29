@@ -18,4 +18,4 @@ MonoBehaviour:
     allTypes: {fileID: 114475972782975292, guid: b32c92d9dbfc6f8418ff02012850c7b4,
       type: 3}
     typeSpecific: []
-  actionsPerMinute: 60
+  actionsPerMinute: 120

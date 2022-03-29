@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 1
+  tabID: 0
   isLocked: 0
   isActive: 1
   code: spearman_attack
@@ -347,7 +347,7 @@ MonoBehaviour:
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 1
-  searchRange: 15
+  searchRange: 20
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
       maxEmpty: 1
       spacing: 0
   moveOnAttack: 0
-  followDistance: 15
+  followDistance: 20
   attackAnimOverrideController: {fileID: 0}
   triggerAnimationInDelay: 0
 --- !u!114 &7426046671300633383

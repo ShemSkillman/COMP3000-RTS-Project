@@ -217,6 +217,7 @@ namespace RTSCamera
         [Header("Views")]
         [SerializeField] GameObject gameView;
         [SerializeField] GameObject spectatorView;
+        [SerializeField] GameObject mainCanvas;
 
         //other fields
         private Vector3 lastMousePosition;
@@ -256,6 +257,7 @@ namespace RTSCamera
             {
                 gameView.SetActive(!gameView.activeInHierarchy);
                 spectatorView.SetActive(!spectatorView.activeInHierarchy);
+                mainCanvas.SetActive(!spectatorView.activeInHierarchy);
             }
 
             if (!gameView.activeInHierarchy)

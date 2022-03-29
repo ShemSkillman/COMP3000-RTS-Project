@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 1
+  tabID: 0
   isLocked: 0
   isActive: 1
   code: catapult_attack
@@ -341,17 +341,17 @@ MonoBehaviour:
     engageBuildings: 1
   direct: 0
   engageOnAssign: 1
-  engageWhenAttacked: 0
+  engageWhenAttacked: 1
   engageOnce: 0
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 1
-  searchRange: 25
+  searchRange: 35
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
   useReload: 1
-  reloadDuration: 3
+  reloadDuration: 4
   coolDownEnabled: 0
   coolDownDuration: 10
   requireTarget: 1
@@ -359,7 +359,12 @@ MonoBehaviour:
     canDealDamage: 1
     unitDamage: 20
     buildingDamage: 40
-    customDamages: []
+    customDamages:
+    - code:
+        type: 0
+        code:
+        - horseman
+      damage: 10
     areaAttackEnabled: 0
     attackRanges:
     - range: 2
