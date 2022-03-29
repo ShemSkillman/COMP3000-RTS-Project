@@ -213,6 +213,11 @@ namespace RTSCamera
         [SerializeField, Tooltip("Does the camera stop following its target when it moves?")]
         private bool stopFollowingOnMovement = true; //when enabled, the camera will stop following the follow target if the player moves the camera
 
+
+        [Header("Views")]
+        [SerializeField] GameObject gameView;
+        [SerializeField] GameObject spectatorView;
+
         //other fields
         private Vector3 lastMousePosition;
 
@@ -247,16 +252,32 @@ namespace RTSCamera
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                gameView.SetActive(!gameView.activeInHierarchy);
+                spectatorView.SetActive(!spectatorView.activeInHierarchy);
+            }
+
+            if (!gameView.activeInHierarchy)
+            {
+                return;
+            }
+
             //update all the inputs in Update
             UpdatePanInput();
             UpdateRotationInput();
-            UpdateZoomInput();
+            UpdateZoomInput();            
 
             lastMousePosition = Input.mousePosition;
         }
 
         private void LateUpdate()
         {
+            if (!gameView.activeInHierarchy)
+            {
+                return;
+            }
+
             //handle movement and rotation in FixedUpdate
             Pan();
             Rotate();
