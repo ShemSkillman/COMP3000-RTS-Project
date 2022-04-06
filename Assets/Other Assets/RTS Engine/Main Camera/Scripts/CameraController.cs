@@ -258,6 +258,7 @@ namespace RTSCamera
                 gameView.SetActive(!gameView.activeInHierarchy);
                 spectatorView.SetActive(!spectatorView.activeInHierarchy);
                 mainCanvas.SetActive(!spectatorView.activeInHierarchy);
+                Cursor.visible = gameView.activeInHierarchy;
             }
 
             if (!gameView.activeInHierarchy)

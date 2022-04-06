@@ -17,7 +17,7 @@ MonoBehaviour:
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
   position: {x: -761.49756, y: 615}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &-5093452499250331579
@@ -37,7 +37,7 @@ MonoBehaviour:
   guid: ae91ebcfa9950b64aabfee9134d7d2c5
   position: {x: 0.000014781952, y: -167.15996}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   child: {fileID: 5402094367133825494}
@@ -58,7 +58,7 @@ MonoBehaviour:
   guid: 309249154a63c734e8ecda2759d5198d
   position: {x: -553.49756, y: 433}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   children:
@@ -82,7 +82,7 @@ MonoBehaviour:
   guid: cbc6498dc6e31cb488cc1440347f2c52
   position: {x: -0.000018119812, y: 190.53714}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   children:
@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 1907467501008722105}
   - {fileID: 7778928815638719364}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
 --- !u!114 &1570301842518086064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   guid: ca30d8870e5e33846ac1cc09d1b3dbe9
   position: {x: -0.000030517578, y: 532}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   children:
@@ -163,7 +163,7 @@ MonoBehaviour:
   guid: b2d0a52946d361f43b3ad5300ed007a6
   position: {x: -0.000015258789, y: 719.00006}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &2723987988502880356
@@ -183,7 +183,7 @@ MonoBehaviour:
   guid: ee609442e07ec0342993beeb769303b1
   position: {x: -553.49756, y: 647}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &5402094367133825494
@@ -203,7 +203,7 @@ MonoBehaviour:
   guid: d617adadf1bd18342906cec07c6362be
   position: {x: -0.0000166893, y: -12.999999}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   child: {fileID: -1299241409376585128}
@@ -226,7 +226,7 @@ MonoBehaviour:
   guid: dce9d07b98f5074438f3b1ffd757e950
   position: {x: 422.09756, y: 719}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &6577386053768356369
@@ -246,7 +246,7 @@ MonoBehaviour:
   guid: 0a4c5cd5f24580849bb0f80ebceea0b1
   position: {x: -345.49756, y: 615}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &6701679231711062797
@@ -266,7 +266,7 @@ MonoBehaviour:
   guid: df8213ed11419a444a99da4e07ef633a
   position: {x: 235.90001, y: 718.99994}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &7778928815638719364
@@ -286,7 +286,7 @@ MonoBehaviour:
   guid: f6ca7e96271c6f74f800fc4011086970
   position: {x: 593.09753, y: 719}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &7796261396022516521
@@ -306,7 +306,7 @@ MonoBehaviour:
   guid: 7555f9e10a024c842ab545ae010b22a0
   position: {x: 830.2368, y: 432.99994}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &8674864344088877103
@@ -326,7 +326,7 @@ MonoBehaviour:
   guid: 16feddbba59f88049baf498ec067a83a
   position: {x: -230.00009, y: 719}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
 --- !u!114 &9085278094221856902
@@ -346,7 +346,7 @@ MonoBehaviour:
   guid: 073527aa48ab67044936a30446d3e4f1
   position: {x: 508.8725, y: 557.775}
   blackboard:
-    isBarracksNeeded: 0
+    isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   children:
