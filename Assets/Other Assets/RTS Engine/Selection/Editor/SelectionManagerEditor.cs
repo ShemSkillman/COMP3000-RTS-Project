@@ -55,6 +55,9 @@ public class SelectionManagerEditor : Editor
 
     private void OnGeneralInspectorGUI ()
     {
+        EditorGUILayout.PropertyField(manager_SO.FindProperty("taskPanel"));
+        EditorGUILayout.PropertyField(manager_SO.FindProperty("selectionPanel"));
+
         EditorGUILayout.PropertyField(manager_SO.FindProperty("rayLayerMask"));
         EditorGUILayout.PropertyField(manager_SO.FindProperty("freeSelectionColor"));
         EditorGUILayout.PropertyField(manager_SO.FindProperty("doubleClickSelectRange"), new GUIContent("Double Click Selection Range"));

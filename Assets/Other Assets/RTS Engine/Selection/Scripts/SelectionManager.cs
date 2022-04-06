@@ -13,10 +13,12 @@ namespace RTSEngine
 {
     public class SelectionManager : MonoBehaviour
     {
+        public GameObject taskPanel;
+        public GameObject selectionPanel;
+
         //double selection range:
         [SerializeField]
         private float doubleClickSelectRange = 10.0f;
-
 
         //idle units selection options
         [System.Serializable]
@@ -140,6 +142,9 @@ namespace RTSEngine
             //If the game is not running or the player is currently placing a building
             if (GameManager.GameState != GameState.running)
                 return; //don't proceed
+
+            taskPanel.SetActive(selected.Count > 0);
+            selectionPanel.SetActive(selected.Count > 0);
 
             bool idleFound = false;
             foreach (Unit unit in GameManager.PlayerFactionMgr.GetUnits()) //go through all units in player faction

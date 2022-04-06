@@ -2741,6 +2741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40165f57cfde79346b68bbd932a43133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskPanel: {fileID: 1832933458}
+  selectionPanel: {fileID: 779670571}
   doubleClickSelectRange: 10
   idleUnitsSelection:
     enabled: 1
@@ -9496,7 +9498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &350024379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17879,8 +17881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 226.59998, y: -31.599976}
-  m_SizeDelta: {x: 444.8, y: 49}
+  m_AnchoredPosition: {x: 127.61, y: -31.599976}
+  m_SizeDelta: {x: 246.81, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710485379
 MonoBehaviour:
@@ -33242,14 +33244,14 @@ MonoBehaviour:
     imageUI: {fileID: 1833218521}
     textUI: {fileID: 424058391}
   - type: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
-    showUI: 1
+    showUI: 0
     allowedFactionTypes:
       type: 0
       targetList: []
     imageUI: {fileID: 1374496278}
     textUI: {fileID: 445694347}
   - type: {fileID: 11400000, guid: f2bb55131c0ba8749a96f92497ed3562, type: 2}
-    showUI: 1
+    showUI: 0
     allowedFactionTypes:
       type: 0
       targetList: []
@@ -33343,7 +33345,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 850427979}
         m_TargetAssemblyTypeName: RTSEngine.GameManager, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LeaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
