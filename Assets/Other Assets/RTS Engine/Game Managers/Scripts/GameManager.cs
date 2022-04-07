@@ -385,6 +385,7 @@ namespace RTSEngine
             return true;
         }
 
+        public float GameTime { get; private set; }
         void Update()
         {
             //Peace timer:
@@ -399,6 +400,8 @@ namespace RTSEngine
                 peaceTime = 0.0f;
                 UIMgr.PeaceTime.Toggle(false);
             }
+
+            GameTime += Time.deltaTime;
         }
 
         // Are we in peace time?

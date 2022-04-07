@@ -29,7 +29,7 @@ public class ArmyDefence : ActionNode
             }
         }
 
-        float searchRadius = furthestBuildingDist + 30;
+        float searchRadius = furthestBuildingDist + 25;
 
         if (defenders.IsIdle())
         {

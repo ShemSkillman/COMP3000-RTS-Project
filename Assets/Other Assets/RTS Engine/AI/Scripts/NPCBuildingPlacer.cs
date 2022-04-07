@@ -68,16 +68,9 @@ namespace RTSEngine
         /// <param name="buildAroundRadius">How far should the building from its 'buildAround' position?</param>
         /// <param name="buildAroundDistance">Initial ditsance between the building and its 'buildAround' position.</param>
         /// <param name="rotate">Can the building be rotated while getting placed?</param>
-        public bool OnBuildingPlacementRequest(Building buildingPrefab, GameObject buildAround, bool rotate, out Building placedBuilding)
+        public bool OnBuildingPlacementRequest(Building buildingPrefab, Vector3 buildLocation, bool rotate, out Building placedBuilding)
         {
             placedBuilding = null;
-
-            //if the building center or the build around object hasn't been specified:
-            if (buildAround == null)
-            {
-                Debug.LogError("Build Around object for " + buildingPrefab.GetName() + " hasn't been specified in the Building Placement Request!");
-                return false;
-            }
 
             if (!gameMgr.ResourceMgr.HasRequiredResources(buildingPrefab.GetResources(), factionMgr.FactionID))
             {
@@ -87,18 +80,16 @@ namespace RTSEngine
             //take resources to place building.
             gameMgr.ResourceMgr.UpdateRequiredResources(buildingPrefab.GetResources(), false, factionMgr.FactionID);            
 
-            //pick the building's spawn pos:
-            Vector3 buildAroundPos = buildAround.transform.position;
             //for the sample height method, the last parameter presents the navigation layer mask and 0 stands for the built-in walkable layer where buildings can be placed
-            buildAroundPos.y = gameMgr.TerrainMgr.SampleHeight(buildAround.transform.position, 0f, 0) + gameMgr.PlacementMgr.GetBuildingYOffset();
-            Vector3 buildingSpawnPos = buildAroundPos;
+            buildLocation.y = gameMgr.TerrainMgr.SampleHeight(buildLocation, 0f, 0) + gameMgr.PlacementMgr.GetBuildingYOffset();
+            Vector3 buildingSpawnPos = buildLocation;
 
             //create new instance of building and add it to the pending buildings list:
             NPCPendingBuilding newPendingBuilding = new NPCPendingBuilding
             {
                 prefab = buildingPrefab,
                 instance = Instantiate(buildingPrefab.gameObject, buildingSpawnPos, buildingPrefab.transform.rotation).GetComponent<Building>(),
-                buildAroundPos = buildAroundPos,
+                buildAroundPos = buildLocation,
                 buildAroundDistance = 0f,
                 rotate = rotate
             };

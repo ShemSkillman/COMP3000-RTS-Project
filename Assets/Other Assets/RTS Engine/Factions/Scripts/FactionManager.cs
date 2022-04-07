@@ -54,6 +54,8 @@ namespace RTSEngine
         //other components
         private GameManager gameMgr;
 
+        public Vector3 BasePosition { get; private set; }
+
 		public void Init (GameManager gameMgr, int ID, IEnumerable<FactionLimit> factionLimits, FactionSlot slot) {
 
             this.gameMgr = gameMgr;
@@ -73,6 +75,8 @@ namespace RTSEngine
                     });
                 }
             }
+
+            BasePosition = Slot.CapitalBuilding.transform.position;
 
             //start listening to events:
             CustomEvents.UnitCreated += AddUnit;

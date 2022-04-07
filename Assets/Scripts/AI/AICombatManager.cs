@@ -11,6 +11,16 @@ namespace ColdAlliances.AI
         FactionManager factionMgr;
 
         ArmyGroup reserves, defenders, attackers;
+
+        private float attackCountDown;
+
+        public float GetRandomAttackCountDown()
+        {
+            return attackCountDown + (((Random.value * 2) - 1) * 30f);
+        }
+
+        public float AttackForcePercentage { get; private set; }
+
         public ArmyGroup GetAttackers()
         {
             attackers?.Validate();
@@ -37,6 +47,9 @@ namespace ColdAlliances.AI
             attackers = new ArmyGroup();
             defenders = new ArmyGroup();
             reserves = new ArmyGroup();
+
+            AttackForcePercentage = Random.value;
+            attackCountDown = Random.Range(1, 5) * 60;
         }
 
         private void OnEnable()
@@ -111,6 +124,19 @@ namespace ColdAlliances.AI
         {
             AttackUnits.AddRange(other.AttackUnits);
             other.AttackUnits.Clear();
+        }
+
+        public void Add(ArmyGroup other, float percentage)
+        {
+            int targetPop = Mathf.RoundToInt(other.ArmyPop() * percentage);
+            int currentPop = 0;
+
+            while (currentPop < targetPop && other.AttackUnits.Count > 0)
+            {
+                currentPop += other.AttackUnits[0].GetPopulationSlots();
+                this.AttackUnits.Add(other.AttackUnits[0]);
+                other.AttackUnits.RemoveAt(0);
+            }
         }
 
         public Vector3 GetLocation()

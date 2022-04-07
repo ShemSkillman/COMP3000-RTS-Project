@@ -58,7 +58,7 @@ namespace ColdAlliances.AI
         {
             Poll();
 
-            if (BuildingPlacer.OnBuildingPlacementRequest(building, factionMgr.Slot.CapitalBuilding.gameObject, true, out Building placedBuilding))
+            if (BuildingPlacer.OnBuildingPlacementRequest(building, factionMgr.BasePosition, true, out Building placedBuilding))
             {
                 ConstructionTask task = new ConstructionTask(placedBuilding);
                 AssignVillagerToBuild(task);
