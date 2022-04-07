@@ -41,6 +41,26 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   child: {fileID: 5402094367133825494}
+--- !u!114 &-4467781506005366683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274ee2bb031d06141bff76673feef212, type: 3}
+  m_Name: ArmyDefence
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 031f53d63c961c14a95ee43929b346b9
+  position: {x: 0, y: 0}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
 --- !u!114 &-1529653454985209552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +141,8 @@ MonoBehaviour:
   - {fileID: 1907467501008722105}
   - {fileID: 7778928815638719364}
   - {fileID: 5644077914159549606}
+  - {fileID: 9078564583140291527}
+  - {fileID: -4467781506005366683}
   blackboard:
     isMilitaryBuildingNeeded: 0
 --- !u!114 &1570301842518086064
@@ -247,7 +269,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dce9d07b98f5074438f3b1ffd757e950
-  position: {x: 422.09756, y: 719}
+  position: {x: 316, y: 719}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -307,7 +329,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f6ca7e96271c6f74f800fc4011086970
-  position: {x: 593.09753, y: 719}
+  position: {x: 877, y: 719}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -352,6 +374,26 @@ MonoBehaviour:
     isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
+--- !u!114 &9078564583140291527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc802d2d953c6a4a95f2b5c61aab0ce, type: 3}
+  m_Name: GroupMilitary
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c7752ba752172534f9576cb9841778ff
+  position: {x: 509, y: 719}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
 --- !u!114 &9085278094221856902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,11 +409,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 073527aa48ab67044936a30446d3e4f1
-  position: {x: 508.8725, y: 557.775}
+  position: {x: 509, y: 545}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   children:
   - {fileID: 6576708370995578661}
+  - {fileID: 9078564583140291527}
   - {fileID: 7778928815638719364}

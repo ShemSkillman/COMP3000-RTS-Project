@@ -395,5 +395,43 @@ namespace RTSEngine
 
             return count;
         }
+
+        public Vector3 GetBaseCenter()
+        {
+            if (buildings.Count < 1)
+            {
+                return Vector3.zero;
+            }
+
+            Vector3 min = buildings[0].transform.position, max = buildings[0].transform.position;
+
+            min.y = 0;
+            max.x = 0;
+
+            for (int i = 1; i < buildings.Count; i++)
+            {
+                Building b = buildings[i];
+
+                if (b.transform.position.x < min.x)
+                {
+                    min.x = b.transform.position.x;
+                }
+                else if (b.transform.position.x > max.x)
+                {
+                    max.x = b.transform.position.x;
+                }
+
+                if (b.transform.position.z < min.z)
+                {
+                    min.z = b.transform.position.z;
+                }
+                else if (b.transform.position.z > max.z)
+                {
+                    max.z = b.transform.position.z;
+                }
+            }
+
+            return (min + max) / 2;
+        }
     }
 }

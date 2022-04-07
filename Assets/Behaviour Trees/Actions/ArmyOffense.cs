@@ -8,7 +8,7 @@ using ColdAlliances.AI;
 public class ArmyOffense : ActionNode
 {
     protected override State PerformAction() {
-        ArmyGroup army = context.combatManager.GetArmyGroup();
+        ArmyGroup army = context.combatManager.GetAttackers();
         if (army == null)
         {
             return State.Success;

@@ -10,17 +10,33 @@ namespace ColdAlliances.AI
         GameManager gameMgr;
         FactionManager factionMgr;
 
-        ArmyGroup armyGroup;
-        public ArmyGroup GetArmyGroup()
+        ArmyGroup reserves, defenders, attackers;
+        public ArmyGroup GetAttackers()
         {
-            armyGroup?.Validate();
-            return armyGroup;
+            attackers?.Validate();
+            return attackers;
+        }
+
+        public ArmyGroup GetReserves()
+        {
+            reserves?.Validate();
+            return reserves;
+        }
+
+        public ArmyGroup GetDefenders()
+        {
+            defenders?.Validate();
+            return defenders;
         }
 
         public void Init(GameManager gameMgr, FactionManager factionMgr)
         {
             this.gameMgr = gameMgr;
             this.factionMgr = factionMgr;
+
+            attackers = new ArmyGroup();
+            defenders = new ArmyGroup();
+            reserves = new ArmyGroup();
         }
 
         private void OnEnable()
@@ -42,14 +58,7 @@ namespace ColdAlliances.AI
 
             if (unit.AttackComp != null)
             {
-                if (armyGroup == null)
-                {
-                    armyGroup = new ArmyGroup(unit);
-                }
-                else
-                {
-                    armyGroup.AttackUnits.Add(unit);
-                }
+                reserves.AttackUnits.Add(unit);
             }
         }        
     }
@@ -58,10 +67,9 @@ namespace ColdAlliances.AI
     {
         public List<Unit> AttackUnits { get; set; }
 
-        public ArmyGroup(Unit unit)
+        public ArmyGroup()
         {
             AttackUnits = new List<Unit>();
-            AttackUnits.Add(unit);
         }
 
         public void Validate()
@@ -97,6 +105,12 @@ namespace ColdAlliances.AI
             }
 
             return pop;
+        }
+
+        public void Add(ArmyGroup other)
+        {
+            AttackUnits.AddRange(other.AttackUnits);
+            other.AttackUnits.Clear();
         }
 
         public Vector3 GetLocation()
