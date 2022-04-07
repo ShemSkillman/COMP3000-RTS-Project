@@ -381,5 +381,19 @@ namespace RTSEngine
 
             return idleUnits;
         }
+
+        public int GetBuildingCategoryCount(string category)
+        {
+            int count = 0;
+            foreach (Building b in GetBuildings()) //go through all units in player faction
+            {
+                if (b.GetCategory() == category)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
     }
 }

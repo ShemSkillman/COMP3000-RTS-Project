@@ -120,6 +120,7 @@ MonoBehaviour:
   - {fileID: 6576708370995578661}
   - {fileID: 1907467501008722105}
   - {fileID: 7778928815638719364}
+  - {fileID: 5644077914159549606}
   blackboard:
     isMilitaryBuildingNeeded: 0
 --- !u!114 &1570301842518086064
@@ -144,8 +145,7 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: 8674864344088877103}
-  - {fileID: 1907467501008722105}
-  - {fileID: 6701679231711062797}
+  - {fileID: 5644077914159549606}
 --- !u!114 &1907467501008722105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b2d0a52946d361f43b3ad5300ed007a6
-  position: {x: -0.000015258789, y: 719.00006}
+  position: {x: -50.09986, y: 887.4502}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -209,6 +209,29 @@ MonoBehaviour:
   child: {fileID: -1299241409376585128}
   restartOnSuccess: 1
   restartOnFailure: 1
+--- !u!114 &5644077914159549606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee64948bda9e2fe4fb5ad88265395141, type: 3}
+  m_Name: RandomSelector
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: fa9e3c30d8d16d647ab15294f26af6c4
+  position: {x: 46.55021, y: 695}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: 1907467501008722105}
+  - {fileID: 6701679231711062797}
 --- !u!114 &6576708370995578661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +287,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: df8213ed11419a444a99da4e07ef633a
-  position: {x: 235.90001, y: 718.99994}
+  position: {x: 165.95001, y: 887.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 

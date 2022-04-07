@@ -9,7 +9,7 @@ public class BuildBarracks : ActionNode
     Building buildNext;
 
     protected override State PerformAction() {
-        if (!blackboard.isMilitaryBuildingNeeded)
+        if (!blackboard.isMilitaryBuildingNeeded && context.factionMgr.GetBuildingCategoryCount("military") >= 4)
         {
             Print("No need to build military building.");
             return State.Success;

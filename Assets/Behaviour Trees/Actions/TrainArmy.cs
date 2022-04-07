@@ -6,65 +6,71 @@ using RTSEngine;
 
 public class TrainArmy : ActionNode
 {
-    int buildingIndex = 0;
+    Queue<Building> buildings;
+    Building currentBuilding;
+    int queuedPop = 0;
 
     protected override State PerformAction() {
-        List<Building> allBuildings = new List<Building>(context.factionMgr.GetBuildings());
+        Dictionary<Building, bool> visitedBuildings = new Dictionary<Building, bool>();
 
-        if (allBuildings.Count < 1)
+        while (true)
         {
-            return State.Success;
-        }
-
-        if (buildingIndex > allBuildings.Count - 1)
-        {
-            buildingIndex = 0;
-        }
-
-        int startIndex = buildingIndex;
-
-        do
-        {
-            Building building = allBuildings[buildingIndex];
-
-            if (building.GetCategory() == "military" && building.IsBuilt &&
-                building.TaskLauncherComp.GetTaskQueueCount() < 1)
+            if (currentBuilding == null)
             {
-                if (building.TaskLauncherComp.GetTask(0).HasRequiredResources() &&
-                building.TaskLauncherComp.GetTask(0).UnitPopulationSlots <= context.factionMgr.Slot.GetFreePopulation())
+                if (buildings == null || buildings.Count < 1)
                 {
-                    building.TaskLauncherComp.Add(0);
+                    buildings = new Queue<Building>(context.factionMgr.GetBuildings());
+                    
+                    if (buildings.Count < 1)
+                    {
+                        return State.Success;
+                    }
+                }
+
+                currentBuilding = buildings.Dequeue();
+            }            
+
+            if (currentBuilding != null)
+            {
+                if (visitedBuildings.ContainsKey(currentBuilding))
+                {
+                    break;
+                }
+                else
+                {
+                    visitedBuildings[currentBuilding] = true;
+                }
+            }
+
+            if (currentBuilding != null &&
+                currentBuilding.IsBuilt &&
+                !currentBuilding.HealthComp.IsDestroyed &&
+                currentBuilding.GetCategory() == "military" &&
+                currentBuilding.TaskLauncherComp.GetTaskQueueCount() < currentBuilding.TaskLauncherComp.GetMaxTasksAmount() &&
+                queuedPop < 4)
+            {
+                if (currentBuilding.TaskLauncherComp.GetTask(0).HasRequiredResources() &&
+                currentBuilding.TaskLauncherComp.GetTask(0).UnitPopulationSlots <= context.factionMgr.Slot.GetFreePopulation())
+                {
+                    currentBuilding.TaskLauncherComp.Add(0);
+
+                    queuedPop += currentBuilding.TaskLauncherComp.GetTask(0).UnitPopulationSlots;
 
                     Print("Training unit from military building.");
 
-                    buildingIndex++;
                     return State.Running;
                 }
                 else
                 {
-                    if (!building.TaskLauncherComp.GetTask(0).HasRequiredResources())
-                    {
-                        Print("Not enough resources to train military unit.");
-                    }
-
-                    if (!(building.TaskLauncherComp.GetTask(0).UnitPopulationSlots <= context.factionMgr.Slot.GetFreePopulation()))
-                    {
-                        Print("Not enough pop to train military unit.");
-                    }
-
                     blackboard.isMilitaryBuildingNeeded = false;
 
                     return State.Success;
                 }
             }
 
-            buildingIndex++;
-
-            if (buildingIndex > allBuildings.Count - 1)
-            {
-                buildingIndex = 0;
-            }
-        } while (buildingIndex != startIndex);
+            currentBuilding = null;
+            queuedPop = 0;
+        }
 
         blackboard.isMilitaryBuildingNeeded = true;
 
