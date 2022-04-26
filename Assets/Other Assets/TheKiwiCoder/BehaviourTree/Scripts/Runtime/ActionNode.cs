@@ -18,7 +18,9 @@ namespace TheKiwiCoder {
 
         protected override State OnUpdate()
         {
-            if (Time.time - startTime <= context.factionMgr.Slot.NPCType.PerformActionTime)
+            float waitTime = Time.time - startTime;
+
+            if (waitTime <= context.factionMgr.Slot.NPCType.PerformActionTime)
             {
                 return State.Running;
             }

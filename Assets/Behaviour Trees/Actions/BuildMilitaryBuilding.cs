@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 using RTSEngine;
 
-public class BuildBarracks : ActionNode
+public class BuildMilitaryBuilding : ActionNode
 {
     Building buildNext;
 

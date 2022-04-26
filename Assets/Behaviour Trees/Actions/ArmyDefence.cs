@@ -7,6 +7,8 @@ using RTSEngine;
 
 public class ArmyDefence : ActionNode
 {
+    const float defenderRangeBuffer = 25f;
+
     protected override State PerformAction() {
 
         ArmyGroup defenders = context.combatManager.GetDefenders();
@@ -29,7 +31,7 @@ public class ArmyDefence : ActionNode
             }
         }
 
-        float searchRadius = furthestBuildingDist + 25;
+        float searchRadius = furthestBuildingDist + defenderRangeBuffer;
 
         if (defenders.IsIdle())
         {
@@ -48,14 +50,22 @@ public class ArmyDefence : ActionNode
             }
             else
             {
-                if (Vector3.Distance(armyPos, baseCenter) > searchRadius / 2)
-                {
-                    context.gameMgr.MvtMgr.Move(defenders.AttackUnits, baseCenter, 0, null, InputMode.movement, false);
-                }
+                CheckDefendersLocation(defenders, baseCenter, searchRadius);
             }
         }
-        
+        else
+        {
+            CheckDefendersLocation(defenders, baseCenter, searchRadius);
+        }        
 
         return State.Success;
+    }
+
+    private void CheckDefendersLocation(ArmyGroup defenders, Vector3 baseCenter, float searchRadius)
+    {
+        if (Vector3.Distance(defenders.GetLocation(), baseCenter) > searchRadius / 2)
+        {
+            context.gameMgr.MvtMgr.Move(defenders.AttackUnits, baseCenter, 0, null, InputMode.movement, false);
+        }
     }
 }

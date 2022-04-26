@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1178dd8f2b9f3b64b885526700e39e62, type: 3}
-  m_Name: BuildBarracks
+  m_Name: BuildMilitaryBuilding
   m_EditorClassIdentifier: 
   state: 0
   started: 0

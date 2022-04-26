@@ -21413,7 +21413,7 @@ MonoBehaviour:
   editorElementID: 5
   editorTabID: 0
   mainMenuScene: MainMenu
-  defeatCondition: 0
+  defeatCondition: 1
   speedModifier: 1
   factions:
   - name: Player 1

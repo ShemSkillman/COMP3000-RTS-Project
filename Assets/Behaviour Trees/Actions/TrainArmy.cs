@@ -9,7 +9,6 @@ public class TrainArmy : ActionNode
     Queue<Building> buildings;
     Building currentBuilding;
     int queuedPop = 0;
-
     protected override State PerformAction() {
         Dictionary<Building, bool> visitedBuildings = new Dictionary<Building, bool>();
 
