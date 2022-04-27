@@ -438,7 +438,7 @@ MonoBehaviour:
       maxEmpty: 1
       spacing: 0
   moveOnAttack: 0
-  followDistance: 20
+  followDistance: 10
   attackAnimOverrideController: {fileID: 0}
   triggerAnimationInDelay: 0
 --- !u!114 &7426046671300633383

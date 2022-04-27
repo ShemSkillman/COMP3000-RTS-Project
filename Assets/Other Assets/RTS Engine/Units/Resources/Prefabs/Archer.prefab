@@ -347,7 +347,7 @@ MonoBehaviour:
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 1
-  searchRange: 28
+  searchRange: 32
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
@@ -431,13 +431,13 @@ MonoBehaviour:
   range:
     unitStoppingDistance:
       min: 12
-      max: 18
+      max: 14
     buildingStoppingDistance:
       min: 12
-      max: 18
+      max: 14
     noTargetStoppingDistance:
       min: 12
-      max: 18
+      max: 14
     moveOnAttackOffset: 0
     updateMvtDistance: 2
     formation:
@@ -447,7 +447,7 @@ MonoBehaviour:
       maxEmpty: 1
       spacing: 0
   moveOnAttack: 0
-  followDistance: 15
+  followDistance: 32
   attackAnimOverrideController: {fileID: 22100000, guid: c240b3d69d067d24db5c6bacd911ccef,
     type: 2}
   triggerAnimationInDelay: 0

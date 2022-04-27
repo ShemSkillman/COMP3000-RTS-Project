@@ -7,7 +7,7 @@ using RTSEngine;
 
 public class ArmyDefence : ActionNode
 {
-    const float defenderRangeBuffer = 25f;
+    const float defenderRangeBuffer = 21f;
 
     protected override State PerformAction() {
 
@@ -63,7 +63,7 @@ public class ArmyDefence : ActionNode
 
     private void CheckDefendersLocation(ArmyGroup defenders, Vector3 baseCenter, float searchRadius)
     {
-        if (Vector3.Distance(defenders.GetLocation(), baseCenter) > searchRadius / 2)
+        if (Vector3.Distance(defenders.GetLocation(), baseCenter) > searchRadius)
         {
             context.gameMgr.MvtMgr.Move(defenders.AttackUnits, baseCenter, 0, null, InputMode.movement, false);
         }

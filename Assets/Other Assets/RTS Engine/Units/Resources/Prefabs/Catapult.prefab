@@ -346,7 +346,7 @@ MonoBehaviour:
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 1
-  searchRange: 35
+  searchRange: 36
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
@@ -433,14 +433,14 @@ MonoBehaviour:
     audioClips: []
   range:
     unitStoppingDistance:
-      min: 20
-      max: 25
+      min: 16
+      max: 20
     buildingStoppingDistance:
-      min: 20
-      max: 25
+      min: 16
+      max: 20
     noTargetStoppingDistance:
-      min: 20
-      max: 25
+      min: 16
+      max: 20
     moveOnAttackOffset: 0
     updateMvtDistance: 2
     formation:
@@ -450,7 +450,7 @@ MonoBehaviour:
       maxEmpty: 1
       spacing: 0
   moveOnAttack: 0
-  followDistance: 15
+  followDistance: 36
   attackAnimOverrideController: {fileID: 22100000, guid: 492ee056d1a1eb5459f028985a917284,
     type: 2}
   triggerAnimationInDelay: 0

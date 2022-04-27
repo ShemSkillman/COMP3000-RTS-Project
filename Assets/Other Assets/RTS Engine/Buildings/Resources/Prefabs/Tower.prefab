@@ -391,7 +391,7 @@ MonoBehaviour:
   engageFriendly: 0
   engageInRange: 1
   engageInRangeIdleOnly: 0
-  searchRange: 20
+  searchRange: 15
   searchReload: 1
   delayDuration: 0
   delayTriggerEnabled: 0
