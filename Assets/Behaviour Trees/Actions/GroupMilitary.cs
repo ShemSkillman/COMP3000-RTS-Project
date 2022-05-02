@@ -4,24 +4,32 @@ using ColdAlliances.AI;
 public class GroupMilitary : ActionNode
 {
     float attackTime = 0f;
-    float attackCountDown = -1f;
+    float attackCountDown;
+    bool initialized = false;
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+        if (!initialized)
+        {
+            attackCountDown = context.combatManager.GetRandomAttackCountDown();
+            initialized = true;
+        }
+    }
 
     protected override State PerformAction() {
         ArmyGroup attackers = context.combatManager.GetAttackers();
         ArmyGroup reserves = context.combatManager.GetReserves();
         ArmyGroup defenders = context.combatManager.GetDefenders();
 
-        if (attackCountDown < 0)
-        {
-            attackCountDown = context.combatManager.GetRandomAttackCountDown();
-        }
-
         if (reserves.ArmyPop() >= 4)
         {
             defenders.Add(reserves);
         }
 
-        if (context.gameMgr.GameTime - attackTime > attackCountDown)
+        float attackWaitTime = context.gameMgr.GameTime - attackTime;
+
+        if (attackWaitTime > attackCountDown)
         {
             attackCountDown = context.combatManager.GetRandomAttackCountDown();
             attackTime = context.gameMgr.GameTime;
