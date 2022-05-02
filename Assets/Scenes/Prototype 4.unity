@@ -844,6 +844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -965,6 +970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -1984,6 +1994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -3307,6 +3322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -3404,6 +3424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323359, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -7285,6 +7310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -9251,6 +9281,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -10322,6 +10357,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -13199,6 +13239,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323359, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: m_RootOrder
@@ -15351,6 +15396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -18683,6 +18733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -23550,6 +23605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -23760,6 +23820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -25181,6 +25246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: factionID
@@ -25296,6 +25366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -27137,6 +27212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323359, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: m_RootOrder
@@ -27962,6 +28042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -32598,6 +32683,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -32794,6 +32884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -36180,6 +36275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -36772,6 +36872,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -40445,6 +40550,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -40761,6 +40871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323359, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -41166,6 +41281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -43657,6 +43777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -43760,6 +43885,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -44437,6 +44567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323359, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -45243,6 +45378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
@@ -47882,6 +48022,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager 2 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}
       propertyPath: icon
@@ -49077,6 +49222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Villager 2 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974522737364323352, guid: 8ae761a093cdf454a843280a67eea53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974522737364323356, guid: 8ae761a093cdf454a843280a67eea53f,
         type: 3}

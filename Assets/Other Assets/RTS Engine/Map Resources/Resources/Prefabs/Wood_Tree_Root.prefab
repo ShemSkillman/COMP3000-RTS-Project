@@ -119,7 +119,6 @@ Transform:
   - {fileID: 4704095753632886}
   - {fileID: 768170432839290535}
   - {fileID: 78507877257512394}
-  - {fileID: 4450752004076221435}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,8 +155,9 @@ MonoBehaviour:
   infiniteAmount: 0
   amount: 100
   destroyOnEmpty: 1
+  destroyTime: 30
   secondaryModel: {fileID: 7608229589807266689}
-  secondarySelection: {fileID: 8251946193899418903}
+  secondarySelection: {fileID: 0}
   canCollectOutsideBorder: 1
   collectOneUnitDuration: 0.75
   showCollectors: 1
@@ -300,67 +300,6 @@ Transform:
   m_Father: {fileID: 4839631576485286}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6360790789370404516
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4450752004076221435}
-  - component: {fileID: 3634645750017042713}
-  - component: {fileID: 8251946193899418903}
-  m_Layer: 11
-  m_Name: SecondarySelection
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
---- !u!4 &4450752004076221435
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6360790789370404516}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4839631576485286}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3634645750017042713
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6360790789370404516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.45, z: 1}
-  m_Center: {x: 0, y: 0.22, z: 0}
---- !u!114 &8251946193899418903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6360790789370404516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ae56b7c290d474484dac47947225f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canSelect: 1
-  selectOwnerOnly: 0
-  minimapIconSize: 0.25
 --- !u!1 &7608229589807266689
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +424,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 840579875832209995, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
 --- !u!4 &6762491377593728458 stripped
 Transform:

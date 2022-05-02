@@ -30,6 +30,8 @@ namespace RTSEngine
         [SerializeField]
         private bool destroyOnEmpty = true; //destroy the resource object once the amount hits zero ?
 
+        [SerializeField] private float destroyTime = 30f;
+
         public int FactionID { set; get; } //the ID of the faction that includes this resource object inside its territory
 
         [SerializeField]
@@ -122,27 +124,6 @@ namespace RTSEngine
             if (collected == false) //if the resource hasn't been collected before now
             {
                 collected = true;
-
-                if (secondaryModel != null) //if there's a secondary model, enable it and disable the initial one
-                {
-                    ToggleModel(false); //hide the primary model
-                    secondaryModel.SetActive(true);
-
-                    if(secondarySelection != null && secondarySelection != selection) //if there's a secondary selection
-                    {
-                        bool minimapIconVisible = selection.Icon.isActiveAndEnabled;
-                        selection.DisableMinimapIcon(); //disable the first minimap icon
-                        selection.gameObject.SetActive(false); //disable the selection object
-
-                        //enable the secondary one:
-                        secondarySelection.gameObject.SetActive(true);
-
-                        selection = secondarySelection;
-                        gameMgr.MinimapIconMgr?.Assign(selection); //ask the minimap icon manager to create the a minimap icon for this resource and link it to the secondary selection
-                        selection.ToggleMinimapIcon(minimapIconVisible);
-                    }
-                }
-
             }
 
             if (infiniteAmount == false) //only change the amount if the resource doesn't have infinite amount
@@ -182,6 +163,15 @@ namespace RTSEngine
             amount = 0; //empty the resource
             CustomEvents.OnResourceEmpty(this); //trigger custom event
 
+            if (secondaryModel != null) //if there's a secondary model, enable it and disable the initial one
+            {
+                ToggleModel(false); //hide the primary model
+                secondaryModel.SetActive(true);
+
+                selection.DisableMinimapIcon(); //disable the first minimap icon
+                selection.gameObject.SetActive(false); //disable the selection object
+            }
+
             if (destroyOnEmpty == false) //if the resource is not supposed to be destroyed
                 return;
 
@@ -190,10 +180,10 @@ namespace RTSEngine
 
             gameMgr.ResourceMgr.RemoveResource(this); //remove resource from all resources list
 
-            gameMgr.SelectionMgr.Selected.Remove(this); //in case the resource was selected, deselect it
+            //gameMgr.SelectionMgr.Selected.Remove(this); //in case the resource was selected, deselect it
             selection.DisableMinimapIcon(); //remove resource's minimap icon from the minimap
 
-            Destroy(gameObject);
+            Destroy(gameObject, destroyTime);
 
             CustomEvents.OnResourceDestroyed(this);
         }
