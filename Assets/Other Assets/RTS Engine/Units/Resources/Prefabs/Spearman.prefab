@@ -215,7 +215,7 @@ MonoBehaviour:
   code: spearman
   category: military
   description: Man with a spear to counter cavalry.
-  icon: {fileID: 21300000, guid: 6f42a89b7340cc04cbcec9db58ffb203, type: 3}
+  icon: {fileID: 21300000, guid: 54aa11f1a38616d4cb16bf8e7bb6b4ef, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0

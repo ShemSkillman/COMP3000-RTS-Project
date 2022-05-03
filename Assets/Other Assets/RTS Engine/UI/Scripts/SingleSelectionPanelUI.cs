@@ -171,13 +171,13 @@ namespace RTSEngine
                 resource.GetName(),
                 resource.GetDescription()
                     + (resource.ShowCollectors() ? "\nCollectors: " + resource.WorkerMgr.currWorkers.ToString() + "/" + resource.WorkerMgr.GetAvailableSlots().ToString() : ""),
-                resource.GetResourceType().GetIcon()
+                resource.GetIcon()
                 );
 
             if (healthText && resource.ShowAmount()) //show the resource amount
             {
                 healthText.gameObject.SetActive(true);
-                healthText.text = resource.IsInfinite() == true ? "Infinite Amount" : "Amount " + resource.GetAmount();
+                healthText.text = resource.IsInfinite() == true ? "Infinite Amount" : resource.GetResourceType().Key + " amount " + resource.GetAmount();
             }
 		}
 

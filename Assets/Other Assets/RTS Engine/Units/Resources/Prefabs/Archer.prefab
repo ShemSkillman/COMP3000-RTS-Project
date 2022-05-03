@@ -215,7 +215,7 @@ MonoBehaviour:
   code: archer
   category: military
   description: Man with bow.
-  icon: {fileID: 21300000, guid: 3eae66c10984ecc4ba45e44b4676cf1c, type: 3}
+  icon: {fileID: 21300000, guid: c7626e0ac9b11d84dac57b216052b30b, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0

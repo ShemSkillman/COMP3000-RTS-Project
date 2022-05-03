@@ -221,7 +221,7 @@ MonoBehaviour:
   code: stables
   category: military
   description: Trains horseman.
-  icon: {fileID: 21300000, guid: d9ce50c6cf6c47242a56847bb7293967, type: 3}
+  icon: {fileID: 21300000, guid: 6969951d55fd01341b9b42ead7c0ea9e, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -346,7 +346,7 @@ MonoBehaviour:
     type: 11
     allowedType: 0
     taskPanelCategory: 0
-    icon: {fileID: 21300000, guid: 4da7fcaa89cd22c42abf4b7d035a3b54, type: 3}
+    icon: {fileID: 21300000, guid: 699623501926ee94f94916a483613b2a, type: 3}
     reloadTime: 20
     requiredResources:
     - Name: Coin

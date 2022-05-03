@@ -28382,7 +28382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e88bf77967efc4b958ceb60c97283b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 0
+  tabID: 2
   winMenu: {fileID: 316387563}
   loseMenu: {fileID: 350024378}
   pauseMenu: {fileID: 890702899}

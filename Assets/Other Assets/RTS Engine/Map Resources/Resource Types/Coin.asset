@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Coin
   startingAmount: 500
-  icon: {fileID: 21300000, guid: 428cd097f43f41547861a61713bcfd4a, type: 3}
+  icon: {fileID: 21300000, guid: d9c2ef38946e5b34e829c9d1255c53ab, type: 3}
   minimapIconColor: {r: 0.5294118, g: 0.31764707, b: 0, a: 1}
   collectionAudio:
     fetchType: 0

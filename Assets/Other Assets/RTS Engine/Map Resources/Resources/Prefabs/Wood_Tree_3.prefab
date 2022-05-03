@@ -306,6 +306,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114472513907078762, guid: 759400f2399de0449a8f399a73b6b15f,
         type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: f273c05e9424fc84cab936eb559642ae,
+        type: 3}
+    - target: {fileID: 114472513907078762, guid: 759400f2399de0449a8f399a73b6b15f,
+        type: 3}
       propertyPath: amount
       value: 300
       objectReference: {fileID: 0}

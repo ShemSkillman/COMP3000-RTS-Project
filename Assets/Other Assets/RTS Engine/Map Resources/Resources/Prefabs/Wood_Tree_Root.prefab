@@ -138,7 +138,7 @@ MonoBehaviour:
   code: tree
   category: static_resource
   description: Produces wood resource.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f273c05e9424fc84cab936eb559642ae, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0

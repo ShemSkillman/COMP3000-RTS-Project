@@ -198,8 +198,8 @@ MonoBehaviour:
   _name: Iron Mine
   code: iron_mine
   category: static_resource
-  description: Finite source of iron that produces gold quickly.
-  icon: {fileID: 0}
+  description: Finite source of gold.
+  icon: {fileID: 21300000, guid: 7ca2cdab2c27a2841b113d62dd863dce, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   infiniteAmount: 0
   amount: 10000
   destroyOnEmpty: 1
+  destroyTime: 30
   secondaryModel: {fileID: 0}
   secondarySelection: {fileID: 0}
   canCollectOutsideBorder: 1

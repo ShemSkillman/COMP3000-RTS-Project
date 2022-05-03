@@ -365,7 +365,7 @@ MonoBehaviour:
   code: house
   category: civilian
   description: Supports 5 population.
-  icon: {fileID: 21300000, guid: aed215f7d60bca64691d19a4e9285a0f, type: 3}
+  icon: {fileID: 21300000, guid: f7ace2b48a154f04e8b29a33f979d194, type: 3}
   free: 0
   selectionAudio:
     fetchType: 0
