@@ -16,6 +16,8 @@ namespace RTSEngine
         [SerializeField]
 		private int healthPerSecond = 5; //amount of health that the building will receive per second
 
+        [SerializeField] private int repairPerSecond = 2;
+
         [SerializeField, Tooltip("What audio clip to play when constructing a building?")]
 		private AudioClipFetcher constructionAudio = new AudioClipFetcher(); //played when the unit is constructing a building
 
@@ -60,7 +62,14 @@ namespace RTSEngine
         //a method that is called when the builder achieved progress in construction
         protected override void OnInProgress()
         {
-            target.HealthComp.AddHealth(healthPerSecond, unit); //add health points to the building.
+            if (target.IsBuilt)
+            {
+                target.HealthComp.AddHealth(repairPerSecond, unit); //add health points to the building.
+            }
+            else
+            {
+                target.HealthComp.AddHealth(healthPerSecond, unit); //add health points to the building.
+            }            
         }
 
         //update component if the builder doesn't have a target

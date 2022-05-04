@@ -7,6 +7,8 @@ namespace RTSEngine
     [RequireComponent(typeof(Building))]
     public class BuildingHealth : FactionEntityHealth
     {
+        private const int unbuiltDamageMult = 5;
+
         private Building building; //the main building component for which this component opeartes
 
         //hide/show different parts of the building depending on its current health allowing the building to reflect it
@@ -77,11 +79,26 @@ namespace RTSEngine
             CompleteConstruction();
         }
 
+        private int constructionHealth = 0;
+
         //when the building is destroyed:
         public override bool DestroyFactionEntityLocal(bool upgrade)
         {
             if (!base.DestroyFactionEntityLocal(upgrade))
                 return false;
+
+            if (!building.IsBuilt)
+            {
+                float refundPercentage = 1 - (constructionHealth / (float)MaxHealth);
+
+                ResourceInput[] refundableResources = (ResourceInput[])building.GetResources().Clone();
+                for (int i = 0; i < refundableResources.Length; i++)
+                {
+                    refundableResources[i].Amount = Mathf.RoundToInt(refundableResources[i].Amount * refundPercentage);
+                }
+
+                gameMgr.ResourceMgr.UpdateResource(building.FactionID, refundableResources);
+            }
 
             if (building.IsFree() == false) //if this is not a free building
             {
@@ -173,6 +190,34 @@ namespace RTSEngine
                 newState.Toggle(true);
 
             lastState = newState; //assign last state to new state
+        }
+
+        public override void AddHealthLocal(int value, FactionEntity source)
+        {
+            //if the faction entity doesn't take damage and the health points to add is negative (damage):
+            if (takeDamage == false && value < 0.0f)
+                return; //don't proceed.
+
+            if (!building.IsBuilt && value < 0.0f)
+            {
+                value *= unbuiltDamageMult;
+            }
+
+            CurrHealth += value; //add the input value to the current health value
+
+            if (!building.IsBuilt && CurrHealth > constructionHealth)
+            {
+                constructionHealth = CurrHealth;
+            }
+
+            if (CurrHealth >= MaxHealth) //if the current health is above the maximum allowed health
+                OnMaxHealthReached(value, source);
+
+            if (CurrHealth <= 0.0f && isDead == false)
+                OnZeroHealth(value, source);
+            //the faction entity isn't "dead"
+            else
+                OnHealthUpdated(value, source);
         }
     }
 }

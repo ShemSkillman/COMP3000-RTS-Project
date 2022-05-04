@@ -21,6 +21,7 @@ public class BuilderEditor : Editor
         EditorGUILayout.PropertyField(builder_SO.FindProperty("inProgressObject"), new GUIContent("Construction Object"));
         EditorGUILayout.PropertyField(builder_SO.FindProperty("constructFreeBuildings"));
         EditorGUILayout.PropertyField(builder_SO.FindProperty("healthPerSecond"));
+        EditorGUILayout.PropertyField(builder_SO.FindProperty("repairPerSecond"));
 
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(builder_SO.FindProperty("autoBehavior"), new GUIContent("Auto Build"), true);

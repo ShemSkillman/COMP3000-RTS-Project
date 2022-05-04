@@ -217,7 +217,7 @@ MonoBehaviour:
   infiniteAmount: 0
   amount: 10000
   destroyOnEmpty: 1
-  destroyTime: 30
+  destroyTime: 0
   secondaryModel: {fileID: 0}
   secondarySelection: {fileID: 0}
   canCollectOutsideBorder: 1

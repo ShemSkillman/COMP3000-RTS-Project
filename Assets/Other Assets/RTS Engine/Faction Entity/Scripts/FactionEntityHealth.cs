@@ -55,7 +55,7 @@ namespace RTSEngine
         }
 
         [SerializeField]
-        private bool takeDamage = true; //does this faction entity lose damage when it is attacked?
+        protected bool takeDamage = true; //does this faction entity lose damage when it is attacked?
         public bool CanTakeDamage () { return takeDamage; }
         [SerializeField]
         private EffectObj damageEffect = null; //appears when a damage is received in the contact point between the attack object and this faction entity
@@ -117,7 +117,7 @@ namespace RTSEngine
         }
 
         //add health to the faction entity locally
-        public void AddHealthLocal(int value, FactionEntity source)
+        public virtual void AddHealthLocal(int value, FactionEntity source)
         {
             //if the faction entity doesn't take damage and the health points to add is negative (damage):
             if (takeDamage == false && value < 0.0f)

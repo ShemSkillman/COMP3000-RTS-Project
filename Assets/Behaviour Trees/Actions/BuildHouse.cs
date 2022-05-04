@@ -13,8 +13,9 @@ public class BuildHouse : ActionNode
         }
 
         int housePop = context.Info.House.GetAddedPopulationSlots();
-        if (context.factionMgr.Slot.GetFreePopulation() + (housePop * context.buildingManager.GetBuildingInConstructionCount(context.Info.House)) < housePop &&
-            context.factionMgr.Slot.GetCurrentPopulation() < context.factionMgr.Slot.MaxPopulation)
+        if (!context.factionMgr.HasReachedLimit(context.Info.Tower.GetCode(), "") &&
+            context.factionMgr.Slot.GetFreePopulation() + (housePop * context.buildingManager.GetBuildingInConstructionCount(context.Info.House)) < housePop &&
+            context.factionMgr.Slot.GetPopulationCapacity() < context.factionMgr.Slot.MaxPopulation)
         {
             context.buildingManager.ConstructBuilding(context.Info.House);
             Print("Placing house.");
