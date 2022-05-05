@@ -40,16 +40,22 @@ public class BalanceEconomy : ActionNode
 
             if (coinCollectorCount > woodCollectorCount)
             {
-                context.economyManager.AssignVillagerToResource(villager, context.Info.Tree);
+                if (context.economyManager.AssignVillagerToResource(villager, context.Info.Tree))
+                {
+                    return State.Running;
+                }
                 Print("Moving villager to gather wood.");
             }
             else
             {
-                context.economyManager.AssignVillagerToResource(villager, context.Info.IronMine);
+                if (context.economyManager.AssignVillagerToResource(villager, context.Info.IronMine))
+                {
+                    return State.Running;
+                }
                 Print("Moving villager to gather coin.");
             }
 
-            return State.Running;
+            return State.Success;
         }
         else
         {

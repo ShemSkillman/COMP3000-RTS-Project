@@ -52,7 +52,7 @@ namespace ColdAlliances.AI
             return collectors.Count + collectionTaskCount;
         }
 
-        public void AssignVillagerToResource(Unit villager, Resource resource)
+        public bool AssignVillagerToResource(Unit villager, Resource resource)
         {
             BasicTargetPicker targetPicker = new BasicTargetPicker(resource.GetCode());
 
@@ -74,6 +74,12 @@ namespace ColdAlliances.AI
                 }
 
                 collectionTasksDic[resource.GetResourceType().Key].Add(task);
+
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

@@ -14,16 +14,35 @@ public class AssignIdleVillager : ActionNode
         {            
             if (context.economyManager.GetResourceCollectorCount(context.Info.IronMine) > context.economyManager.GetResourceCollectorCount(context.Info.Tree))
             {
-                context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.Tree);
-                Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.Tree.GetName());
+                if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.Tree))
+                {
+                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.Tree.GetName());
+                    return State.Running;
+                }
+
+                if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.IronMine))
+                {
+                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
+                    return State.Running;
+                }
+
             }
             else
             {
-                context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.IronMine);
-                Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
+                if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.IronMine))
+                {
+                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
+                    return State.Running;
+                }
+
+                if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.Tree))
+                {
+                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.Tree.GetName());
+                    return State.Running;
+                }
             }
 
-            return State.Running;
+            return State.Success;
         }
         else
         {
