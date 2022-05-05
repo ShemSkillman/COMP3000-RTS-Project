@@ -285,6 +285,23 @@ namespace RTSEngine
                 defeatCondition = LobbyManager.instance.UIMgr.defeatConditionMenu.GetValue(); //set defeat condition
                 speedModifier = LobbyManager.instance.UIMgr.speedModifierMenu.GetValue(); //set speed modifier
 
+                for (int i = 0; i < LobbyManager.instance.LobbyFactions.Count; i++)
+                {
+                    if (!LobbyManager.instance.LobbyFactions[i].PlayerControlled)
+                        continue;
+
+                    for (int j = 0; j < LobbyManager.instance.LobbyFactions.Count; j++)
+                    {
+                        if (LobbyManager.instance.LobbyFactions[i].SpawnDifficulty == (int)factions[j].spawnDifficulty)
+                        {
+                            FactionSlot temp = factions[j];
+                            factions[j] = factions[i];
+                            factions[i] = temp;
+                        }
+
+                    }
+                }
+
                 //loop through the factions slots of this map:
                 for (int i = 0; i < LobbyManager.instance.LobbyFactions.Count; i++)
                 {
@@ -293,7 +310,7 @@ namespace RTSEngine
                         LobbyManager.instance.LobbyFactions[i].GetFactionType(),
                         LobbyManager.instance.LobbyFactions[i].GetFactionColor(),
                         LobbyManager.instance.LobbyFactions[i].PlayerControlled,
-                        LobbyManager.instance.GetCurrentMap().GetInitialPopulation(),
+                        LobbyManager.instance.GetCurrentMap().GetMaxPopulation(),
                         LobbyManager.instance.LobbyFactions[i].GetNPCType(),
                         gameObject.AddComponent<FactionManager>(), i, this);
                 }

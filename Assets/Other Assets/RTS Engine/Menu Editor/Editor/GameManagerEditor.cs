@@ -72,6 +72,7 @@ namespace RTSEngine
             EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("typeInfo"), new GUIContent("Type"));
             EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("color"));
             EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("playerControlled"));
+            EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("spawnDifficulty"));
             EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("maxPopulation"));
             EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("capitalBuilding"));
             EditorGUILayout.PropertyField(so.FindProperty(path).FindPropertyRelative("camLookAtPos"), new GUIContent("Camera Look At Position"));

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c62a3ca51ec4b8642b8426504610851a, type: 3}
-  m_Name: easy_npc_type
+  m_Name: cold_alliances_ai_extreme
   m_EditorClassIdentifier: 
-  _name: Easy
-  code: easy
+  _name: Cold Alliances AI Extreme
+  code: cold_alliances_ai_extreme
   npcManagers:
-    allTypes: {fileID: 114475972782975292, guid: fbd5d56ccaa8b1140bbf29a18ab1e325,
+    allTypes: {fileID: 114475972782975292, guid: b32c92d9dbfc6f8418ff02012850c7b4,
       type: 3}
     typeSpecific: []
+  actionsPerMinute: 600

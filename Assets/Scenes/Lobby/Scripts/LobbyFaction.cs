@@ -18,7 +18,11 @@ namespace RTSEngine
         public FactionColor GetFactionColor () { return manager.FactionColor.Get(factionColorID); }
 
         private int npcManagerID = 0;
+        public int NPCManagerID { get { return npcManagerID; } set { npcManagerID = value; } }
         public NPCTypeInfo GetNPCType () { return manager.NPCTypes.Get(npcManagerID); }
+
+        private int spawnDifficulty = 0;
+        public int SpawnDifficulty { get { return spawnDifficulty; } set { spawnDifficulty = value; } }
 
         public bool PlayerControlled { private set; get; }
 

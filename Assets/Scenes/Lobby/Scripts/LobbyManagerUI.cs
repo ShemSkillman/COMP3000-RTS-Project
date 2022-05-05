@@ -44,7 +44,7 @@ namespace RTSEngine
         public void UpdateMapUIInfo()
         {
             //show the map's info: population, description and max factions:
-            mapInitialPopulationText.text = manager.GetCurrentMap().GetInitialPopulation().ToString();
+            mapInitialPopulationText.text = manager.GetCurrentMap().GetMaxPopulation().ToString();
             mapDescriptionText.text = manager.GetCurrentMap().GetDescription();
             mapMaxFactionsText.text = manager.GetCurrentMap().GetMaxFactions().ToString();
         }

@@ -21599,8 +21599,8 @@ MonoBehaviour:
       factionTypes: []
   randomFactionSlots: 1
   peaceTime: 0
-  winGameAudio: {fileID: 8300000, guid: 9c3e62e994a7f5c488a47944681aea10, type: 3}
-  loseGameAudio: {fileID: 8300000, guid: a45134fdcdfac1c4e88e45639a83b38d, type: 3}
+  winGameAudio: {fileID: 8300000, guid: 74ec93101114bb444bbdf42f2b905818, type: 3}
+  loseGameAudio: {fileID: 8300000, guid: 2250c21634d25c944b3acdba6ffe9ca0, type: 3}
 --- !u!114 &850427980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21638,11 +21638,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-    fetchType: 0
+    fetchType: 1
     audioClips:
-    - {fileID: 8300000, guid: e3d44d204fb3bff49a6b7676d02f065c, type: 3}
-    - {fileID: 8300000, guid: 7411bb2ca53140e449bc847a9aa06aef, type: 3}
-    - {fileID: 8300000, guid: e2516bf8865396944ab2e50c9888a9ce, type: 3}
+    - {fileID: 8300000, guid: 281bc330486aba348b6d4f2a6828d709, type: 3}
+    - {fileID: 8300000, guid: 093c1e3df2269c740a59b3fcec1a53b5, type: 3}
+    - {fileID: 8300000, guid: d286d30d2c6653a4b9aaa6afff23b694, type: 3}
+    - {fileID: 8300000, guid: f10a023941133584f89adfdc06139a08, type: 3}
+    - {fileID: 8300000, guid: f7e0108fe73b09e4b90cbc3b0ecb430f, type: 3}
+    - {fileID: 8300000, guid: edd4b7de889a1a24fa89d8b0f1a0cbdb, type: 3}
+    - {fileID: 8300000, guid: 4bfcaae9bf0dee24ea93037c0ffe0315, type: 3}
+    - {fileID: 8300000, guid: b91db7413a3b67b4aa8b0a54b1a3a32c, type: 3}
+    - {fileID: 8300000, guid: 21662f09fd964934c96f2d9ccfe07ba7, type: 3}
   playMusicOnStart: 1
   musicVolume: 0.2
   musicVolumeSlider: {fileID: 1769916774}
@@ -21807,6 +21813,7 @@ MonoBehaviour:
   - {fileID: 4810416383647272699, guid: 75f08936e7381684394716846d386c45, type: 3}
   - {fileID: 4810416383647272699, guid: cb4297c2b5e0bf748816be8193892b08, type: 3}
   - {fileID: 4810416383647272699, guid: fed7c6dbf3b8d284aaa4206205d1f5c6, type: 3}
+  - {fileID: 8980730581845679993, guid: eafd2c2ccb9cb7c4996ad70b7623311a, type: 3}
   buildingYOffset: 0.01
   groundMaxDistance: 1.5
   holdAndSpawnEnabled: 1

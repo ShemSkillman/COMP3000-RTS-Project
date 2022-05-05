@@ -37,6 +37,16 @@ namespace RTSEngine
             }
         }
 
+        public enum SpawnDifficulty
+        {
+            Outskirts,
+            Halfway,
+            Center,
+            Any
+        }
+
+        public SpawnDifficulty spawnDifficulty;
+
         [SerializeField]
         private int maxPopulation = 200; //Maximum number of units that can be present at the same time (which can be increased in the game by constructing certain buildings)
 
@@ -149,7 +159,7 @@ namespace RTSEngine
         private DefaultFactionEntity[] defaultFactionEntities = new DefaultFactionEntity[0];
 
         //init the faction slot and update the faction attributes
-        public void Init(string name, FactionTypeInfo typeInfo, FactionColor color, bool playerControlled, int population, NPCTypeInfo npcType, FactionManager factionMgr, int factionID, GameManager gameMgr)
+        public void Init(string name, FactionTypeInfo typeInfo, FactionColor color, bool playerControlled, int maxPopulation, NPCTypeInfo npcType, FactionManager factionMgr, int factionID, GameManager gameMgr)
         {
             this.name = name;
             this.typeInfo = typeInfo;
@@ -160,7 +170,7 @@ namespace RTSEngine
 
             Init(factionID, factionMgr, gameMgr);
 
-            UpdateMaxPopulation(population, false);
+            this.maxPopulation = maxPopulation;
         }
 
         //init the faction without modifying the faction attributes

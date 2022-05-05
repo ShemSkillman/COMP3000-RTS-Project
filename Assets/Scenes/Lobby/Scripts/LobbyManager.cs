@@ -102,6 +102,21 @@ namespace RTSEngine
                 AddFaction();
         }
 
+        int aiDifficultyIndex = 0;
+        int spawnDifficultyIndex = 0;
+
+        public NPCTypeInfo GetNPCType() { return NPCTypes.Get(aiDifficultyIndex); }
+
+        public void OnUpdateAIDifficulty(int value)
+        {
+            aiDifficultyIndex = value;
+        }
+
+        public void OnUpdateSpawnDifficulty(int value)
+        {
+            spawnDifficultyIndex = value;
+        }
+
         //add a new faction to the lobby
         public void AddFaction()
         {
@@ -164,6 +179,12 @@ namespace RTSEngine
 
         public void StartGame()
         {
+            foreach (LobbyFaction lobbyFaction in LobbyFactions) //reset the faction types for the new map
+            {
+                lobbyFaction.NPCManagerID = aiDifficultyIndex;
+                lobbyFaction.SpawnDifficulty = spawnDifficultyIndex;
+            }
+                
             if (Status != LobbyStatus.unlocked)
                 return;
 

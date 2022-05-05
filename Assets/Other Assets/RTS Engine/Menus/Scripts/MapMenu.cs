@@ -29,8 +29,8 @@ namespace RTSEngine
         public int GetMaxFactions() { return maxFactions; }
 
         [SerializeField]
-        private int initialPopulation = 5; //the map's initial population.
-        public int GetInitialPopulation() { return initialPopulation; }
+        private int maxPopulation = 5; //the map's max population.
+        public int GetMaxPopulation() { return maxPopulation; }
 
         [SerializeField]
         private FactionTypeInfo[] factionTypes = new FactionTypeInfo[0]; //the available types of factions that can play in this map.
