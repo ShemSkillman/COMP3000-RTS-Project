@@ -84,7 +84,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -261,12 +261,15 @@ MonoBehaviour:
   takeDamage: 1
   damageEffect: {fileID: 0}
   destroyObject: 1
-  destroyObjectTime: 15
+  destroyObjectTime: 0
   destroyAward: []
   destructionAudio:
     fetchType: 0
-    audioClips: []
-  destructionEffect: {fileID: 0}
+    audioClips:
+    - {fileID: 8300000, guid: 95a528c41478bb3458e4a1ccf21c476b, type: 3}
+    - {fileID: 8300000, guid: 92e3aaa3d6b0d2240b0a8e012466c2e2, type: 3}
+  destructionEffect: {fileID: 977390187064476166, guid: 2d2512403e1ec3149916914c3e6331e9,
+    type: 3}
   stopMovingOnDamage: 0
   enableDamageAnimation: 0
   damageAnimationDuration: 0.2
@@ -321,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 0
+  tabID: 5
   isLocked: 0
   isActive: 1
   code: catapult_attack
@@ -423,7 +426,12 @@ MonoBehaviour:
     audioClips: []
   attackAudio:
     fetchType: 0
-    audioClips: []
+    audioClips:
+    - {fileID: 8300000, guid: be0b1235bbfbd234b8656a4d0f4aa396, type: 3}
+    - {fileID: 8300000, guid: 5225027c33f549b478bc0e0d1376a647, type: 3}
+    - {fileID: 8300000, guid: 436690713d67ed7449ef2e561156665a, type: 3}
+    - {fileID: 8300000, guid: 4b41eea0ccd33e447b867bab80618039, type: 3}
+    - {fileID: 8300000, guid: 15f763e04207bea469d09a4dff17010e, type: 3}
   range:
     unitStoppingDistance:
       min: 16
@@ -486,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  NPCOnly: 0
+  NPCOnly: 1
   range:
     min: 5
     max: 10

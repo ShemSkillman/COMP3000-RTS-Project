@@ -45,7 +45,7 @@ public class RepairBuildings : ActionNode
                 currentBuilding.IsBuilt &&
                 !currentBuilding.HealthComp.IsDestroyed &&
                 currentBuilding.HealthComp.CurrHealth < currentBuilding.HealthComp.MaxHealth &&
-                context.buildingManager.GetRepairerCountForBuilding(currentBuilding) < Mathf.CeilToInt((currentBuilding.HealthComp.MaxHealth - currentBuilding.HealthComp.CurrHealth) / 200))
+                context.buildingManager.GetRepairerCountForBuilding(currentBuilding) < Mathf.CeilToInt((currentBuilding.HealthComp.MaxHealth - currentBuilding.HealthComp.CurrHealth) / 200f))
             {
                 if (context.buildingManager.RepairBuilding(currentBuilding))
                 {

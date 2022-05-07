@@ -83,7 +83,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -420,17 +420,22 @@ MonoBehaviour:
     audioClips: []
   attackAudio:
     fetchType: 0
-    audioClips: []
+    audioClips:
+    - {fileID: 8300000, guid: 0b462af820900404385ec20df9631c46, type: 3}
+    - {fileID: 8300000, guid: 11211e57e9d278f489ec48d6ad3d321a, type: 3}
+    - {fileID: 8300000, guid: 8ad1ee25a3ccbe143ae8524d34fd84bf, type: 3}
+    - {fileID: 8300000, guid: f75d3512d5ed59f4598ebe8736fea7a1, type: 3}
+    - {fileID: 8300000, guid: 532c76a61e678af4bb25056bbdcd4a6b, type: 3}
   range:
     unitStoppingDistance:
       min: 12
-      max: 14
+      max: 13
     buildingStoppingDistance:
       min: 12
-      max: 14
+      max: 13
     noTargetStoppingDistance:
       min: 12
-      max: 14
+      max: 13
     moveOnAttackOffset: 0
     updateMvtDistance: 2
     formation:
@@ -484,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  NPCOnly: 0
+  NPCOnly: 1
   range:
     min: 5
     max: 10

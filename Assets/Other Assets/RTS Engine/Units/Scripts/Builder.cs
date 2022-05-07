@@ -33,9 +33,13 @@ namespace RTSEngine
             return building != null ? !restrictions.Contains(building.GetCode(), building.GetCategory()) : false;
         }
 
+
+        AudioSource audioSource;
+
         public override void Init(GameManager gameMgr, Unit unit)
         {
             base.Init(gameMgr, unit);
+            audioSource = GetComponent<AudioSource>();
 
             healthPerSecond = (int)(healthPerSecond * gameMgr.GetSpeedModifier()); //get the speed modifier and set the health per second accordinly
         }
@@ -149,5 +153,15 @@ namespace RTSEngine
             CustomEvents.OnUnitBuildingOrder(unit, target); //trigger custom event
 
 		}
-	}
+
+
+        public void PlayerHammerSFX()
+        {
+            if (audioSource == null)
+                return;
+
+            audioSource.clip = constructionAudio.Fetch();
+            audioSource.Play();
+        }
+    }
 }

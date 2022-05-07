@@ -25,12 +25,12 @@ namespace TheKiwiCoder {
 
         // Update is called once per frame
         void Update() {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                updateAI = !updateAI;
+            //if (Input.GetKeyDown(KeyCode.P))
+            //{
+            //    updateAI = !updateAI;
 
-                Debug.Log("Update AI: " + updateAI);
-            }
+            //    Debug.Log("Update AI: " + updateAI);
+            //}
 
             if (initialized && tree && updateAI) {
                 tree.Update();

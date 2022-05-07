@@ -52,7 +52,7 @@ namespace ColdAlliances.AI
                     continue;
                 }
 
-                if (GetBuilderCountForBuilding(b) < Mathf.CeilToInt(b.HealthComp.MaxHealth / 200))
+                if (GetBuilderCountForBuilding(b) < Mathf.CeilToInt(b.HealthComp.MaxHealth / 200f))
                 {
                     Unit builder = GetVillagerToBuild(b.transform.position);
                     if (builder == null)
@@ -211,7 +211,8 @@ namespace ColdAlliances.AI
             public static bool IsRepairTaskInvalid(RepairTask task)
             {
                 return task.InRepair.HealthComp.IsDestroyed ||
-                    task.InRepair.HealthComp.CurrHealth >= task.InRepair.HealthComp.MaxHealth;
+                    task.InRepair.HealthComp.CurrHealth >= task.InRepair.HealthComp.MaxHealth ||
+                    task.Builder.HealthComp.IsDead() || task.Builder.BuilderComp.GetTarget() != task.InRepair;
             }
         }
     }

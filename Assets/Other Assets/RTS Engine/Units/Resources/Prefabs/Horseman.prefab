@@ -82,7 +82,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 0
+  tabID: 5
   isLocked: 0
   isActive: 1
   code: horseman_attack
@@ -411,7 +411,12 @@ MonoBehaviour:
     audioClips: []
   attackAudio:
     fetchType: 0
-    audioClips: []
+    audioClips:
+    - {fileID: 8300000, guid: 03e9f874800c3824e9894fa1efebc1b6, type: 3}
+    - {fileID: 8300000, guid: 648a49a9e4ddd2d4fa24cae77adafc27, type: 3}
+    - {fileID: 8300000, guid: 62e01ed3ce2a4b14d9b052e9df242c7e, type: 3}
+    - {fileID: 8300000, guid: 55bf53a6018947e4e8c3384c356e03e0, type: 3}
+    - {fileID: 8300000, guid: 931648b0eaa83c64a845c63ffa30263e, type: 3}
   range:
     unitStoppingDistance:
       min: 1

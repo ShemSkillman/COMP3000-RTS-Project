@@ -82,7 +82,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50f81b2617c564f8e5ed1cdaa4cb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 0
+  tabID: 5
   isLocked: 0
   isActive: 1
   code: spearman_attack
@@ -410,7 +410,12 @@ MonoBehaviour:
     audioClips: []
   attackAudio:
     fetchType: 0
-    audioClips: []
+    audioClips:
+    - {fileID: 8300000, guid: f2b8396719a9f5341b4d5edf96f73fba, type: 3}
+    - {fileID: 8300000, guid: d0b858f27d5fb614a82908e3f996dc2a, type: 3}
+    - {fileID: 8300000, guid: d2f13de6b4f3d02418f1436e12642a8a, type: 3}
+    - {fileID: 8300000, guid: 7df6129212cc1c1459204407f9eb008e, type: 3}
+    - {fileID: 8300000, guid: c3770b58d1d700b4d9d70614c06fcab6, type: 3}
   range:
     unitStoppingDistance:
       min: 0

@@ -2868,7 +2868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Map 1
+  m_Text: Map 2
 --- !u!222 &997996441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3403,10 +3403,10 @@ MonoBehaviour:
   defeatConditionMenu:
     menu: {fileID: 7876786658893750993}
     defeatConditionUIElements:
-    - name: Destroy Capital
-      condition: 0
     - name: Eliminate All
       condition: 1
+    - name: Destroy Capital
+      condition: 0
   speedModifierMenu:
     menu: {fileID: 7876786658227138463}
     speedModifierUIElements:
@@ -8285,7 +8285,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 2111412827}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: Map 1

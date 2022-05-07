@@ -166,7 +166,7 @@ namespace RTSEngine
             if (newSource == null)
                 return;
 
-            newSource.volume = SFXVolume;
+            //newSource.volume = SFXVolume;
             localAudioSources.Add(newSource);
         }
 
@@ -178,8 +178,8 @@ namespace RTSEngine
         {
             SFXVolume = Mathf.Clamp01(volume); //volume's value can be only in [0.0, 1.0]
 
-            foreach (AudioSource source in localAudioSources)
-                source.volume = SFXVolume;
+            //foreach (AudioSource source in localAudioSources)
+            //    source.volume = SFXVolume;
 
             if(globalSFXAudioSource)
                 globalSFXAudioSource.volume = SFXVolume;

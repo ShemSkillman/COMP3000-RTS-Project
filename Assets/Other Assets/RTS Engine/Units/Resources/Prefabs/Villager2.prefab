@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 1106842791}
   - component: {fileID: 1106842792}
   - component: {fileID: 1550437773923605170}
+  - component: {fileID: 6214954423781661812}
   m_Layer: 12
   m_Name: Villager2
   m_TagString: Untagged
@@ -189,7 +190,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -443,7 +444,13 @@ MonoBehaviour:
   constructionAudio:
     fetchType: 0
     audioClips:
-    - {fileID: 0}
+    - {fileID: 8300000, guid: 6f32c39ecdace4843a139292c5cf961e, type: 3}
+    - {fileID: 8300000, guid: 79406ec6e770b4d4eae509d73412612a, type: 3}
+    - {fileID: 8300000, guid: c9ffef92b0964bc42bc5fb898a9a3e9c, type: 3}
+    - {fileID: 8300000, guid: ce016cc1caa0a02469ad2f81fc8bb1e1, type: 3}
+    - {fileID: 8300000, guid: 01a4d81ea7d733a49a0b42f20ff774ae, type: 3}
+    - {fileID: 8300000, guid: a85454b5209b3b04b8be15aff87f5338, type: 3}
+    - {fileID: 8300000, guid: be9f5a3a4b9ae9b4b8e33da3a76044dd, type: 3}
   restrictions:
     type: 0
     code: []
@@ -530,6 +537,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capturePointsPerSecond: 1
+--- !u!114 &6214954423781661812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974522737364323352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04daf4d8f2ed0a48b04f560025031dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  NPCOnly: 1
+  range:
+    min: 20
+    max: 30
+  speed: 5
+  escapeAnimatorOverride: {fileID: 0}
 --- !u!1 &7974522737642578952
 GameObject:
   m_ObjectHideFlags: 0

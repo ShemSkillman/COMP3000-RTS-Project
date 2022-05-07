@@ -19,4 +19,8 @@ MonoBehaviour:
   collectionAudio:
     fetchType: 0
     audioClips:
-    - {fileID: 8300000, guid: 9b654baaa35e75f41be2aebbb41d080f, type: 3}
+    - {fileID: 8300000, guid: dc0fb694bdd57a840873558699bf96e0, type: 3}
+    - {fileID: 8300000, guid: 1d95f8df4f33b0a4bb38602f3c203db9, type: 3}
+    - {fileID: 8300000, guid: 10fc6ea0ab84a7c409ce7b4974ff50fd, type: 3}
+    - {fileID: 8300000, guid: d27d44a2e9d7c1d428610927fc0339cf, type: 3}
+    - {fileID: 8300000, guid: 81575189af7fe254e89dfb52a270fd95, type: 3}
