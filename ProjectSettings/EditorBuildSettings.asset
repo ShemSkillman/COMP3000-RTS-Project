@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SinglePlayerMenu.unity
     guid: 418b61376f0250b40b619295d3466b06
   - enabled: 1
-    path: Assets/Scenes/Prototype 5.unity
+    path: Assets/Scenes/9 Player Map.unity
     guid: a9a07191963934f43aeeb7b854986b90
+  - enabled: 1
+    path: Assets/Scenes/5 Player map.unity
+    guid: ffd7217e076822d42bd5abeeef699051
   m_configObjects: {}

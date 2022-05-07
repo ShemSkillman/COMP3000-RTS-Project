@@ -3479,9 +3479,17 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: 19e5e5a2c659faf49a059ec9fc3e642d,
         type: 2}
   availableMaps:
-  - scene: Prototype 5
-    name: Prototype map
-    description: Cold Alliances prototype map
+  - scene: 5 Player Map
+    name: Dark Forest (S)
+    description: Default Cold Alliances Map
+    minFactions: 5
+    maxFactions: 5
+    maxPopulation: 100
+    factionTypes:
+    - {fileID: 11400000, guid: f08e542df4919d34185e0dd9675f5dd3, type: 2}
+  - scene: 9 Player Map
+    name: Dark Forest (L)
+    description: This map is prone to lag!
     minFactions: 9
     maxFactions: 9
     maxPopulation: 100
