@@ -47,14 +47,22 @@ public class RepairBuildings : ActionNode
                 currentBuilding.HealthComp.CurrHealth < currentBuilding.HealthComp.MaxHealth &&
                 context.buildingManager.GetRepairerCountForBuilding(currentBuilding) < Mathf.CeilToInt((currentBuilding.HealthComp.MaxHealth - currentBuilding.HealthComp.CurrHealth) / 200f))
             {
-                if (context.buildingManager.RepairBuilding(currentBuilding))
+                EnemyMilitaryTargetPicker picker = new EnemyMilitaryTargetPicker(context.factionMgr.FactionID);
+                if (context.gameMgr.GridSearch.Search(currentBuilding.transform.position,
+                    15f,
+                    false,
+                    picker.IsValidTarget,
+                    out FactionEntity potentialTarget) != ErrorMessage.none)
                 {
-                    return State.Running;
-                }
-                else
-                {
-                    return State.Failure;
-                }
+                    if (context.buildingManager.RepairBuilding(currentBuilding))
+                    {
+                        return State.Running;
+                    }
+                    else
+                    {
+                        return State.Failure;
+                    }
+                }                
             }
 
             currentBuilding = null;

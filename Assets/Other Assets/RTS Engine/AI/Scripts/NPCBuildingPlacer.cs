@@ -128,11 +128,12 @@ namespace RTSEngine
 
         int emptyCellIndex = 0;
 
+        const float enemyRange = 20f;
         private bool PositionBuilding(NPCPendingBuilding pendingBuilding)
         {
             emptyCellIndex = 0;
 
-            List<Vector3> emptyCellPositions = gameMgr.BuildingMgr.BuildingSearchGrid.SearchForEmptyCellPositions(pendingBuilding.buildAroundPos, 40f);
+            List<Vector3> emptyCellPositions = gameMgr.BuildingMgr.BuildingSearchGrid.SearchForEmptyCellPositions(pendingBuilding.buildAroundPos, 40f);            
 
             if (emptyCellPositions.Count < 1)
             {
@@ -154,7 +155,19 @@ namespace RTSEngine
                 //can we place the building:
                 if (pendingBuilding.instance.PlacerComp.CanPlace == true)
                 {
-                    return true;
+                    EnemyMilitaryTargetPicker picker = new EnemyMilitaryTargetPicker(factionMgr.FactionID);
+                    if (gameMgr.GridSearch.Search(emptyCellPositions[emptyCellIndex],
+                        enemyRange,
+                        false,
+                        picker.IsValidTarget,
+                        out FactionEntity potentialTarget) != ErrorMessage.none)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        emptyCellIndex++;
+                    }
                 }
                 else
                 {
