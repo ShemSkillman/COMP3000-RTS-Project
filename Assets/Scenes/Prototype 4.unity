@@ -21480,6 +21480,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: 4a8b820c98c7b4540bab4e4f3d70d7fb,
         type: 2}
     playerControlled: 1
+    spawnDifficulty: 0
     maxPopulation: 100
     capitalBuilding: {fileID: 412907458}
     camLookAtPos: {fileID: 412907450}
@@ -21501,6 +21502,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: a2085ab309c94a143a706621cd42e213,
         type: 2}
     playerControlled: 0
+    spawnDifficulty: 0
     maxPopulation: 100
     capitalBuilding: {fileID: 1028066853}
     camLookAtPos: {fileID: 1028066852}
@@ -21522,6 +21524,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: 774e3206a73de7d49b22dca748ca487c,
         type: 2}
     playerControlled: 0
+    spawnDifficulty: 0
     maxPopulation: 100
     capitalBuilding: {fileID: 1618485583}
     camLookAtPos: {fileID: 1618485582}
@@ -21543,6 +21546,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: 9d0174ac4f9a2a8418640e7cc75bed39,
         type: 2}
     playerControlled: 0
+    spawnDifficulty: 0
     maxPopulation: 100
     capitalBuilding: {fileID: 1522819607}
     camLookAtPos: {fileID: 1522819606}
@@ -21564,6 +21568,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: 54adf927cb20b8d4e880dc266a7eea38,
         type: 2}
     playerControlled: 0
+    spawnDifficulty: 0
     maxPopulation: 100
     capitalBuilding: {fileID: 236935581}
     camLookAtPos: {fileID: 236935580}
@@ -21585,6 +21590,7 @@ MonoBehaviour:
       buildingColorMaterial: {fileID: 2100000, guid: f3fe8ac1080fe4c439720ce9e50b5df1,
         type: 2}
     playerControlled: 0
+    spawnDifficulty: 0
     maxPopulation: 100
     capitalBuilding: {fileID: 1557895396}
     camLookAtPos: {fileID: 1557895395}
@@ -28389,7 +28395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e88bf77967efc4b958ceb60c97283b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabID: 2
+  tabID: 0
   winMenu: {fileID: 316387563}
   loseMenu: {fileID: 350024378}
   pauseMenu: {fileID: 890702899}
@@ -33345,20 +33351,6 @@ MonoBehaviour:
       targetList: []
     imageUI: {fileID: 1833218521}
     textUI: {fileID: 424058391}
-  - type: {fileID: 11400000, guid: 529981de806b0754da40426ffd9ebabb, type: 2}
-    showUI: 0
-    allowedFactionTypes:
-      type: 0
-      targetList: []
-    imageUI: {fileID: 1374496278}
-    textUI: {fileID: 445694347}
-  - type: {fileID: 11400000, guid: f2bb55131c0ba8749a96f92497ed3562, type: 2}
-    showUI: 0
-    allowedFactionTypes:
-      type: 0
-      targetList: []
-    imageUI: {fileID: 264500512}
-    textUI: {fileID: 1424349127}
   autoCollect: 1
   resourceSelectionColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1414567555
