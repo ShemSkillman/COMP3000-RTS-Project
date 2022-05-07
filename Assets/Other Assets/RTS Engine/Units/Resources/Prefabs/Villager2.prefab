@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Villager
-  code: villager2
+  code: villager
   category: civilian
   description: Gathers resources and constructs buildings.
   icon: {fileID: 21300000, guid: 2a606067e38225040ab7ffa6fdbf7391, type: 3}
@@ -439,6 +439,7 @@ MonoBehaviour:
     hideTooltipOnClick: 0
   constructFreeBuildings: 0
   healthPerSecond: 10
+  repairPerSecond: 2
   constructionAudio:
     fetchType: 0
     audioClips:

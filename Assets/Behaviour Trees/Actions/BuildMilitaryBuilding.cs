@@ -46,13 +46,19 @@ public class BuildMilitaryBuilding : ActionNode
         }
         else
         {
-            context.buildingManager.ConstructBuilding(buildNext);
-            blackboard.isMilitaryBuildingNeeded = false;
-            buildNext = null;
+            if (context.buildingManager.ConstructBuilding(buildNext))
+            {
+                blackboard.isMilitaryBuildingNeeded = false;
+                buildNext = null;
 
-            Print("Placing military building.");
+                Print("Placing military building.");
 
-            return State.Success;
+                return State.Success;
+            }
+            else
+            {
+                return State.Failure;
+            }
         }
     }
 }

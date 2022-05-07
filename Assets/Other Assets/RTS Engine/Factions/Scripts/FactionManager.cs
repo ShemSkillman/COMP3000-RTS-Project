@@ -389,9 +389,23 @@ namespace RTSEngine
         public int GetBuildingCategoryCount(string category)
         {
             int count = 0;
-            foreach (Building b in GetBuildings()) //go through all units in player faction
+            foreach (Building b in GetBuildings())
             {
                 if (b.GetCategory() == category)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        public int GetBuildingCount(string code)
+        {
+            int count = 0;
+            foreach (Building b in GetBuildings()) //go through all units in player faction
+            {
+                if (b.GetCode() == code)
                 {
                     count++;
                 }

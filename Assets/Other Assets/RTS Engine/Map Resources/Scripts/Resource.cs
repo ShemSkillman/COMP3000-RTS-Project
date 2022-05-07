@@ -93,7 +93,7 @@ namespace RTSEngine
             collectOneUnitDuration /= gameMgr.GetSpeedModifier(); //set collection time regarding speed modifier
 
             ToggleModel(true); //show the initial model
-            gameMgr.MinimapIconMgr?.Assign(selection); //assign the minimap icon
+            //gameMgr.MinimapIconMgr?.Assign(selection); //assign the minimap icon
 
             gameMgr.ResourceMgr.AddResource(this); //register the resource in the resource manager
 

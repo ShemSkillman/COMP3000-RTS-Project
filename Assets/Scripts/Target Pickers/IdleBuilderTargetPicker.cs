@@ -5,15 +5,18 @@ namespace RTSEngine
 {
     public class IdleBuilderTargetPicker : BasicTargetPicker
     {
-        public IdleBuilderTargetPicker(params string[] entityKeys) : base(entityKeys)
+        private int myFactionID;
+
+        public IdleBuilderTargetPicker(int factionID, params string[] entityKeys) : base(entityKeys)
         {
+            myFactionID = factionID;
         }
 
         protected override bool EntitySatisfiesConditions(Entity entity)
         {
             if (entity is Unit)
             {
-                return (entity as Unit).BuilderComp.BuildingTarget == null;
+                return (entity as Unit).FactionID == myFactionID && (entity as Unit).BuilderComp.BuildingTarget == null;
             }
             else
             {

@@ -18,6 +18,30 @@ namespace ColdAlliances.AI
             this.factionMgr = factionMgr;
         }
 
+        private void OnEnable()
+        {
+            CustomEvents.UnitHealthUpdated += OnUnitHealthUpdated;
+        }
+
+        private void OnDisable()
+        {
+            CustomEvents.UnitHealthUpdated += OnUnitHealthUpdated;
+        }
+
+        private List<Unit> hurtVillagers = new List<Unit>();
+        public List<Unit> HurtVillagers { get { return hurtVillagers; } }
+
+        private void OnUnitHealthUpdated(Unit unit, float healthPoints, FactionEntity source)
+        {
+            if (unit.FactionID == factionMgr.FactionID && unit.GetCode() == "villager")
+            {
+                if (!hurtVillagers.Contains(unit))
+                {
+                    hurtVillagers.Add(unit);
+                }
+            }
+        }
+
         bool pollRequired = false;
         private void Update()
         {

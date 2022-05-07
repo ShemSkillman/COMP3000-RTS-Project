@@ -405,10 +405,19 @@ namespace RTSEngine
             dropOffStatus = DropOffStatus.inactive;
         }
 
+        AudioSource audioSource;
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         public void PlayCollectionSFX()
         {
-            GetComponent<AudioSource>().clip = target.GetResourceType().GetCollectionAudio();
-            GetComponent<AudioSource>().Play();
+            if (audioSource == null || target == null)
+                return;
+
+            audioSource.clip = target.GetResourceType().GetCollectionAudio();
+            audioSource.Play();
         }
 
         //public override void Update()

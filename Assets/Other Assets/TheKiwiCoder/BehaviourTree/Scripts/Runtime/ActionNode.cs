@@ -6,6 +6,8 @@ using UnityEngine;
 namespace TheKiwiCoder {
     public abstract class ActionNode : Node {
         private float startTime;
+        int executionCount = 0;
+        const int executionCap = 10;
 
         protected override void OnStart()
         {
@@ -14,10 +16,13 @@ namespace TheKiwiCoder {
 
         protected override void OnStop()
         {
+            executionCount = 0;
         }
 
         protected override State OnUpdate()
         {
+            
+
             float waitTime = Time.time - startTime;
 
             if (waitTime <= context.factionMgr.Slot.NPCType.PerformActionTime)
@@ -29,6 +34,12 @@ namespace TheKiwiCoder {
             if (state == State.Running)
             {
                 startTime = Time.time;
+                executionCount++;
+
+                if (executionCount >= executionCap)
+                {
+                    return State.Success;
+                }
             }
 
             return state;

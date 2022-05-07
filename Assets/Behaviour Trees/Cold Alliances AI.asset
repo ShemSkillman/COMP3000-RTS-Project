@@ -20,6 +20,26 @@ MonoBehaviour:
     isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
+--- !u!114 &-8195975752766044830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ba8922a5c28ee4ba91bbedc6bcb391, type: 3}
+  m_Name: RebuildTownCenter
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6c2e40110720bac4c81bc3cfa7c3767b
+  position: {x: -150.00014, y: 765.0001}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
 --- !u!114 &-5093452499250331579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,10 +106,10 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   children:
+  - {fileID: 903519988040476040}
   - {fileID: -1529653454985209552}
   - {fileID: 1570301842518086064}
   - {fileID: 9085278094221856902}
-  - {fileID: 7796261396022516521}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +143,32 @@ MonoBehaviour:
   - {fileID: 5644077914159549606}
   - {fileID: 9078564583140291527}
   - {fileID: 1632227595992633977}
+  - {fileID: -8195975752766044830}
+  - {fileID: 5108665147831873118}
+  - {fileID: 903519988040476040}
+  - {fileID: 6695401632997758764}
   blackboard:
     isMilitaryBuildingNeeded: 0
+--- !u!114 &903519988040476040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f0584ec58ddcc4782b716ecc8b4e48, type: 3}
+  m_Name: ProtectHurtVillagers
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 58eae40f089b5ca4fa1e0cc416f4d11e
+  position: {x: -962.59845, y: 432.99994}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
 --- !u!114 &1570301842518086064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,14 +184,18 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ca30d8870e5e33846ac1cc09d1b3dbe9
-  position: {x: -0.000030517578, y: 532}
+  position: {x: 133.00005, y: 432.99994}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
   children:
+  - {fileID: 7796261396022516521}
+  - {fileID: -8195975752766044830}
   - {fileID: 8674864344088877103}
   - {fileID: 5644077914159549606}
+  - {fileID: 5108665147831873118}
+  - {fileID: 6695401632997758764}
 --- !u!114 &1632227595992633977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +211,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 58a3fb373dc799a40bf2c5d2cb3e3885
-  position: {x: 713.9, y: 695}
+  position: {x: 1275.1147, y: 797.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -183,7 +231,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b2d0a52946d361f43b3ad5300ed007a6
-  position: {x: -50.09986, y: 887.4502}
+  position: {x: 132.99998, y: 869.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -204,6 +252,26 @@ MonoBehaviour:
   started: 0
   guid: ee609442e07ec0342993beeb769303b1
   position: {x: -553.49756, y: 647}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
+--- !u!114 &5108665147831873118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a104910d259fe744b9e9bfd466f280b2, type: 3}
+  m_Name: BuildTownCenter
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5b698b984d73f3f4d8da7e20985f069e
+  position: {x: 526.99994, y: 869.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -246,7 +314,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fa9e3c30d8d16d647ab15294f26af6c4
-  position: {x: 46.55021, y: 695}
+  position: {x: 224.99992, y: 703.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -269,7 +337,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dce9d07b98f5074438f3b1ffd757e950
-  position: {x: 284.65, y: 695}
+  position: {x: 846.1148, y: 797.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -294,6 +362,26 @@ MonoBehaviour:
     isMilitaryBuildingNeeded: 0
   description: 
   drawGizmos: 0
+--- !u!114 &6695401632997758764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd04843f58dd344ebee9ff787583a11, type: 3}
+  m_Name: RepairBuildings
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 9b169e0cef5cb3f43b51e802f999ac12
+  position: {x: 696, y: 869}
+  blackboard:
+    isMilitaryBuildingNeeded: 0
+  description: 
+  drawGizmos: 0
 --- !u!114 &6701679231711062797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +397,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: df8213ed11419a444a99da4e07ef633a
-  position: {x: 165.95001, y: 887.0001}
+  position: {x: 329.99997, y: 869.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -329,7 +417,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f6ca7e96271c6f74f800fc4011086970
-  position: {x: 972.2201, y: 695}
+  position: {x: 1533.1147, y: 797.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -349,7 +437,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7555f9e10a024c842ab545ae010b22a0
-  position: {x: 830.2368, y: 432.99994}
+  position: {x: -377.1451, y: 765.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -369,7 +457,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 16feddbba59f88049baf498ec067a83a
-  position: {x: -230.00009, y: 719}
+  position: {x: 28.999908, y: 765.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -389,7 +477,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c7752ba752172534f9576cb9841778ff
-  position: {x: 508.9999, y: 695}
+  position: {x: 1070.1146, y: 797.0001}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -409,7 +497,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 073527aa48ab67044936a30446d3e4f1
-  position: {x: 509, y: 545}
+  position: {x: 1070.1146, y: 647.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
