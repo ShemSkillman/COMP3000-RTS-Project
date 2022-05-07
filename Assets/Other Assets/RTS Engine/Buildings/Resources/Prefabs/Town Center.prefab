@@ -635,14 +635,6 @@ MonoBehaviour:
     type: 3}
   constructionStates:
   - healthRange:
-      min: 0
-      max: 499
-    showChildObjects:
-    - {fileID: 6280195316847564851}
-    hideChildObjects:
-    - {fileID: 2079687435804516432}
-    - {fileID: 4365373876585676439}
-  - healthRange:
       min: 500
       max: 999
     showChildObjects:
@@ -650,6 +642,14 @@ MonoBehaviour:
     hideChildObjects:
     - {fileID: 4365373876585676439}
     - {fileID: 6280195316847564851}
+  - healthRange:
+      min: 0
+      max: 499
+    showChildObjects:
+    - {fileID: 6280195316847564851}
+    hideChildObjects:
+    - {fileID: 2079687435804516432}
+    - {fileID: 4365373876585676439}
   constructionCompleteState:
     healthRange:
       min: 1000
@@ -1166,6 +1166,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: c5f43a47e4b64c14da6e0081f639fdd3, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c5f43a47e4b64c14da6e0081f639fdd3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c5f43a47e4b64c14da6e0081f639fdd3, type: 3}
       propertyPath: m_RootOrder

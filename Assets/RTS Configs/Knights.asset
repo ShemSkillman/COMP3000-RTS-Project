@@ -30,13 +30,8 @@ MonoBehaviour:
   - code:
       type: 0
       code:
-      - house
-    maxAmount: 20
-  - code:
-      type: 0
-      code:
       - town_center
-    maxAmount: 3
+    maxAmount: 2
   barracks: {fileID: 4810416383647272699, guid: 68de7e2e71baa6d41aaea1310fa2522f,
     type: 3}
   tower: {fileID: 6689805100552360329, guid: 9fc8bba75da076e4abe98be346461550, type: 3}

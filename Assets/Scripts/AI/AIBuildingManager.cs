@@ -45,15 +45,21 @@ namespace ColdAlliances.AI
             Poll();
 
 
-            foreach (ConstructionTask task in constructionTasks)
+            foreach (Building b in factionMgr.GetBuildings())
             {
-                if (task.Builder.BuilderComp.GetTarget() != task.InConstruction)
+                if (b.FactionID != factionMgr.FactionID || b.IsBuilt || b.HealthComp.IsDestroyed)
                 {
-                    Unit builder = GetVillagerToBuild(task.InConstruction.transform.position);
+                    continue;
+                }
+
+                if (GetBuilderCountForBuilding(b) < Mathf.CeilToInt(b.HealthComp.MaxHealth / 200))
+                {
+                    Unit builder = GetVillagerToBuild(b.transform.position);
                     if (builder == null)
                         return false;
 
-                    AssignVillagerToBuild(task, builder);
+                    AssignVillagerToBuild(b, builder);
+
                     return true;
                 }
             }
@@ -71,10 +77,7 @@ namespace ColdAlliances.AI
 
             if (BuildingPlacer.OnBuildingPlacementRequest(building, factionMgr.BasePosition, true, out Building placedBuilding))
             {
-                ConstructionTask task = new ConstructionTask(placedBuilding);
-                AssignVillagerToBuild(task, builder);
-
-                constructionTasks.Add(task);
+                AssignVillagerToBuild(placedBuilding, builder);
 
                 return true;
             }
@@ -117,10 +120,12 @@ namespace ColdAlliances.AI
             return null;
         }
 
-        private void AssignVillagerToBuild(ConstructionTask task, Unit builder)
+        private void AssignVillagerToBuild(Building building, Unit builder)
         {
+            ConstructionTask task = new ConstructionTask(building);
             builder.BuilderComp.SetTarget(task.InConstruction);
             task.Builder = builder;
+            constructionTasks.Add(task);
         }
 
         public int GetBuildingInConstructionCount(Building building)
@@ -157,6 +162,23 @@ namespace ColdAlliances.AI
             return counter;
         }
 
+        public int GetBuilderCountForBuilding(Building building)
+        {
+            Poll();
+
+            int counter = 0;
+
+            foreach (ConstructionTask task in constructionTasks)
+            {
+                if (task.InConstruction == building)
+                {
+                    counter++;
+                }
+            }
+
+            return counter;
+        }
+
         class ConstructionTask
         {
             public Building InConstruction { get; private set; }
@@ -170,7 +192,8 @@ namespace ColdAlliances.AI
 
             public static bool IsConstructionTaskInvalid(ConstructionTask task)
             {
-                return task.InConstruction.IsBuilt || task.InConstruction.HealthComp.IsDestroyed;
+                return task.InConstruction.IsBuilt || task.InConstruction.HealthComp.IsDestroyed || 
+                    task.Builder.HealthComp.IsDead() || task.Builder.BuilderComp.GetTarget() != task.InConstruction;
             }
         }
 

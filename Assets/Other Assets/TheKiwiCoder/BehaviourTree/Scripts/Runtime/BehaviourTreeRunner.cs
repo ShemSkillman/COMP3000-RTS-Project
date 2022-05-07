@@ -12,6 +12,8 @@ namespace TheKiwiCoder {
 
         bool initialized = false;
 
+        bool updateAI = true;
+
         public void Init(GameManager gameMgr, FactionManager factionMgr)
         {
             context = CreateBehaviourTreeContext(gameMgr, factionMgr);
@@ -23,7 +25,14 @@ namespace TheKiwiCoder {
 
         // Update is called once per frame
         void Update() {
-            if (initialized && tree) {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                updateAI = !updateAI;
+
+                Debug.Log("Update AI: " + updateAI);
+            }
+
+            if (initialized && tree && updateAI) {
                 tree.Update();
             }
         }

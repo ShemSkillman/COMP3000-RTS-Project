@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.AI;
 
 namespace RTSEngine 
 {
@@ -237,7 +238,6 @@ namespace RTSEngine
                 enemyFactionEntities.Remove(building);
                 return;
             }
-
 			buildings.Remove (building);
             factionEntities.Remove(building);
 
@@ -249,6 +249,18 @@ namespace RTSEngine
             
             //update the limits list:
             UpdateLimitsList(building.GetCode(), building.GetCategory(), false);
+
+            if (GetBuildingCount("town_center") < 1)
+            {
+                Vector3 randomDir = Random.onUnitSphere;
+                randomDir.y = 0;
+                BasePosition = BasePosition + randomDir.normalized * 50;
+
+                if (NavMesh.SamplePosition(BasePosition, out NavMeshHit hit, Mathf.Infinity, NavMesh.AllAreas))
+                {
+                    BasePosition = hit.position;
+                }
+            }
 
             CheckFactionDefeat(); //check if the faction doesn't have any buildings/units anymore and trigger the faction defeat in that case
         }

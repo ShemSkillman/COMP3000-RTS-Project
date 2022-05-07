@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6434192080589177518}
   - component: {fileID: 7426046671300633383}
   - component: {fileID: 755095021717396398}
+  - component: {fileID: 8772214802834486899}
   m_Layer: 12
   m_Name: Archer
   m_TagString: Untagged
@@ -334,7 +335,7 @@ MonoBehaviour:
     engageBuildings: 1
   direct: 0
   engageOnAssign: 1
-  engageWhenAttacked: 0
+  engageWhenAttacked: 1
   engageOnce: 0
   engageFriendly: 0
   engageInRange: 1
@@ -470,6 +471,25 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!114 &8772214802834486899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787197986251586902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04daf4d8f2ed0a48b04f560025031dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  NPCOnly: 0
+  range:
+    min: 5
+    max: 10
+  speed: 5
+  escapeAnimatorOverride: {fileID: 0}
 --- !u!1 &3789586411286726562
 GameObject:
   m_ObjectHideFlags: 0

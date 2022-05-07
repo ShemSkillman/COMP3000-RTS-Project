@@ -80,6 +80,7 @@ namespace RTSEngine
         }
 
         private int constructionHealth = 0;
+        const float refundMult = 0.75f;
 
         //when the building is destroyed:
         public override bool DestroyFactionEntityLocal(bool upgrade)
@@ -89,7 +90,7 @@ namespace RTSEngine
 
             if (!building.IsBuilt)
             {
-                float refundPercentage = 1 - (constructionHealth / (float)MaxHealth);
+                float refundPercentage = (1 - (constructionHealth / (float)MaxHealth)) * refundMult;
 
                 ResourceInput[] refundableResources = (ResourceInput[])building.GetResources().Clone();
                 for (int i = 0; i < refundableResources.Length; i++)

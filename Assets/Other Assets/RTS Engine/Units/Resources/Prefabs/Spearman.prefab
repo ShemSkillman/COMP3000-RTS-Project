@@ -334,7 +334,7 @@ MonoBehaviour:
     engageBuildings: 1
   direct: 1
   engageOnAssign: 1
-  engageWhenAttacked: 0
+  engageWhenAttacked: 1
   engageOnce: 0
   engageFriendly: 0
   engageInRange: 1

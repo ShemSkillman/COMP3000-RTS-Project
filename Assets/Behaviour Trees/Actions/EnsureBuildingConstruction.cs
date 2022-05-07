@@ -10,7 +10,7 @@ public class EnsureBuildingConstruction : ActionNode
         if (context.buildingManager.AssignVillagerToBuildingWithNoBuilder())
         {
             Print("Assigning villager to finish building construction.");
-            return State.Success;
+            return State.Running;
         }
 
         Print("All buildings have villagers assigned to them for construction.");

@@ -190,12 +190,12 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   children:
+  - {fileID: 6695401632997758764}
   - {fileID: 7796261396022516521}
   - {fileID: -8195975752766044830}
   - {fileID: 8674864344088877103}
   - {fileID: 5644077914159549606}
   - {fileID: 5108665147831873118}
-  - {fileID: 6695401632997758764}
 --- !u!114 &1632227595992633977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9b169e0cef5cb3f43b51e802f999ac12
-  position: {x: 696, y: 869}
+  position: {x: -567.2388, y: 791}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
