@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1ab44b3ee4dbb2949be3fcf249f5a54b
-  position: {x: -761.49756, y: 615}
+  position: {x: -1202.3999, y: 706}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -35,7 +35,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6c2e40110720bac4c81bc3cfa7c3767b
-  position: {x: -150.00014, y: 765.0001}
+  position: {x: -176.34097, y: 705.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -76,7 +76,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 309249154a63c734e8ecda2759d5198d
-  position: {x: -553.49756, y: 433}
+  position: {x: -994.3997, y: 524}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -162,7 +162,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ca30d8870e5e33846ac1cc09d1b3dbe9
-  position: {x: 133.00006, y: 446.1721}
+  position: {x: 2.659027, y: 440.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -189,7 +189,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 58a3fb373dc799a40bf2c5d2cb3e3885
-  position: {x: 1275.1147, y: 797.0001}
+  position: {x: 967.8544, y: 708.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -209,7 +209,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b2d0a52946d361f43b3ad5300ed007a6
-  position: {x: 132.99998, y: 869.0001}
+  position: {x: 123.658936, y: 871.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -229,7 +229,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ee609442e07ec0342993beeb769303b1
-  position: {x: -553.49756, y: 647}
+  position: {x: -994.3997, y: 706}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -249,7 +249,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 5b698b984d73f3f4d8da7e20985f069e
-  position: {x: 526.99994, y: 869.0001}
+  position: {x: 428.65906, y: 707.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -292,7 +292,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fa9e3c30d8d16d647ab15294f26af6c4
-  position: {x: 224.99992, y: 703.0001}
+  position: {x: 215.65903, y: 705.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -315,7 +315,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dce9d07b98f5074438f3b1ffd757e950
-  position: {x: 846.1148, y: 797.0001}
+  position: {x: 612.8544, y: 708.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -335,7 +335,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0a4c5cd5f24580849bb0f80ebceea0b1
-  position: {x: -345.49756, y: 615}
+  position: {x: -786.3998, y: 706}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -355,7 +355,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9b169e0cef5cb3f43b51e802f999ac12
-  position: {x: -567.2388, y: 791}
+  position: {x: -586, y: 706}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -375,7 +375,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: df8213ed11419a444a99da4e07ef633a
-  position: {x: 329.99997, y: 869.0001}
+  position: {x: 320.65906, y: 871.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -395,7 +395,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f6ca7e96271c6f74f800fc4011086970
-  position: {x: 1533.1147, y: 797.0001}
+  position: {x: 1142.8542, y: 708.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -415,7 +415,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7555f9e10a024c842ab545ae010b22a0
-  position: {x: -377.1451, y: 765.00006}
+  position: {x: -403.34097, y: 705.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -435,7 +435,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 16feddbba59f88049baf498ec067a83a
-  position: {x: 28.999908, y: 765.0001}
+  position: {x: 2.659027, y: 705.67993}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -455,7 +455,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c7752ba752172534f9576cb9841778ff
-  position: {x: 1070.1146, y: 797.0001}
+  position: {x: 792.8545, y: 708.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
@@ -475,7 +475,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 073527aa48ab67044936a30446d3e4f1
-  position: {x: 1070.1146, y: 647.00006}
+  position: {x: 867.85425, y: 550.00006}
   blackboard:
     isMilitaryBuildingNeeded: 0
   description: 
