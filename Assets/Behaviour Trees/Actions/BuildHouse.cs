@@ -24,12 +24,13 @@ public class BuildHouse : ActionNode
             }
             else
             {
+                Print("Could not place house because no terrain space or/and builders were available.");
                 return State.Failure;
             }
         }
         else
         {
-            Print("No need to build house.");
+            Print("No need to build house, population space is fine.");
             return State.Success;
         }
     }

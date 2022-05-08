@@ -10,6 +10,12 @@ public class TrainArmy : ActionNode
     Building currentBuilding;
     int queuedPop = 0;
     protected override State PerformAction() {
+        if (context.factionMgr.GetBuildingCategoryCount("military") <= 0)
+        {
+            Print("Cannot train military units because there are no military buildings.");
+            return State.Success;
+        }
+
         Dictionary<Building, bool> visitedBuildings = new Dictionary<Building, bool>();
 
         while (true)
@@ -22,6 +28,9 @@ public class TrainArmy : ActionNode
                     
                     if (buildings.Count < 1)
                     {
+                        blackboard.isMilitaryBuildingNeeded = true;
+
+                        Print("Cannot train military units because there are no military buildings.");
                         return State.Success;
                     }
                 }
@@ -55,12 +64,14 @@ public class TrainArmy : ActionNode
 
                     queuedPop += currentBuilding.TaskLauncherComp.GetTask(0).UnitPopulationSlots;
 
-                    Print("Training unit from military building.");
+                    Print("Training " + currentBuilding.TaskLauncherComp.GetTask(0).UnitCode + " unit from " + currentBuilding.GetName());
 
                     return State.Running;
                 }
                 else
                 {
+                    Print("Could not train " + currentBuilding.TaskLauncherComp.GetTask(0).UnitCode + " unit from " + currentBuilding.GetName() + 
+                        " because there isn't enough population space/resources.");
                     blackboard.isMilitaryBuildingNeeded = false;
 
                     return State.Success;
@@ -73,7 +84,7 @@ public class TrainArmy : ActionNode
 
         blackboard.isMilitaryBuildingNeeded = true;
 
-        Print("All existing military buildings are training units.");
+        Print("All existing military buildings are busy training units.");
         return State.Success;
     }
 }

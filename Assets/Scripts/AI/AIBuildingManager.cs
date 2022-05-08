@@ -40,10 +40,11 @@ namespace ColdAlliances.AI
             repairTasks.RemoveAll(RepairTask.IsRepairTaskInvalid);
         }
 
-        public bool AssignVillagerToBuildingWithNoBuilder()
+        public bool AssignVillagerToBuildingWithNoBuilder(out Building building)
         {
             Poll();
 
+            building = null;
 
             foreach (Building b in factionMgr.GetBuildings())
             {
@@ -59,6 +60,8 @@ namespace ColdAlliances.AI
                         return false;
 
                     AssignVillagerToBuild(b, builder);
+
+                    building = b;
 
                     return true;
                 }

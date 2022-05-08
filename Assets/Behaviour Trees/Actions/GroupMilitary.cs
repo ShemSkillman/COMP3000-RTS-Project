@@ -1,5 +1,6 @@
 using TheKiwiCoder;
 using ColdAlliances.AI;
+using UnityEngine;
 
 public class GroupMilitary : ActionNode
 {
@@ -24,23 +25,37 @@ public class GroupMilitary : ActionNode
 
         if (reserves.ArmyPop() >= 4)
         {
+            Print("Adding newly trained units to defenders group.");
             defenders.Add(reserves);
+
+            return State.Running;
         }
 
         float attackWaitTime = context.gameMgr.GameTime - attackTime;
 
-        if (attackWaitTime > attackCountDown)
+        if (attackWaitTime > attackCountDown && defenders.AttackUnits.Count > 0)
         {
             attackCountDown = context.combatManager.GetRandomAttackCountDown();
             attackTime = context.gameMgr.GameTime;
 
             attackers.Add(defenders, context.combatManager.AttackForcePercentage);
+
+            string percentage = Mathf.RoundToInt(context.combatManager.AttackForcePercentage * 100).ToString() + "%";
+            Print("Moving " + percentage + " of the defending army to attackers.");
+
+            return State.Running;
         }
 
         if (context.factionMgr.Slot.GetCurrentPopulation() >= context.factionMgr.Slot.MaxPopulation * 0.9f)
         {
             attackers.Add(defenders);
+
+            Print("Transfered all defenders to attacker group in order to overwhelm the enemy.");
+
+            return State.Running;
         }
+
+        Print("No need to re-group military units.");
 
         return State.Success;
     }

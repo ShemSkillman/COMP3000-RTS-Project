@@ -10,11 +10,17 @@ public class TrainVillager : ActionNode
     Building currentBuilding;
 
     protected override State PerformAction() {
+        if (context.factionMgr.GetBuildingCount("town_center") <= 0)
+        {
+            Print("Cannot train villagers because town center is destoyed.");
+        }
+
         int villagerCountGoal = context.factionMgr.Slot.MaxPopulation / 2;
         int villagerCount = context.factionMgr.Villagers.Count;
 
         if (villagerCount >= villagerCountGoal)
         {
+            Print("Villager count goal is met, there is no need to train more.");
             return State.Success;
         }
 
@@ -30,6 +36,7 @@ public class TrainVillager : ActionNode
 
                     if (buildings.Count < 1)
                     {
+                        Print("Cannot train villagers because town center is destoyed.");
                         return State.Success;
                     }
                 }
@@ -59,17 +66,21 @@ public class TrainVillager : ActionNode
                 currentBuilding.TaskLauncherComp.GetTask(0).UnitPopulationSlots <= context.factionMgr.Slot.GetFreePopulation())
                 {
                     currentBuilding.TaskLauncherComp.Add(0);
+
+                    Print("Training villager from town center.");
                     return State.Running;
                 }
                 else
                 {
+                    Print("Could not train villager from town center because there isn't enough population space/resources.");
                     return State.Success;
                 }
             }
 
             currentBuilding = null;
         }
-        
+
+        Print("Town center is busy training villagers, no need to queue more for training.");
         return State.Success;
     }
 }

@@ -56,10 +56,15 @@ public class RepairBuildings : ActionNode
                 {
                     if (context.buildingManager.RepairBuilding(currentBuilding))
                     {
+                        Print("Sending villager to repair " + currentBuilding.GetName() + " on " + currentBuilding.HealthComp.CurrHealth.ToString() + "/" +
+                            currentBuilding.HealthComp.MaxHealth.ToString() + " health.");
                         return State.Running;
                     }
                     else
                     {
+                        Print("No villagers are available to repair " + currentBuilding.GetName() + " on " + 
+                            currentBuilding.HealthComp.CurrHealth.ToString() + "/" +
+                            currentBuilding.HealthComp.MaxHealth.ToString() + " health.");
                         return State.Failure;
                     }
                 }                
@@ -68,6 +73,7 @@ public class RepairBuildings : ActionNode
             currentBuilding = null;
         }
 
+        Print("No damaged buildings that are safe to repair could be found.");
         return State.Success;
     }
 }

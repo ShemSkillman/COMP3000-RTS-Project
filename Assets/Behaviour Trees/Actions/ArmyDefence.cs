@@ -45,7 +45,7 @@ public class ArmyDefence : ActionNode
                                         targetPicker.IsValidTarget,
                                         out FactionEntity potentialTarget) == ErrorMessage.none)
             {
-
+                Print("Sending defenders to attack hostile " + potentialTarget.GetName());
                 context.gameMgr.AttackMgr.LaunchAttack(defenders.AttackUnits, potentialTarget, potentialTarget.GetEntityCenterPos(), false);
             }
             else
@@ -65,7 +65,12 @@ public class ArmyDefence : ActionNode
     {
         if (Vector3.Distance(defenders.GetLocation(), baseCenter) > searchRadius)
         {
+            Print("Sending defenders back to base.");
             context.gameMgr.MvtMgr.Move(defenders.AttackUnits, baseCenter, 0, null, InputMode.movement, false);
+        }
+        else
+        {
+            Print("Defenders are positioned correctly and there are no hostiles.");
         }
     }
 }

@@ -41,22 +41,23 @@ public class BuildMilitaryBuilding : ActionNode
         
         if (!context.gameMgr.ResourceMgr.HasRequiredResources(buildNext.GetResources(), context.factionMgr.FactionID))
         {
-            Print("Not enough wood to build military building.");
+            Print("Not enough wood to build " + buildNext.GetName());
             return State.Failure;
         }
         else
         {
             if (context.buildingManager.ConstructBuilding(buildNext))
             {
+                Print("Placing " + buildNext.GetName());
+
                 blackboard.isMilitaryBuildingNeeded = false;
                 buildNext = null;
-
-                Print("Placing military building.");
 
                 return State.Success;
             }
             else
             {
+                Print("Could not place " + buildNext.GetName() + " because no terrain space or/and builders were available.");
                 return State.Failure;
             }
         }

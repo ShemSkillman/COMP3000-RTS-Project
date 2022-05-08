@@ -16,31 +16,32 @@ public class AssignIdleVillager : ActionNode
             {
                 if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.Tree))
                 {
-                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.Tree.GetName());
+                    Print("Assigned idle " + idleVillagers[0].GetName() + " to " + context.Info.Tree.GetName());
                     return State.Running;
                 }
 
                 if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.IronMine))
                 {
-                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
+                    Print("Assigned idle " + idleVillagers[0].GetName() + " to " + context.Info.IronMine.GetName());
                     return State.Running;
                 }
-
             }
             else
             {
                 if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.IronMine))
                 {
-                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.IronMine.GetName());
+                    Print("Assigned idle " + idleVillagers[0].GetName() + " to " + context.Info.IronMine.GetName());
                     return State.Running;
                 }
 
                 if (context.economyManager.AssignVillagerToResource(idleVillagers[0], context.Info.Tree))
                 {
-                    Print("Assigned" + idleVillagers[0].gameObject.name + " to " + context.Info.Tree.GetName());
+                    Print("Assigned idle " + idleVillagers[0].GetName() + " to " + context.Info.Tree.GetName());
                     return State.Running;
                 }
             }
+
+            Print("There are no iron mines or trees to assign villagers to.");
 
             return State.Success;
         }

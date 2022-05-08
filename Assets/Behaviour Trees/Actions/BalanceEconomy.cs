@@ -35,7 +35,8 @@ public class BalanceEconomy : ActionNode
 
             if (villager == null)
             {
-                Debug.Log($"NULL VILLAGER - THIS SHOULD NEVER HAPPEN!");
+                Debug.LogError($"NULL VILLAGER - THIS SHOULD NEVER HAPPEN!");
+                return State.Success;
             }
 
             if (coinCollectorCount > woodCollectorCount)
@@ -44,7 +45,7 @@ public class BalanceEconomy : ActionNode
                 {
                     return State.Running;
                 }
-                Print("Moving villager to gather wood.");
+                Print("Moved villager from gathering coin to gathering wood.");
             }
             else
             {
@@ -52,7 +53,7 @@ public class BalanceEconomy : ActionNode
                 {
                     return State.Running;
                 }
-                Print("Moving villager to gather coin.");
+                Print("Moved villager from gathering wood to gathering coin.");
             }
 
             return State.Success;
