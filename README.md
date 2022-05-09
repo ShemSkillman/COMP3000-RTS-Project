@@ -16,6 +16,12 @@ The aim of the project is to explore different AI implementations within the RTS
 - AI controlled factions that utilize behaviour trees to perform actions such as base expansion, attacking nearby factions, and forming random army compositions to keep gameplay interesting.
 - Plenty of 'juicy' sound and visual effects e.g. buildings burning and exploding.
  - Single player lobby screen with plenty of customizable options: 2 maps to choose from, game speed, AI difficulty, spawn difficulty and more!
+
+## Copyright
+
+All works are protected by CC BY-NC-ND 4.0 Creative Commons license.
+
+![](by-nc-nd.eu.png)
  
 ## Installation
 

@@ -785,7 +785,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 640388530}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 2
   m_Options:
     m_Options:
     - m_Text: Sandbox
@@ -3375,7 +3375,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sandbox
+  m_Text: Normal
 --- !u!222 &1284866299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3484,7 +3484,7 @@ MonoBehaviour:
   - scene: 5 Player Map
     name: Dark Forest (S)
     description: Default Cold Alliances Map
-    minFactions: 5
+    minFactions: 2
     maxFactions: 5
     maxPopulation: 100
     factionTypes:
