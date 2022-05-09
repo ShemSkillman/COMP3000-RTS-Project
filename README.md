@@ -6,6 +6,10 @@ The aim of the project is to explore different AI implementations within the RTS
 
 ![](gameplay_1.gif)
 
+![](gameplay_2.gif)
+
+![](gameplay_3.gif)
+
 ## Features
  - Free-for-all game mode where all players are put against eachother. The aim is to eliminate all remnants of other players to win the game.
 - Four military units to choose from: spearman, archer, horseman, and catapult, each with strengths and weaknesses.
