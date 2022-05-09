@@ -102,7 +102,7 @@ namespace RTSEngine
                 AddFaction();
         }
 
-        int aiDifficultyIndex = 0;
+        int aiDifficultyIndex = 2;
         int spawnDifficultyIndex = 0;
 
         public NPCTypeInfo GetNPCType() { return NPCTypes.Get(aiDifficultyIndex); }

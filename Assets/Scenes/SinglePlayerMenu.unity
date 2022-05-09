@@ -3484,7 +3484,7 @@ MonoBehaviour:
   - scene: 5 Player Map
     name: Dark Forest (S)
     description: Default Cold Alliances Map
-    minFactions: 2
+    minFactions: 5
     maxFactions: 5
     maxPopulation: 100
     factionTypes:

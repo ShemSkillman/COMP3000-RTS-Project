@@ -4,6 +4,8 @@ Cold Alliances is a single player real-time strategy (RTS) game set in the medie
 
 The aim of the project is to explore different AI implementations within the RTS genre by researching existing computational models and algorithms. Although the focus is on AI, the secondary goal is to deliver a complete RTS game that can be played from start to finish.
 
+![](gameplay_1.gif)
+
 ## Features
  - Free-for-all game mode where all players are put against eachother. The aim is to eliminate all remnants of other players to win the game.
 - Four military units to choose from: spearman, archer, horseman, and catapult, each with strengths and weaknesses.
